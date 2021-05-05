@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 18:03:18 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/05 19:18:10 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/05 20:01:17 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,10 @@ int main(int argc, char **argv)
 	{
 		printf("%s\n", numbers[i]);
 		//check if it's a num
-		
-		if(!atoi(numbers[i]))
+		int sopa;
+		if(!(sopa = atoi(numbers[i])))
 			printf("Erro sopator\n");
+	// TODO:Check if->
 		// if it's a num check if its  > || < MAX_INT MIN_INT
 		i++;
 	}
