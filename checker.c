@@ -6,12 +6,12 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 18:03:18 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/06 16:10:32 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/06 16:15:00 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+//TODO: plantearme hacerla doblemente enlazada (?)
 // https://www.geeksforgeeks.org/stack-data-structure-introduction-program/
 //https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a
 int main(int argc, char **argv)
