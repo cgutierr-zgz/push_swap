@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 18:03:18 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/06 18:42:07 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/06 18:46:54 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int main(int argc, char **argv)
 		return(1);
 	}
 	// split argv[1], ' ' -> con el n words
-	int number_strings = ft_split_n(argv[1], ' ');
+	int number_strings = ft_split_n(argv[1], ' '); // STR TOK! PARA EL SPLIT !!!!
 	// comprobar que todos sean integers
 	char **numbers = ft_split(argv[1], ' ');
 
