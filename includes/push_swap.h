@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 18:11:48 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/20 20:12:41 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/20 21:24:47 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,8 @@ typedef struct s_stack
 // Main functions
 
 // Util functions
-//void	print_error(t_stack *a, t_stack *b);
-void	print_error();
-int		ft_atoi(const char *str);
+void	print_error(t_stack *a, t_stack *b);
+int		ft_atoi(const char *str, t_stack *a,  t_stack *b);
 
 // Stack functions
 void	ft_stackadd_back(t_stack **lst, t_stack *new);
