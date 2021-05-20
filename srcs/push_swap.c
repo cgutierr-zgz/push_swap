@@ -6,14 +6,14 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/20 19:05:43 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/20 19:37:01 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
 //gcc srcs/*.c libft/*.c && ./a.out $ARG
-void print_lst(t_list *lst)
+void print_lst(t_stack *lst)
 {
 	int num;
 
@@ -23,8 +23,8 @@ void print_lst(t_list *lst)
 
 int main(int argc, char **argv)
 {
-	t_list a;
-	t_list b;
+	t_stack a;
+	t_stack b;
 
 	if (argc < 2)
 		print_error(&a, &b);
@@ -36,15 +36,22 @@ int main(int argc, char **argv)
 
 	while (tmp != NULL)
 	{
-		int x = atoi(tmp); // TODO: Use my own atoi
-						   //	printf("%- 11d:[%s]\n", i, tmp);
-		int x = atoi(tmp); // TODO: Use my own atoi
+		int c = 0;
+		while (tmp[0])
+		{
+			if (tmp[0] < '0' || tmp[0] > '9')
+				print_error(&a, &b);
+			c++;
+		}
+		int x = ft_atoi(tmp); // TODO: Use my own atoi
+							  //	printf("%- 11d:[%s]\n", i, tmp);
+		int x = atoi(tmp);	  // TODO: Use my own atoi
 		printf("[%s]\n", tmp);
 		tmp = strtok(NULL, " "); // TODO: Implement my own strtok
-		ft_lstadd_back(&a, ft_lstnew(x));
+		ft_stackadd_back(&a, ft_stacknew(x));
 		//i++;
 	}
-	ft_lstiter(&a, print_lst);
+	ft_stackiter(&a, print_lst);
 
 	return (0);
 }

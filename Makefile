@@ -6,7 +6,7 @@
 #    By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/09 14:13:26 by cgutierr          #+#    #+#              #
-#    Updated: 2021/04/06 14:36:59 by cgutierr         ###   ########.fr        #
+#    Updated: 2021/05/20 19:32:32 by cgutierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,59 +14,19 @@ DAY		=	$(shell date +'%d/%m/%Y %H:%M')
 
 NAME	=	libft.a
 
-SRCS			=	ft_memset.c ft_strrchr.c \
-					ft_bzero.c ft_strnstr.c \
-					ft_memcpy.c ft_strncmp.c \
-					ft_memccpy.c ft_atoi.c \
-					ft_memmove.c ft_isalpha.c \
-					ft_memchr.c ft_isdigit.c \
-					ft_memcmp.c ft_isalnum.c \
-					ft_strlen.c ft_isascii.c \
-					ft_strlcpy.c ft_isprint.c \
-					ft_strlcat.c ft_toupper.c \
-					ft_strchr.c ft_tolower.c \
-					ft_calloc.c ft_strdup.c \
-					ft_substr.c \
-					ft_strjoin.c \
-					ft_strtrim.c \
-					ft_split.c \
-					ft_itoa.c \
-					ft_strmapi.c \
-					ft_putchar_fd.c \
-					ft_putstr_fd.c \
-					ft_putendl_fd.c \
-					ft_putnbr_fd.c \
-					ft_lstnew.c \
-					ft_lstadd_front.c \
-					ft_lstsize.c \
-					ft_lstlast.c \
-					ft_lstadd_back.c \
-					ft_lstdelone.c \
-					ft_lstclear.c \
-					ft_lstiter.c \
-					ft_lstmap.c \
-					ft_itoa_u.c \
-					ft_itoa_base.c \
-					get_next_line.c \
-					ft_printf.c \
-					ft_flags.c \
-					ft_handle_c_pct.c \
-					ft_handle_p.c \
-					ft_handle_s.c \
-					ft_handle_u.c \
-					ft_handle_x_x.c \
-					ft_handle_d_i.c \
-					ft_bonus.c \
-					ft_strcmp.c \
-					ft_isspace.c \
-					ft_isspace_no_space.c \
-					ft_trimmedstr.c \
-					ft_trimmedstr_no_space.c \
-					ft_split_n.c \
-					ft_atoi_noletters.c \
-					ft_countchar.c \
-					spain.c
-					
+SRCS			=	srcs/push_swap.c \
+					srcs/print.c \
+					srcs/lists/ft_stackadd_back.c \
+					srcs/lists/ft_stackadd_front.c \
+					srcs/lists/ft_stackclear.c \
+					srcs/lists/ft_stackdelone.c \
+					srcs/lists/ft_stackiter.c \
+					srcs/lists/ft_stacklast.c \
+					srcs/lists/ft_stackmap.c \
+					srcs/lists/ft_stacknew.c \
+					srcs/lists/ft_stacksize.c \
+					srcs/utils/ft_atoi.c
+
 HEADER			=	libft.h
 					
 OBJS			=	$(SRCS:.c=.o)
