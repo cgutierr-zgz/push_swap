@@ -6,31 +6,24 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 18:11:48 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/06 18:46:24 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/20 16:58:19 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
 
 #ifndef PUSH_SWAP_H
 #define PUSH_SWAP_H
 
-
-int		ft_split_n(char const *s, char c);
-char	**ft_split(char const *s, char c);
+#include "libft/libft.h"
 
 typedef struct s_stack
 {
-	int		num;
-	t_stack	*next;
-	t_stack	*previous;
-}	t_stack;
-
+	int num;
+	t_stack *next;
+	t_stack *previous;
+} t_stack;
 
 #endif
+
 /*
 // C program for linked list implementation of stack
 #include <limits.h>

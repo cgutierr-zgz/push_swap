@@ -1,0 +1,56 @@
+El ejecutable debe llamarse:
+push_swap
+
+Se debe presentar un Makefile, debe compilar el proyecto y debe contener las
+reglas habituales del Makefile
+No debe hacer re-link
+Se puede usar libft
+
+NO var globales
+
+Debe seguir la Norma
+
+No puede haber fallos/leaks, etc
+
+write, read, malloc, free, exit
+
+********************************************************************************
+2 Pilas: a, b
+a contiene un numero aleatorio de números +'s o -'s sin duplicados
+b está vacío
+
+Se debe ordenar los números en orden ASCENDENTE en a
+	sa : swap a - intercambiar los primeros 2 elementos en la parte superior de la pila
+		a. No hace nada si sólo hay uno o ningún elementos).
+	sb : swap b - intercambiar los primeros 2 elementos en la parte superior de la pila
+		b. No hacer nada si sólo hay uno o ningún elementos).
+	ss : sa y sb al al mismo tiempo.
+	pa : push a - toma el primer elemento en la parte superior de b y ponerlo en la
+		parte superior de texttta. No hace nada si b está vacío.
+	pb : push b - toma el primer elemento en la parte superior de a y ponerlo en la
+		parte superior de textttb. No hace nada si a está vacío.
+	ra : rotate a - desplazar hacia arriba todos los elementos de la pila a en 1. El
+		primer elemento se convierte en el último.
+	rb : rotate b - desplazar hacia arriba todos los elementos de la pila b en 1. El
+		primer elemento se convierte en el último.
+	rr : ra y rb al al mismo tiempo.
+	rra : reverse rotate a - desplazar hacia abajo todos los elementos de la pila a
+		en 1. El último elemento se convierte en el primero.
+	rrb : reverse rotate b - desplazar hacia abajo todos los
+	rrr : rra y rrb al mismo tiempo.
+
+Como argumento recibimos la pila a formatear como lista de enteros
+las instrucciones deben estar separadas por\n
+
+intentar ordenar con el minimo num de movimientos
+
+en caso de error ->Error\n(Creo que sin mensaje explícito)
+Errores: no son enteros, algunos argumentos son mayores que un entero y/o hay duplicados
+
+
+COMPARAR:
+$>ARG="4 67 3 87 23"; ./push_swap $ARG | wc -l
+6
+$>ARG="4 67 3 87 23"; ./push_swap $ARG | ./checker_Mac $ARG
+OK
+$>
