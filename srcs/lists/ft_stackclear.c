@@ -6,11 +6,11 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/13 19:34:52 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/20 19:26:55 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/20 19:46:24 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	ft_stackclear(t_stack **lst, void (*del)(void *))
 {
@@ -21,7 +21,7 @@ void	ft_stackclear(t_stack **lst, void (*del)(void *))
 		while (*lst)
 		{
 			ptr = (*lst)->next;
-			ft_stackdelone(*lst, del);
+			ft_stackdelone(*lst);
 			*lst = ptr;
 		}
 	}

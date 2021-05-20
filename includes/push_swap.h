@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 18:11:48 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/20 19:35:24 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/20 19:43:22 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h> // malloc, free
 # include <stdio.h> // printf
 # include <limits.h> // MAX_INT
+# include <string.h> // strtok TODO: quitar y poner el mío 
 
 typedef struct s_stack
 {

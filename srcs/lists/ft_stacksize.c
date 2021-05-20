@@ -6,11 +6,11 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/13 11:52:09 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/20 19:28:34 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/20 19:45:48 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 int	ft_stacksize(t_stack *lst)
 {

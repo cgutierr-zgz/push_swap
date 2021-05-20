@@ -6,11 +6,11 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 14:57:29 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/20 19:35:14 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/20 19:45:51 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 int	ft_atoi(const char *str)
 {

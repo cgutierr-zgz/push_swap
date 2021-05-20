@@ -6,11 +6,11 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/14 12:28:17 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/20 19:28:20 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/20 19:45:43 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 t_stack	*ft_lstmap(t_stack *ls, void *(*f)(void *), void (*dl)(void *))
 {

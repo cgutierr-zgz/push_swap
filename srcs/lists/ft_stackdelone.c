@@ -6,11 +6,11 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/13 19:23:12 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/20 19:27:38 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/20 19:45:37 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	ft_stackdelone(t_stack *lst)
 {
