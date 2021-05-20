@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/20 19:49:04 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/20 19:50:44 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 //gcc srcs/*.c libft/*.c && ./a.out $ARG
 void print_lst(t_stack *lst)
 {
-	printf("[%d]\n", lst->num);
+	printf("aaa%d", lst->num);
+	//printf("[%d]\n", lst->num);
 }
 
 int main(int argc, char **argv)
@@ -45,15 +46,13 @@ int main(int argc, char **argv)
 			}
 			int x = ft_atoi(tmp);
 			printf("%- 11d:[%s]\n", i, tmp);
-			//	printf("[%s]\n", tmp);
 			tmp = strtok(NULL, " "); // TODO: Implement my own strtok
 			ft_stackadd_back(&a, ft_stacknew(&x));
-			//	printf("%d\n",i);
 			i++;
 		}
-		//ft_stackiter(&a, print_lst);
 		arg++;
 	}
+	ft_stackiter(&a, print_lst);
 
 	return (0);
 }
