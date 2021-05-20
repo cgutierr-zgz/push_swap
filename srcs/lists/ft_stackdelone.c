@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_stackdelone.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/01 10:00:36 by cgutierr          #+#    #+#             */
-/*   Updated: 2020/07/10 14:44:07 by cgutierr         ###   ########.fr       */
+/*   Created: 2020/07/13 19:23:12 by cgutierr          #+#    #+#             */
+/*   Updated: 2021/05/20 19:27:38 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "includes/push_swap.h"
 
-/*
-** Escribimos el char [c] en el directorio [fd]
-**
-** ·!) Hacemos uso de la función "write" gracias a la librería <unistd.h>
-*/
-
-void	ft_putchar_fd(char c, int fd)
+void	ft_stackdelone(t_stack *lst)
 {
-	write(fd, &c, 1);
+	if (lst)
+	{
+		free(lst);
+	}
 }

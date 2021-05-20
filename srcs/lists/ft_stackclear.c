@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_stackclear.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/29 17:57:52 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/03/09 18:56:26 by cgutierr         ###   ########.fr       */
+/*   Created: 2020/07/13 19:34:52 by cgutierr          #+#    #+#             */
+/*   Updated: 2021/05/20 19:26:55 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "includes/push_swap.h"
 
-/*
-** Se llena una cadena [b] con el byte [c]
-**
-** ·1) Vamos llenando la cadena [b] con el byte [c] hasta llegar a 0 en [len]
-** ·2) Devolvemos la propia cadena propio [b]
-*/
-
-void	*ft_memset(void *b, int c, size_t len)
+void	ft_stackclear(t_stack **lst, void (*del)(void *))
 {
-	unsigned char	*ptr;
+	t_stack	*ptr;
 
-	ptr = b;
-	while (len > 0)
+	if (lst && del && *lst)
 	{
-		*ptr = c;
-		ptr++;
-		len--;
+		while (*lst)
+		{
+			ptr = (*lst)->next;
+			ft_stackdelone(*lst, del);
+			*lst = ptr;
+		}
 	}
-	return (b);
 }

@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_stacknew.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/13 11:00:48 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/03/08 18:15:04 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/20 19:28:29 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/push_swap.h"
 
-/*
-** Añade un nuevo elemento a una lista
-**
-** ·1) Añadir al nuevo elemento de la lista el contenido [content]
-**
-** ·!) Hacemos uso de la función "malloc" gracias a la librería <stdlib.h>
-*/
-
-t_list	*ft_lstnew(void *content)
+t_stack	*ft_stacknew(int *num)
 {
-	t_list	*ptr;
+	t_stack	*ptr;
 
-	ptr = (t_list *)malloc(sizeof(t_list));
+	ptr = (t_stack *)malloc(sizeof(t_stack));
 	if (!(ptr))
 		return (NULL);
-	ptr->content = content;
+	ptr->num = num;
 	ptr->next = NULL;
 	return (ptr);
 }

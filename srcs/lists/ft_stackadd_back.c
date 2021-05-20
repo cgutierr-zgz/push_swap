@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_stackadd_back.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/09 16:06:13 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/03/09 17:01:59 by cgutierr         ###   ########.fr       */
+/*   Created: 2020/07/13 13:22:35 by cgutierr          #+#    #+#             */
+/*   Updated: 2021/05/20 19:26:42 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "includes/push_swap.h"
 
-int	ft_strcmp(const char *s1, const char *s2)
+void	ft_stackadd_back(t_stack **lst, t_stack *new)
 {
-	if (ft_strlen(s1) != ft_strlen(s2))
-		return (0);
-	while (*s1 && *s2)
+	t_stack	*ptr;
+
+	if (!*lst)
+		*lst = new;
+	else
 	{
-		if (*s1 != *s2)
-			return (0);
-		s1++;
-		s2++;
+		ptr = ft_stacklast(*lst);
+		ptr->next = new;
 	}
-	return (1);
 }

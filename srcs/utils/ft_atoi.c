@@ -1,51 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_trimmedstr.c                                    :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/11 18:53:36 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/03/12 12:02:55 by cgutierr         ###   ########.fr       */
+/*   Created: 2020/06/29 14:57:29 by cgutierr          #+#    #+#             */
+/*   Updated: 2021/05/20 19:26:24 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "includes/push_swap.h"
 
-static void	aux(char *new, char *str)
+int	ft_atoi(const char *str)
 {
-	int	i;
+	int	x;
+	int	isnegative;
 
-	i = 0;
-	while (*str)
+	x = 0;
+	isnegative = 1;
+	while (*str == ' ' || *str == '\f' || *str == '\n'
+		|| *str == '\r' || *str == '\t' || *str == '\v')
+		str++;
+	if (*str == '-')
 	{
-		if (!ft_isspace(*str))
-		{
-			new[i] = *str;
-			i++;
-		}
+		isnegative *= -1;
 		str++;
 	}
-	new[i] = '\0';
-}
-
-char	*ft_trimmedstr(char *str)
-{
-	char	*new;
-	int		len;
-	int		i;
-
-	i = 0;
-	len = 0;
-	while (str[i])
+	else if (*str == '+')
+		str++;
+	while (*str >= '0' && *str <= '9')
 	{
-		if (!ft_isspace(str[i]))
-			len++;
-		i++;
+		x = x * 10 + (*str - '0');
+		str++;
 	}
-	new = (char *)malloc(sizeof(char) * len + 1);
-	if (!new)
-		return (NULL);
-	aux(new, str);
-	return (new);
+	return (x * isnegative);
 }

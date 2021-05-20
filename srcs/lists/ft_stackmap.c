@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_stackmap.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/13 19:23:12 by cgutierr          #+#    #+#             */
-/*   Updated: 2020/07/15 11:45:51 by cgutierr         ###   ########.fr       */
+/*   Created: 2020/07/14 12:28:17 by cgutierr          #+#    #+#             */
+/*   Updated: 2021/05/20 19:28:20 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "includes/push_swap.h"
 
-/*
-** Borrar un elemento de una lista
-**
-** ·1) Comprobamos que [lst] y [del] existan
-** ·2) Borramos el contenido de [lst] y lo liberamos con "free"
-**
-** ·!) Hacemos uso de la función "free" gracias a la librería <stdlib.h>
-*/
-
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+t_stack	*ft_lstmap(t_stack *ls, void *(*f)(void *), void (*dl)(void *))
 {
-	if (lst && del)
+	t_stack	*new_lst;
+	t_stack	*new_elem;
+
+	if (!ls && !f)
+		return (NULL);
+	new_lst = NULL;
+	while (ls)
 	{
-		del(lst->content);
-		free(lst);
+		new_elem = ft_stacknew(f(ls->num));
+		if (!(new_elem))
+		{
+			ft_stackclear(&new_lst, dl);
+			return (NULL);
+		}
+		ft_stackadd_back(&new_lst, new_elem);
+		ls = ls->next;
 	}
+	return (new_lst);
 }

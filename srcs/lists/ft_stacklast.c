@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bonus.c                                         :+:      :+:    :+:   */
+/*   ft_stacklast.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/01 18:20:41 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/03/08 20:01:31 by cgutierr         ###   ########.fr       */
+/*   Created: 2020/07/13 12:40:31 by cgutierr          #+#    #+#             */
+/*   Updated: 2021/05/20 19:28:08 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "includes/push_swap.h"
 
-void	ft_handle_n(t_print *pstruct)
+t_stack	*ft_stacklast(t_stack *lst)
 {
-	int	*a;
+	t_stack	*ptr;
 
-	a = va_arg(pstruct->ap, int *);
-	*a = pstruct->n;
+	if (!lst)
+		return (NULL);
+	ptr = lst;
+	while (ptr->next)
+	{
+		ptr = ptr->next;
+	}
+	return (ptr);
 }
