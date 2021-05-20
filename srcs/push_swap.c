@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/20 17:34:02 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/20 17:36:11 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ int main(int argc, char **argv)
 	{
 		int x = atoi(tmp);
 		printf("	[%s]\n", tmp);
-		tmp = strtok(NULL, " ");
-		ft_lstadd_back(&a, ft_lstnew(&x));
+		tmp = strtok(NULL, " "); // TODO: Implement my own strtok
+		ft_lstadd_back(&a, ft_lstnew(x));
 	}
 	ft_lstiter(&a, print_lst);
 	/*
