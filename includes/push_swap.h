@@ -6,21 +6,24 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 18:11:48 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/20 16:58:19 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/20 17:17:17 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-#include "libft/libft.h"
-
+# include "../libft/libft.h"
+/*
 typedef struct s_stack
 {
-	int num;
-	t_stack *next;
-	t_stack *previous;
-} t_stack;
+	int		num;
+	t_stack	*next;
+	t_stack	*previous;
+}	t_stack;
+*/
+
+void	print_error(t_list *a, t_list *b);
 
 #endif
 
