@@ -6,23 +6,23 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/14 12:17:11 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/20 19:45:39 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/20 20:16:11 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	ft_stackiter(t_stack *lst, void (*f)(void *))
+void ft_stackiter(t_stack *lst, void (*f)(int))
 {
-	t_stack	*ptr;
+	//t_stack	*ptr;
 
 	if (lst)
 	{
 		while (lst)
 		{
-			ptr = lst->next;
+			//	ptr = lst->next;
 			f(lst->num);
-			lst = ptr;
+			lst = lst->next;
 		}
 	}
 }

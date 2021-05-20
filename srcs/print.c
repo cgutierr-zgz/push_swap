@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:05:43 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/20 19:24:36 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/20 20:04:01 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	clear_content(t_list *lst)
 }
 */
 
-void	print_error(t_stack *a, t_stack *b)
+void	print_error()//t_stack *a, t_stack *b)
 {
 	printf("Error\n");
 	//ft_lstclear(a, clear_content);
