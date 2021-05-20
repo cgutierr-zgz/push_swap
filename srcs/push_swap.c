@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/20 21:52:49 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/20 21:58:20 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ static void	init_args(int argc, char **argv, t_stack *a, t_stack *b)
 	i = 1;
 	while (arg < argc)
 	{
-		tmp = strtok(argv[arg + 1], " ");
+		//tmp = strtok(argv[arg + 1], " ");
+		tmp = ft_strtok(argv[arg + 1], " ");
 
 		while (tmp != NULL)
 		{
@@ -43,8 +44,8 @@ static void	init_args(int argc, char **argv, t_stack *a, t_stack *b)
 			}
 			int x = ft_atoi(tmp, a, b);
 			printf("%- 11d:[%s]\n", i, tmp);
-			tmp = strtok(NULL, " "); // TODO: Implement my own strtok
-			// tmp = ft_strtok(NULL, " ");
+		//tmp = strtok(NULL, " "); // TODO: Implement my own strtok
+			tmp = ft_strtok(NULL, " ");
 			ft_stackadd_back(&a, ft_stacknew(x));
 			i++;
 		}

@@ -6,7 +6,7 @@
 #    By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/09 14:13:26 by cgutierr          #+#    #+#              #
-#    Updated: 2021/05/20 19:32:32 by cgutierr         ###   ########.fr        #
+#    Updated: 2021/05/20 21:53:58 by cgutierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ SRCS			=	srcs/push_swap.c \
 					srcs/lists/ft_stackmap.c \
 					srcs/lists/ft_stacknew.c \
 					srcs/lists/ft_stacksize.c \
-					srcs/utils/ft_atoi.c
+					srcs/utils/ft_atoi.c \
+					srcs/utils/ft_strtok.c
 
 HEADER			=	libft.h
 					
