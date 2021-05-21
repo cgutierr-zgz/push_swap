@@ -50,6 +50,7 @@ static void	init_args(int argc, char **argv, t_push_swap *ps)
 		}
 		ps->arg += 1;
 	}
+	//TODO: Check si argumentos no hay !!!!!!!!
 	ft_stackiter(ps->a, print_lst);
 }
 
