@@ -38,4 +38,5 @@ int	ft_atoi(const char *str, t_push_swap *ps)
 	if (*str != '\0')
 		print_error(ps, "There should be no content after the number");
 	return (x * isnegative);
+	// FIXME: Check if 00001 returns 1
 }
