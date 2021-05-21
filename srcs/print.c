@@ -12,12 +12,15 @@
 
 #include "../includes/push_swap.h"
 
-void	print_error(t_stack *a, t_stack *b, char *msg)
+void	print_error(t_push_swap *ps, char *msg)
 {
 	printf("Error\n");
 	if (1)
-		printf("\t%s\n", msg);
-	ft_stackclear(&a, free);
-	ft_stackclear(&b, free);
+	{
+		//TODO: Invalid value at argument [0 + 1], index[aux], char [ps->c] global index[index];
+		printf("\t%s\nValue at index %d, %c[%d]\n", msg, ps->index, ps->c, ps->aux);
+	}
+	ft_stackclear(&ps->a, free);
+	ft_stackclear(&ps->b, free);
 	exit(1);
 }

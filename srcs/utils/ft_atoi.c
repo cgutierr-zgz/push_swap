@@ -12,7 +12,7 @@
 
 #include "../../includes/push_swap.h"
 
-int	ft_atoi(const char *str, t_stack *a,  t_stack *b)
+int	ft_atoi(const char *str, t_push_swap *ps)
 {
 	int	x;
 	int	isnegative;
@@ -29,13 +29,13 @@ int	ft_atoi(const char *str, t_stack *a,  t_stack *b)
 	else if (*str == '+')
 		str++;
 	if (*str == '\0' || *str < '0' || *str > '9')
-		print_error(a, b, "Single \"-\"/\"+\" must be followed by a number");	
+		print_error(ps, "Single \"-\"/\"+\" must be followed by a number");	
 	while (*str >= '0' && *str <= '9')
 	{
 		x = x * 10 + (*str - '0');
 		str++;
 	}
 	if (*str != '\0')
-		print_error(a, b, "There should be no content after the number");
+		print_error(ps, "There should be no content after the number");
 	return (x * isnegative);
 }

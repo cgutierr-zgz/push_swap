@@ -30,14 +30,18 @@ typedef struct s_push_swap
 {
 	t_stack	*a;
 	t_stack	*b;
+
+	// Error managing
 	int		index;
 	int		arg;
+	int		aux;
+	char	c;
 }	t_push_swap;
 
 // Main functions
 
 // Util functions
-void	print_error(t_stack *a, t_stack *b, char *msg);
+void	print_error(t_push_swap *ps, char *msg);
 int		ft_atoi(const char *str, t_stack *a,  t_stack *b);
 char	*ft_strtok(char *str, const char *sep);
 
