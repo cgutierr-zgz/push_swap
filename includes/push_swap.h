@@ -17,13 +17,22 @@
 # include <stdlib.h> // malloc, free
 # include <stdio.h> // printf
 # include <limits.h> // MAX_INT
-# include <string.h> // strtok TODO: quitar y poner el mío 
+# include <string.h> // strtok TODO: Implementar el mío
 
+// TODO: Maybe implementar doblemente enlazadas
 typedef struct s_stack
 {
 	int				num;
 	struct s_stack	*next;
 }	t_stack;
+
+typedef struct s_push_swap
+{
+	t_stack	*a;
+	t_stack	*b;
+	int		index;
+	int		arg;
+}	t_push_swap;
 
 // Main functions
 
