@@ -44,7 +44,7 @@ typedef struct s_push_swap
 void	print_error(t_push_swap *ps, char *msg);
 
 // Util functions
-int		ft_atoi(const char *str, t_stack *a,  t_stack *b);
+int		ft_atoi(const char *str, t_push_swap *ps)
 char	*ft_strtok(char *str, const char *sep);
 
 // Stack functions
