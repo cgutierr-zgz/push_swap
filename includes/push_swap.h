@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 18:11:48 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/20 21:31:43 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/21 23:52:08 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,14 @@ typedef struct s_push_swap
 
 	// Error managing
 	int		index;	// Argumento global de entre todos
-	int		arg;	// Argumento actual, auxiliar para ir avanzando
-	char	**argv;	// Current argv we are checking
-	int		aux;	// Int auxiliar para saber el índice del string actual
-	char	c;		// Char actual del argumento
+	char	*argv;	// Current argv we are checking
 }	t_push_swap;
 
 // Main functions
 void	print_error(t_push_swap *ps, char *msg);
 
 // Util functions
-int		ft_atoi(const char *str, t_push_swap *ps)
+int		ft_atoi(const char *str, t_push_swap *ps);
 char	*ft_strtok(char *str, const char *sep);
 
 // Stack functions

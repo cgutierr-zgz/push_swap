@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/20 21:58:20 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/22 00:01:29 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,37 +22,39 @@ void	print_lst(int i)
 static void	init_args(int argc, char **argv, t_push_swap *ps)
 {
 	char	*tmp;
+	int i;
+	int arg;
 
-	ps->arg = 0;
-	ps->i = 1;
-	while (ps->arg < argc)
+	i = 0;
+	arg = 0;
+	ps->index = 1;
+	while (arg < argc)
 	{
 		tmp = ft_strtok(argv[arg + 1], " ");
 		ps->argv = argv[arg + 1];
-		// TODO: Comparar que sea menor que INT MAX o INT MIN
 		while (tmp != NULL)
 		{
-			ps->aux = 0;
-			while (tmp[ps->aux])
+			i = 0;
+			while (tmp[i])
 			{
-				ps->c = tmp[ps->aux];
-				if ((tmp[ps->aux] < '0' || tmp[ps->aux] > '9')
-					&& tmp[ps->aux] != '-' && tmp[ps->aux] != '+')
-					print_error(ps->a, ps->b, "Invalid value");
-				ps->aux += 1;
-			}
-			ps->aux = ft_atoi(tmp, a, b);
-			printf("%- 11d:[%s]\n", i, tmp);
+				if ((tmp[i] < '0' || tmp[i] > '9')
+					&& tmp[i] != '-' && tmp[i] != '+')
+					print_error(ps, "Invalid value");
+				i += 1;
+			}// TODO: Comparar que sea menor que INT MAX o INT MIN Si todo ok atoi
+			i = ft_atoi(tmp, ps);
+			printf("%- 11d:[%s]\n", ps->index, tmp);
 			tmp = ft_strtok(NULL, " ");
 			// TODO: Check que no esté repetido antes de añadirlo al stack
 			// Si sí => Error
-			ft_stackadd_back(&ps->a, ft_stacknew(ps->aux));
-			ps->i += 1;
+			ft_stackadd_back(&ps->a, ft_stacknew(i));
+			ps->index += 1;
 		}
-		ps->arg += 1;
+		arg += 1;
 	}
-	//TODO: Check si argumentos no hay !!!!!!!!
-	ft_stackiter(ps->a, print_lst);
+	//TODO: Check si argumentos no hay !!!!!!!! check que el stack contenga COSAS SI ESTA VACIO ERROR NO ARGUMENTOS validos almenos
+
+	//ft_stackiter(ps->a, print_lst);
 }
 
 int main(int argc, char **argv)
@@ -62,7 +64,7 @@ int main(int argc, char **argv)
 	t_stack		*b;
 
 	if (argc < 2)
-		print_error(ps.a, ps.b, "Not enough arguments");
+		print_error(&ps, "Not enough arguments");
 	init_args(argc, argv, &ps);
 	return (0);
 }
