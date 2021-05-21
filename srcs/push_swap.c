@@ -29,6 +29,7 @@ static void	init_args(int argc, char **argv, t_push_swap *ps)
 	{
 		tmp = ft_strtok(argv[arg + 1], " ");
 		ps->argv = argv[arg + 1];
+		// TODO: Comparar que sea menor que INT MAX o INT MIN
 		while (tmp != NULL)
 		{
 			ps->aux = 0;
