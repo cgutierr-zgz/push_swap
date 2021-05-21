@@ -34,6 +34,7 @@ typedef struct s_push_swap
 	// Error managing
 	int		index;
 	int		arg;
+	char	**argv;
 	int		aux;
 	char	c;
 }	t_push_swap;

@@ -28,7 +28,7 @@ static void	init_args(int argc, char **argv, t_push_swap *ps)
 	while (ps->arg < argc)
 	{
 		tmp = ft_strtok(argv[arg + 1], " ");
-
+		ps->argv = argv[arg + 1];
 		while (tmp != NULL)
 		{
 			ps->aux = 0;

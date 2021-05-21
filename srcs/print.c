@@ -18,7 +18,13 @@ void	print_error(t_push_swap *ps, char *msg)
 	if (1)
 	{
 		//TODO: Invalid value at argument [0 + 1], index[aux], char [ps->c] global index[index];
-		printf("\t%s\nValue at index %d, %c[%d]\n", msg, ps->index, ps->c, ps->aux);
+		/*
+		Error
+		"Mensaje"
+		[ps->index] : Value "argv[x]"" at index[ps->aux] => Invalid char [c]
+		*/
+		printf("%s\n[%d] : Value \"%s\" at index %d \'%c\'", ps->index,ps->argv,ps->aux, ps->c)
+		//printf("\t%s\nValue at index %d, %c[%d]\n", msg, ps->index, ps->c, ps->aux);
 	}
 	ft_stackclear(&ps->a, free);
 	ft_stackclear(&ps->b, free);
