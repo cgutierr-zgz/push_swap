@@ -43,6 +43,8 @@ static void	init_args(int argc, char **argv, t_push_swap *ps)
 			ps->aux = ft_atoi(tmp, a, b);
 			printf("%- 11d:[%s]\n", i, tmp);
 			tmp = ft_strtok(NULL, " ");
+			// TODO: Check que no esté repetido antes de añadirlo al stack
+			// Si sí => Error
 			ft_stackadd_back(&ps->a, ft_stacknew(ps->aux));
 			ps->i += 1;
 		}

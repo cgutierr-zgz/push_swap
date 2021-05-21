@@ -28,21 +28,22 @@ typedef struct s_stack
 
 typedef struct s_push_swap
 {
+	// Main stacks
 	t_stack	*a;
 	t_stack	*b;
 
 	// Error managing
-	int		index;
-	int		arg;
-	char	**argv;
-	int		aux;
-	char	c;
+	int		index;	// Argumento global de entre todos
+	int		arg;	// Argumento actual, auxiliar para ir avanzando
+	char	**argv;	// Current argv we are checking
+	int		aux;	// Int auxiliar para saber el índice del string actual
+	char	c;		// Char actual del argumento
 }	t_push_swap;
 
 // Main functions
+void	print_error(t_push_swap *ps, char *msg);
 
 // Util functions
-void	print_error(t_push_swap *ps, char *msg);
 int		ft_atoi(const char *str, t_stack *a,  t_stack *b);
 char	*ft_strtok(char *str, const char *sep);
 
