@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 18:11:48 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/24 19:22:04 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/24 19:52:21 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,19 +55,19 @@ typedef struct s_push_swap
 	t_stack	*a;
 	t_stack	*b;
 
-	// Error managing
-	int		index;	// Argumento global de entre todos
-	char	*argv;	// Current argv we are checking
-	int		check_repeat;
+	/* Error managing */
+	int		index;			// Argumento global de entre todos
+	char	*argv;			// Current argv we are checking
+	int		check_repeat;	// Checks the values
 }	t_push_swap;
 
 // Main functions
 void	print_error(t_push_swap *ps, char *msg);
-void	print_stacks(t_push_swap *ps);
 
 // Util functions
 int		ft_atoi(const char *str, t_push_swap *ps);
 char	*ft_strtok(char *str, const char *sep);
+void	print_stacks(t_push_swap *ps);
 
 // Stack functions
 void	ft_stackadd_back(t_stack **lst, t_stack *new);

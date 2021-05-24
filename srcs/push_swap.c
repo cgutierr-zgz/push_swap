@@ -6,17 +6,15 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/24 19:45:36 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/24 19:54:12 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-//gcc srcs/*.c srcs/lists/*.c srcs/utils/*.c && ARG="2 3 32 5 2   532  25 2 3 23 " && ./a.out $ARG 2 3 0 -2 +2
-
-void iter_ps_list(t_push_swap *ps, t_stack *a)
+void	check_repeated(t_push_swap *ps, t_stack *a)
 {
-	t_stack *ptr;
+	t_stack	*ptr;
 
 	if (a)
 	{
@@ -30,11 +28,11 @@ void iter_ps_list(t_push_swap *ps, t_stack *a)
 	}
 }
 
-static void init_args(int argc, char **argv, t_push_swap *ps)
+static void	init_args(int argc, char **argv, t_push_swap *ps)
 {
-	char *tmp;
-	int i;
-	int arg;
+	char	*tmp;
+	int		i;
+	int		arg;
 
 	arg = 0;
 	ps->index = 1;
@@ -47,20 +45,19 @@ static void init_args(int argc, char **argv, t_push_swap *ps)
 			i = ft_atoi(tmp, ps);
 			tmp = ft_strtok(NULL, " ");
 			ps->check_repeat = i;
-			iter_ps_list(ps, ps->a);
+			check_repeated(ps, ps->a);
 			ft_stackadd_back(&ps->a, ft_stacknew(i));
 			ps->index += 1;
 		}
 		arg += 1;
 	}
-	print_stacks(ps);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_push_swap ps;
-	t_stack *a;
-	t_stack *b;
+	t_push_swap	ps;
+	t_stack		*a;
+	t_stack		*b;
 
 	if (argc < 2)
 		print_error(&ps, "Not enough arguments");
