@@ -6,13 +6,13 @@
 #    By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/09 14:13:26 by cgutierr          #+#    #+#              #
-#    Updated: 2021/05/24 16:51:41 by cgutierr         ###   ########.fr        #
+#    Updated: 2021/05/24 16:57:47 by cgutierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 DAY				=	$(shell date +'%d/%m/%Y %H:%M')
 
-NAME			=	libft.a
+NAME			=	push_swap
 
 SRCS			=	srcs/push_swap.c \
 					srcs/print.c \
@@ -34,21 +34,19 @@ OBJS			=	$(SRCS:.c=.o)
 
 CC				=	gcc
 
-FLAGS			=	-Wall -Werror -Wextra
+FLAGS			=	-Wall -Werror -Wextra -O3
 
 RM				=	rm -f
 
 all:			$(NAME)
 
-$(NAME):
-				@echo $(YELLOW)Compiling libft ... $(RESET)
-				$(CC) $(FLAGS) -I $(HEADER) -c $(SRCS)
-				ar -rc $(NAME) $(OBJS)
-				ranlib $(NAME)
+$(NAME):		$(OBJS)
+				@echo $(YELLOW)Compiling push_swap ... $(RESET)
+				$(CC) ${FLAGS} ${OBJS} -I $(HEADER) -o ${NAME}
 
 clean:
 				@echo $(YELLOW)Cleaning ... $(RED)
-				$(RM) $(OBJS) $(BONUS_OBJS)
+				$(RM) $(OBJS)
 
 fclean:			clean
 				$(RM) $(NAME)
@@ -88,7 +86,7 @@ norminette:
 				@echo $(GREEN)
 				@norminette $(SRCS) $(HEADER) | grep "OK" || true 
 				@echo $(RED)
-				@norminette $(SRCS) $(HEADER) ./libft/*.c ./libft/*.h | grep 'Error!\|line:' || true
+				@norminette $(SRCS) $(HEADER) | grep 'Error!\|line:' || true
 #TODO: Add valgrind, FIXME: normi
 # VALGRIND
 #         --leak-check=full \ Each individual leak will be shown in detail
