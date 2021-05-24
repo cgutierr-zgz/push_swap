@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 14:57:29 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/20 21:40:17 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/24 15:55:51 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,4 @@ int	ft_atoi(const char *str, t_push_swap *ps)
 	if (*str != '\0')
 		print_error(ps, "There should be no content after the number");
 	return (x * isnegative);
-	// FIXME: Check if 00001 returns 1
 }
