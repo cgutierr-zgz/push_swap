@@ -6,7 +6,7 @@
 #    By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/09 14:13:26 by cgutierr          #+#    #+#              #
-#    Updated: 2021/05/24 16:57:47 by cgutierr         ###   ########.fr        #
+#    Updated: 2021/05/24 17:40:02 by cgutierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,6 +70,10 @@ LIGHT_PURPLE:="\033[1;35m"
 LIGHT_CYAN	:="\033[1;36m"
 WHITE		:="\033[1;37m"
 RESET		:="\x1b[0m"
+
+exe:			$(NAME)
+				ARG=$(seq 0 1000 | sort -R | tail -n 100)
+				./push_swap $ARG 2 3 0 -2 +2
 
 git:
 				@echo $(YELLOW)Status:$(RESET)
