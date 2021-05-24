@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/24 19:54:12 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/24 20:28:04 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,9 @@ static void	init_args(int argc, char **argv, t_push_swap *ps)
 		}
 		arg += 1;
 	}
+	print_stacks(ps);
+	rule_sx(ps, 'x');
+	print_stacks(ps);
 }
 
 int	main(int argc, char **argv)

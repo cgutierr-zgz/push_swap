@@ -6,7 +6,7 @@
 #    By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/09 14:13:26 by cgutierr          #+#    #+#              #
-#    Updated: 2021/05/24 20:04:16 by cgutierr         ###   ########.fr        #
+#    Updated: 2021/05/24 20:12:28 by cgutierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,9 @@ SRCS			=	srcs/push_swap.c \
 					srcs/stack_utils/ft_stackmap.c \
 					srcs/stack_utils/ft_stacknew.c \
 					srcs/stack_utils/ft_stacksize.c \
-					srcs/stack_utils/ft_atoi.c \
-					srcs/stack_utils/ft_strtok.c
+					srcs/utils/ft_atoi.c \
+					srcs/utils/ft_strtok.c \
+					srcs/stack/rule_sx.c
 
 HEADER			=	includes/push_swap.h
 					
