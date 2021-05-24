@@ -6,7 +6,7 @@
 #    By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/09 14:13:26 by cgutierr          #+#    #+#              #
-#    Updated: 2021/05/24 19:13:57 by cgutierr         ###   ########.fr        #
+#    Updated: 2021/05/24 19:33:07 by cgutierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,7 +77,6 @@ exe:			$(NAME)
 				./push_swap $(ARG)
 
 valgrind:		$(NAME)
-				ARG=$(seq 0 1000 | sort -R | tail -n 100)
 				valgrind --leak-check=full --track-origins=yes ./push_swap $(ARG)
 
 git:

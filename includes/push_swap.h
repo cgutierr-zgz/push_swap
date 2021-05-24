@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 18:11:48 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/24 16:48:30 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/24 19:22:04 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ typedef struct s_push_swap
 	// Error managing
 	int		index;	// Argumento global de entre todos
 	char	*argv;	// Current argv we are checking
+	int		check_repeat;
 }	t_push_swap;
 
 // Main functions

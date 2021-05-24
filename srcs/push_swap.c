@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/24 17:01:13 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/24 19:27:51 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 //gcc srcs/*.c srcs/lists/*.c srcs/utils/*.c && ARG="2 3 32 5 2   532  25 2 3 23 " && ./a.out $ARG 2 3 0 -2 +2
 
-void iter_ps_list(t_push_swap *ps, t_stack *a, void (*f)(t_push_swap *, int))
+void iter_ps_list(t_push_swap *ps, t_stack *a)
 {
 	t_stack *ptr;
 
@@ -22,8 +22,9 @@ void iter_ps_list(t_push_swap *ps, t_stack *a, void (*f)(t_push_swap *, int))
 	{
 		while (a)
 		{
+			if (ps->check_repeat == a->num)
+				print_error(ps, "Repeated value");
 			ptr = a->next;
-			f(ps, a->num);
 			a = ptr;
 		}
 	}
@@ -48,22 +49,20 @@ static void init_args(int argc, char **argv, t_push_swap *ps)
 			while (tmp[i])
 			{
 				if ((tmp[i] < '0' || tmp[i] > '9') && tmp[i] != '-' && tmp[i] != '+')
-					print_error(ps, "Invalid value, not a number or \"-\"/\"+\"");
+					print_error(ps,
+								"Invalid value, not a number or \"-\"/\"+\"");
 				i += 1;
 			}
 			//TODO: checkear que es menor que INT_MAX y mayor que INT_MIN
 			i = ft_atoi(tmp, ps);
-			printf("%- 11d:[%s]\n", ps->index, tmp);
 			tmp = ft_strtok(NULL, " ");
-			//TODO: ft_stackiter(ps->a, check_repeated());
+			ps->check_repeat = i;
+			iter_ps_list(ps, ps->a);
 			ft_stackadd_back(&ps->a, ft_stacknew(i));
 			ps->index += 1;
 		}
 		arg += 1;
 	}
-	// TODO: Comprobar
-	//if (ps->a == NULL) // Comprobamos que no esté vacío
-	//	print_error(ps, "Not enough values");
 	print_stacks(ps);
 }
 

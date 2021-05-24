@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 14:57:29 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/24 15:55:51 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/24 19:32:29 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_atoi(const char *str, t_push_swap *ps)
 {
-	int	x;
-	int	isnegative;
+	long	x;
+	int		isnegative;
 
 	x = 0;
 	isnegative = 1;
@@ -37,5 +37,8 @@ int	ft_atoi(const char *str, t_push_swap *ps)
 	}
 	if (*str != '\0')
 		print_error(ps, "There should be no content after the number");
+		// Comparar tal con tal y si eso error
+	if(x * isnegative > INT_MAX || x * isnegative < INT_MIN)
+		print_error(ps, "Value is bigger or smaller than INT_MAX or INT_MIN");
 	return (x * isnegative);
 }
