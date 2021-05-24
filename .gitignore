@@ -1,0 +1,8 @@
+a.out
+*.o
+._.DS_Store
+.DS_Store
+push_swap
+._*
+push_swap.dSYM
+*.dSYM
