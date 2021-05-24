@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/24 16:44:51 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/24 17:01:13 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,9 @@ static void init_args(int argc, char **argv, t_push_swap *ps)
 		}
 		arg += 1;
 	}
-	if (ps->a == NULL) // Comprobamos que no esté vacío
-		print_error(ps, "Not enough values");
+	// TODO: Comprobar
+	//if (ps->a == NULL) // Comprobamos que no esté vacío
+	//	print_error(ps, "Not enough values");
 	print_stacks(ps);
 }
 
