@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/24 19:27:51 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/24 19:45:36 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ static void init_args(int argc, char **argv, t_push_swap *ps)
 	int i;
 	int arg;
 
-	i = 0;
 	arg = 0;
 	ps->index = 1;
 	while (arg < argc)
@@ -45,15 +44,6 @@ static void init_args(int argc, char **argv, t_push_swap *ps)
 		ps->argv = argv[arg + 1];
 		while (tmp != NULL)
 		{
-			i = 0;
-			while (tmp[i])
-			{
-				if ((tmp[i] < '0' || tmp[i] > '9') && tmp[i] != '-' && tmp[i] != '+')
-					print_error(ps,
-								"Invalid value, not a number or \"-\"/\"+\"");
-				i += 1;
-			}
-			//TODO: checkear que es menor que INT_MAX y mayor que INT_MIN
 			i = ft_atoi(tmp, ps);
 			tmp = ft_strtok(NULL, " ");
 			ps->check_repeat = i;
