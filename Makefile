@@ -6,7 +6,7 @@
 #    By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/09 14:13:26 by cgutierr          #+#    #+#              #
-#    Updated: 2021/05/24 18:43:45 by cgutierr         ###   ########.fr        #
+#    Updated: 2021/05/24 19:13:57 by cgutierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,21 +71,14 @@ LIGHT_CYAN	:="\033[1;36m"
 WHITE		:="\033[1;37m"
 RESET		:="\x1b[0m"
 
+ARG				=	$(shell seq 0 1000 | sort -R | tail -n 25)
+
 exe:			$(NAME)
-				ARG=$(seq 0 1000 | sort -R | tail -n 100)
-				./push_swap $ARG
-
-exe_count:		$(NAME)
-				ARG=$(seq 0 1000 | sort -R | tail -n 100)
-				./push_swap $ARG | wc -l
-
-exe_check:		$(NAME)
-				ARG=$(seq 0 1000 | sort -R | tail -n 100)
-				./push_swap $ARG | ./checker_Mac $ARG
+				./push_swap $(ARG)
 
 valgrind:		$(NAME)
 				ARG=$(seq 0 1000 | sort -R | tail -n 100)
-				valgrind ./push_swap $ARG
+				valgrind --leak-check=full --track-origins=yes ./push_swap $(ARG)
 
 git:
 				@echo $(YELLOW)Status:$(RESET)
@@ -103,7 +96,7 @@ norminette:
 				@norminette $(SRCS) $(HEADER) | grep "OK" || true 
 				@echo $(RED)
 				@norminette $(SRCS) $(HEADER) | grep 'Error!\|line:' || true
-#TODO: Add valgrind, FIXME: normi
+
 # VALGRIND
 #         --leak-check=full \ Each individual leak will be shown in detail
 #         --show-leak-kinds=all \ Show all of "definite, indirect, possible, reachable" leak kinds in the "full" report.
