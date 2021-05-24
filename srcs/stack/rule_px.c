@@ -1,53 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rule_sx.c                                          :+:      :+:    :+:   */
+/*   rule_px.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 20:04:57 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/24 20:40:29 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/24 21:10:26 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
 /*
-sa || sb
-swap x
-Intercambiar los primeros 2 elementos en la parte superior de la pila x.
-No hace nada si sólo hay uno o ningún elementos.
+px || pb
+push x
+Toma el primer elemento en la parte superior de y y ponerlo en la
+parte superior de x. No hace nada si y está vacío.
 */
 
-static void	operation(t_stack *x)
+static void	operation(t_stack *x, t_stack *y)
 {
-	int	temp;
-
-	temp = x->num;
-	x->num = x->next->num;
-	x->next->num = temp;
+	ft_stackadd_front(&x, ft_stacknew(y->num));
+	if(y->next)
+	{
+		y->num = y->next->num;
+		y->next = NULL;
+		ft_stackdelone(y->next);
+	}
+	else
+	{
+		y = NULL;
+		ft_stackdelone(y);
+	}
 }
 
-void	rule_sx(t_push_swap *ps, char identifier)
+void	rule_px(t_push_swap *ps, char identifier)
 {
 	if (identifier == 'a')
 	{
-		if (ps->a && ps->a->next)
-			operation(ps->a);
-		write(1, "sa\n", 4);
+		if (ps->b)
+			operation(ps->a, ps->b);
+		write(1, "pa\n", 4);
 	}
 	else if (identifier == 'b')
 	{
-		if (ps->b && ps->b->next)
-			operation(ps->b);
-		write(1, "sb\n", 4);
-	}
-	else if (identifier == 'x')
-	{
-		if (ps->a && ps->a->next)
-			operation(ps->a);
-		if (ps->b && ps->b->next)
-			operation(ps->b);
-		write(1, "ss\n", 4);
+		if (ps->a)
+			operation(ps->b, ps->a);
+		write(1, "pb\n", 4);
 	}
 }
