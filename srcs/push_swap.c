@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/24 21:09:39 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/24 21:17:07 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static void	init_args(int argc, char **argv, t_push_swap *ps)
 	ft_stackadd_back(&ps->b, ft_stacknew(32));
 	print_stacks(ps);
 	//rule_sx(ps, 'b');
-	rule_px(ps, 'a');
+	rule_px(ps, 'b');
 	print_stacks(ps);
 }
 
