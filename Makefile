@@ -6,7 +6,7 @@
 #    By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/09 14:13:26 by cgutierr          #+#    #+#              #
-#    Updated: 2021/05/24 18:07:12 by cgutierr         ###   ########.fr        #
+#    Updated: 2021/05/24 18:43:45 by cgutierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,7 +73,19 @@ RESET		:="\x1b[0m"
 
 exe:			$(NAME)
 				ARG=$(seq 0 1000 | sort -R | tail -n 100)
-				./push_swap $ARG 2 3 0 -2 +2 //TODO:
+				./push_swap $ARG
+
+exe_count:		$(NAME)
+				ARG=$(seq 0 1000 | sort -R | tail -n 100)
+				./push_swap $ARG | wc -l
+
+exe_check:		$(NAME)
+				ARG=$(seq 0 1000 | sort -R | tail -n 100)
+				./push_swap $ARG | ./checker_Mac $ARG
+
+valgrind:		$(NAME)
+				ARG=$(seq 0 1000 | sort -R | tail -n 100)
+				valgrind ./push_swap $ARG
 
 git:
 				@echo $(YELLOW)Status:$(RESET)
