@@ -6,7 +6,7 @@
 #    By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/09 14:13:26 by cgutierr          #+#    #+#              #
-#    Updated: 2021/05/24 19:33:07 by cgutierr         ###   ########.fr        #
+#    Updated: 2021/05/24 20:04:16 by cgutierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,17 +16,17 @@ NAME			=	push_swap
 
 SRCS			=	srcs/push_swap.c \
 					srcs/print.c \
-					srcs/lists/ft_stackadd_back.c \
-					srcs/lists/ft_stackadd_front.c \
-					srcs/lists/ft_stackclear.c \
-					srcs/lists/ft_stackdelone.c \
-					srcs/lists/ft_stackiter.c \
-					srcs/lists/ft_stacklast.c \
-					srcs/lists/ft_stackmap.c \
-					srcs/lists/ft_stacknew.c \
-					srcs/lists/ft_stacksize.c \
-					srcs/utils/ft_atoi.c \
-					srcs/utils/ft_strtok.c
+					srcs/stack_utils/ft_stackadd_back.c \
+					srcs/stack_utils/ft_stackadd_front.c \
+					srcs/stack_utils/ft_stackclear.c \
+					srcs/stack_utils/ft_stackdelone.c \
+					srcs/stack_utils/ft_stackiter.c \
+					srcs/stack_utils/ft_stacklast.c \
+					srcs/stack_utils/ft_stackmap.c \
+					srcs/stack_utils/ft_stacknew.c \
+					srcs/stack_utils/ft_stacksize.c \
+					srcs/stack_utils/ft_atoi.c \
+					srcs/stack_utils/ft_strtok.c
 
 HEADER			=	includes/push_swap.h
 					
