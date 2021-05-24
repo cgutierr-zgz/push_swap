@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/24 16:22:56 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/24 16:44:51 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,7 @@
 
 //gcc srcs/*.c srcs/lists/*.c srcs/utils/*.c && ARG="2 3 32 5 2   532  25 2 3 23 " && ./a.out $ARG 2 3 0 -2 +2
 
-void	print_lst(int i)
-{
-	printf("[%d]\n", i);
-}
-
-void iter_ps_list(t_push_swap *ps, t_stack *a, void (*f)(t_push_swap *, void *))
+void iter_ps_list(t_push_swap *ps, t_stack *a, void (*f)(t_push_swap *, int))
 {
 	t_stack *ptr;
 
@@ -34,9 +29,9 @@ void iter_ps_list(t_push_swap *ps, t_stack *a, void (*f)(t_push_swap *, void *))
 	}
 }
 
-static void	init_args(int argc, char **argv, t_push_swap *ps)
+static void init_args(int argc, char **argv, t_push_swap *ps)
 {
-	char	*tmp;
+	char *tmp;
 	int i;
 	int arg;
 
@@ -52,8 +47,7 @@ static void	init_args(int argc, char **argv, t_push_swap *ps)
 			i = 0;
 			while (tmp[i])
 			{
-				if ((tmp[i] < '0' || tmp[i] > '9')
-					&& tmp[i] != '-' && tmp[i] != '+')
+				if ((tmp[i] < '0' || tmp[i] > '9') && tmp[i] != '-' && tmp[i] != '+')
 					print_error(ps, "Invalid value, not a number or \"-\"/\"+\"");
 				i += 1;
 			}
@@ -67,18 +61,16 @@ static void	init_args(int argc, char **argv, t_push_swap *ps)
 		}
 		arg += 1;
 	}
-
-	//TODO: ft_stackiter(ps->, check que no esté vacío) // $ARG=" "
-	if(ps->a == NULL)
-		print_error(ps, "No value was added");
-	ft_stackiter(ps->a, print_lst);
+	if (ps->a == NULL) // Comprobamos que no esté vacío
+		print_error(ps, "Not enough values");
+	print_stacks(ps);
 }
 
 int main(int argc, char **argv)
 {
-	t_push_swap	ps;
-	t_stack		*a;
-	t_stack		*b;
+	t_push_swap ps;
+	t_stack *a;
+	t_stack *b;
 
 	if (argc < 2)
 		print_error(&ps, "Not enough arguments");
