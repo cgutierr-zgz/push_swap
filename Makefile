@@ -6,7 +6,7 @@
 #    By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/09 14:13:26 by cgutierr          #+#    #+#              #
-#    Updated: 2021/05/25 19:09:50 by cgutierr         ###   ########.fr        #
+#    Updated: 2021/05/25 19:10:09 by cgutierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,7 +96,7 @@ git:
 				@echo $(YELLOW)GIT add ... $(RESET)
 				@git add . || true 
 				@echo $(YELLOW)GIT commit ... $(RESET)
-				@git commit -m "Tekm cris$(DAY)" || true 
+				@git commit -m "$(DAY)" || true 
 				@echo $(YELLOW)GIT push ... $(RESET)
 				@git push -u origin master || true 
 
