@@ -6,7 +6,7 @@
 #    By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/09 14:13:26 by cgutierr          #+#    #+#              #
-#    Updated: 2021/05/25 19:10:09 by cgutierr         ###   ########.fr        #
+#    Updated: 2021/05/25 19:44:13 by cgutierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,9 +26,9 @@ SRCS			=	srcs/push_swap.c \
 					srcs/stack_utils/ft_stacknew.c \
 					srcs/stack_utils/ft_stacksize.c \
 					srcs/utils/ft_atoi.c \
-					srcs/utils/ft_strtok.c \
-					srcs/stack/rule_sx.c \
-					srcs/stack/rule_px.c
+					srcs/utils/ft_split.c \
+					srcs/stack_rules/rule_sx.c \
+					srcs/stack_rules/rule_px.c
 
 HEADER			=	includes/push_swap.h
 					
@@ -36,7 +36,7 @@ OBJS			=	$(SRCS:.c=.o)
 
 CC				=	gcc
 
-FLAGS			=	-Wall -Werror -Wextra -O3
+FLAGS			=	-Wall -Werror -Wextra -O3#-g3 -fsanitize=address
 
 RM				=	rm -f
 
@@ -73,7 +73,7 @@ LIGHT_CYAN	:="\033[1;36m"
 WHITE		:="\033[1;37m"
 RESET		:="\x1b[0m"
 
-ARG				=	$(shell seq -s " " 0 1000 | sort -R | tail -n 15)
+ARG				=	$(shell seq 0 1000 | sort -R | tail -n 5)
 
 exe:			$(NAME)
 				./push_swap $(ARG)

@@ -6,13 +6,27 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/25 18:59:09 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/25 19:49:50 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	check_repeated(t_push_swap *ps, t_stack *a)
+static void	clean_split(char **tmp)
+{
+	int	i;
+
+	i = 0;
+	while (tmp[i])
+	{
+		free(tmp[i]);
+		i++;
+	}
+	if (tmp)
+		free(tmp);
+}
+
+static void	check_repeated(t_push_swap *ps, t_stack *a)
 {
 	t_stack	*ptr;
 
@@ -28,33 +42,40 @@ void	check_repeated(t_push_swap *ps, t_stack *a)
 	}
 }
 
-void	init_args(int argc, char **argv, t_push_swap *ps)
+static void	start_push_swap(int argc, char **argv, t_push_swap *ps)
 {
-	char	*tmp;
-	int		i;
-	int		arg;
+	print_stacks(ps);
+	system("leaks push_swap");
+	exit(0);
+}
 
-	arg = 0;
-	ps->index = 1;
+static void	init_args(int argc, char **argv, t_push_swap *ps)
+{
+	char	**tmp;
+	int		num;
+	int		arg;
+	int		i;
+
+	arg = 1;
 	while (arg < argc)
 	{
-		tmp = ft_strtok(argv[arg + 1], " ");
-		ps->argv = argv[arg + 1];
-		while (tmp != NULL)
+		tmp = ft_split(argv[arg], ' ');
+		ps->argv = argv[arg];
+		i = 0;
+		while (tmp[i])
 		{
-			i = ft_atoi(tmp, ps);
-			tmp = ft_strtok(NULL, " ");
-			ps->check_repeat = i;
+			num = ft_atoi(tmp[i], ps);
+			ps->check_repeat = num;
 			check_repeated(ps, ps->a);
-			ft_stackadd_back(&ps->a, ft_stacknew(i));
-			ps->index += 1;
+			ft_stackadd_back(&ps->a, ft_stacknew(num));
+			i++;
 		}
+		clean_split(tmp);
 		arg += 1;
 	}
 	if (ps->a == NULL)
 		exit(1);
-	print_stacks(ps);
-	
+	start_push_swap(argc, argv, ps);
 }
 
 int	main(int argc, char **argv)

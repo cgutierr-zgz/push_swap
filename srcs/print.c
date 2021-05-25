@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:05:43 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/25 17:38:06 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/25 19:40:25 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ void	print_error(t_push_swap *ps, char *msg)
 	write(1, "Error\n", 7);
 	ft_stackclear(&ps->a, free);
 	ft_stackclear(&ps->b, free);
-	if (0)
-		printf("%s\n[%d] : Value \"%s\"\n", msg, ps->index, ps->argv);
+	if (1)
+		printf("%s\nValue [%s]\n", msg, ps->argv);
 	if (0)
 		system("leaks push_swap");
 	exit(1);
