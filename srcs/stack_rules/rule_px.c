@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 20:04:57 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/25 16:12:54 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/25 19:56:54 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Toma el primer elemento en la parte superior de y y ponerlo en la
 parte superior de x. No hace nada si y está vacío.
 */
 
-void rule_px(t_push_swap *ps, char identifier)
+void	rule_px(t_push_swap *ps, char identifier)
 {
 	ps->num_movements += 1;
 	if (identifier == 'a')
@@ -32,8 +32,8 @@ void rule_px(t_push_swap *ps, char identifier)
 				ps->b = ps->b->next;
 		}
 		write(1, "pa\n", 4);
-	}else 
-	if (identifier == 'b')
+	}
+	else if (identifier == 'b')
 	{
 		if (ps->a)
 		{

@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 14:57:29 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/25 17:35:16 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/25 19:55:47 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	return_value(const char *str, t_push_swap *ps, long x, int isneg)
 	if (*str != '\0')
 		print_error(ps, "There should be no content after the number");
 	if (x * isneg > INT_MAX || x * isneg < INT_MIN)
-		print_error(ps, "Value is bigger or smaller than INT_MAX or INT_MIN");
+		print_error(ps, "Number is bigger or smaller than INT_MAX or INT_MIN");
 	return (x * isneg);
 }
 
@@ -38,7 +38,7 @@ int	ft_atoi(const char *str, t_push_swap *ps)
 	else if (*str == '+')
 		str++;
 	if (*str == '\0' || *str < '0' || *str > '9')
-		print_error(ps, "Invalid value");
+		print_error(ps, "Invalid number");
 	while (*str >= '0' && *str <= '9')
 	{
 		x = x * 10 + (*str - '0');

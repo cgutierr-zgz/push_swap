@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/25 19:49:50 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/25 19:55:55 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void	check_repeated(t_push_swap *ps, t_stack *a)
 		while (a)
 		{
 			if (ps->check_repeat == a->num)
-				print_error(ps, "Repeated value");
+				print_error(ps, "Repeated number");
 			ptr = a->next;
 			a = ptr;
 		}
