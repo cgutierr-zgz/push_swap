@@ -6,7 +6,7 @@
 #    By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/09 14:13:26 by cgutierr          #+#    #+#              #
-#    Updated: 2021/05/24 20:52:20 by cgutierr         ###   ########.fr        #
+#    Updated: 2021/05/25 19:07:47 by cgutierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,7 +73,7 @@ LIGHT_CYAN	:="\033[1;36m"
 WHITE		:="\033[1;37m"
 RESET		:="\x1b[0m"
 
-ARG				=	$(shell seq 0 1000 | sort -R | tail -n 5)
+ARG				=	$(shell seq -s " " 0 1000 | sort -R | tail -n 15)
 
 exe:			$(NAME)
 				./push_swap $(ARG)

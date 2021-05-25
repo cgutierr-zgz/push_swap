@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:05:43 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/24 20:00:27 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/25 17:38:06 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ static void	print_lst(int i)
 
 void	print_stacks(t_push_swap *ps)
 {
-	printf("\tSTACK A\n");
+	write(1, "\n\tSTACK A\n", 10);
 	ft_stackiter(ps->a, print_lst);
-	printf("\n\tSTACK B\n");
+	write(1, "\tSTACK B\n", 10);
 	ft_stackiter(ps->b, print_lst);
 }
 
 void	print_error(t_push_swap *ps, char *msg)
 {
-	printf("Error\n");
+	write(1, "Error\n", 7);
 	ft_stackclear(&ps->a, free);
 	ft_stackclear(&ps->b, free);
 	if (0)

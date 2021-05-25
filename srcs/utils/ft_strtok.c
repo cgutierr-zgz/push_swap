@@ -6,13 +6,21 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 14:57:29 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/20 21:57:52 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/25 19:06:06 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
+/*
+"SAOSAO\0SA\012" " "
+sooaskkop 12 12 1 a a 
+" " -> ' ' <- strchr " \n"
 
-char *ft_strtok1(char *s, const char *delim)
+
+static char *str *1 \0
+*/
+
+char *ft_strtok(char *s, const char *delim)
 {
 	char *spanp;
 	int c;
@@ -22,7 +30,6 @@ char *ft_strtok1(char *s, const char *delim)
 
 	if (s == NULL && (s = last) == NULL)
 		return NULL;
-
 cont:
 	c = *s++;
 	spanp = (char *)delim;
@@ -37,7 +44,6 @@ cont:
 		return (NULL);
 	}
 	tok = s - 1;
-
 	while (1)
 	{
 		c = *s++;
@@ -63,9 +69,9 @@ cont:
 				return (tok);
 			}
 		}
-		}
+	}
 }
-
+/*
 char *ft_strtok(char *s, const char *delim)
 {
 	register char *spanp;
@@ -76,9 +82,6 @@ char *ft_strtok(char *s, const char *delim)
 	if (s == NULL && (s = last) == NULL)
 		return (NULL);
 
-	/*
-	 * Skip (span) leading delimiters (s += strspn(s, delim), sort of).
-	 */
 cont:
 	c = *s++;
 	for (spanp = (char *)delim; (sc = *spanp++) != 0;)
@@ -88,16 +91,11 @@ cont:
 	}
 
 	if (c == 0)
-	{ /* no non-delimiter characters */
+	{ 
 		last = NULL;
 		return (NULL);
 	}
 	tok = s - 1;
-
-	/*
-	 * Scan token (scan for delimiters: s += strcspn(s, delim), sort of).
-	 * Note that delim must have one NUL; we stop if we see that, too.
-	 */
 
 	for (;;)
 	{
@@ -117,3 +115,4 @@ cont:
 		} while (sc != 0);
 	}
 }
+*/

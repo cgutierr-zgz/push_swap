@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 20:04:57 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/24 20:40:29 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/25 19:00:24 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ static void	operation(t_stack *x)
 
 void	rule_sx(t_push_swap *ps, char identifier)
 {
+	ps->num_movements += 1;
 	if (identifier == 'a')
 	{
 		if (ps->a && ps->a->next)
@@ -42,7 +43,7 @@ void	rule_sx(t_push_swap *ps, char identifier)
 			operation(ps->b);
 		write(1, "sb\n", 4);
 	}
-	else if (identifier == 'x')
+	else if (identifier == 's')
 	{
 		if (ps->a && ps->a->next)
 			operation(ps->a);

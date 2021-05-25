@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 20:04:57 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/24 21:18:20 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/25 16:12:54 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,35 +19,29 @@ Toma el primer elemento en la parte superior de y y ponerlo en la
 parte superior de x. No hace nada si y está vacío.
 */
 
-static void	operation(t_stack *x, t_stack *y)
+void rule_px(t_push_swap *ps, char identifier)
 {
-	//TODO: Fix this >:(
-	ft_stackadd_front(&x, ft_stacknew(y->num));
-	if(y->next)
-	{
-		y->num = y->next->num;
-		y->next = NULL;
-		ft_stackdelone(y->next);
-	}
-	else
-	{
-		y = NULL;
-		ft_stackdelone(y);
-	}
-}
-
-void	rule_px(t_push_swap *ps, char identifier)
-{
+	ps->num_movements += 1;
 	if (identifier == 'a')
 	{
 		if (ps->b)
-			operation(ps->a, ps->b);
+		{
+			ft_stackadd_front(&ps->a, ft_stacknew(ps->b->num));
+			ft_stackdelone(ps->b);
+			if (ps->b->next)
+				ps->b = ps->b->next;
+		}
 		write(1, "pa\n", 4);
-	}
-	else if (identifier == 'b')
+	}else 
+	if (identifier == 'b')
 	{
 		if (ps->a)
-			operation(ps->b, ps->a);
+		{
+			ft_stackadd_front(&ps->b, ft_stacknew(ps->a->num));
+			ft_stackdelone(ps->a);
+			if (ps->a->next)
+				ps->a = ps->a->next;
+		}
 		write(1, "pb\n", 4);
 	}
 }

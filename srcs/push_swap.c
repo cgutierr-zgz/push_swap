@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/24 21:17:07 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/25 18:59:09 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	check_repeated(t_push_swap *ps, t_stack *a)
 	}
 }
 
-static void	init_args(int argc, char **argv, t_push_swap *ps)
+void	init_args(int argc, char **argv, t_push_swap *ps)
 {
 	char	*tmp;
 	int		i;
@@ -51,12 +51,10 @@ static void	init_args(int argc, char **argv, t_push_swap *ps)
 		}
 		arg += 1;
 	}
-	ft_stackadd_back(&ps->b, ft_stacknew(12));
-	ft_stackadd_back(&ps->b, ft_stacknew(32));
+	if (ps->a == NULL)
+		exit(1);
 	print_stacks(ps);
-	//rule_sx(ps, 'b');
-	rule_px(ps, 'b');
-	print_stacks(ps);
+	
 }
 
 int	main(int argc, char **argv)
@@ -65,8 +63,9 @@ int	main(int argc, char **argv)
 	t_stack		*a;
 	t_stack		*b;
 
+	ps.num_movements = 0;
 	if (argc < 2)
-		print_error(&ps, "Not enough arguments");
+		return (1);
 	init_args(argc, argv, &ps);
 	return (0);
 }
