@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 20:04:57 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/25 19:56:54 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/25 20:04:52 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,21 @@ push x
 Toma el primer elemento en la parte superior de y y ponerlo en la
 parte superior de x. No hace nada si y está vacío.
 */
+/*TODO:
+static void	operation(t_stack *a, t_stack *b)
+{
+	ft_stackadd_front(&a, ft_stacknew(b->num));
+	ft_stackdelone(b);
+	if (b->next)
+		b = b->next;
+}*/
 
 void	rule_px(t_push_swap *ps, char identifier)
 {
 	ps->num_movements += 1;
 	if (identifier == 'a')
 	{
-		if (ps->b)
+		if (ps->b) // ps->a, ps->b
 		{
 			ft_stackadd_front(&ps->a, ft_stacknew(ps->b->num));
 			ft_stackdelone(ps->b);
