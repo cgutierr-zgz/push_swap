@@ -6,9 +6,11 @@
 #    By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/09 14:13:26 by cgutierr          #+#    #+#              #
-#    Updated: 2021/05/26 20:05:19 by cgutierr         ###   ########.fr        #
+#    Updated: 2021/05/26 20:12:20 by cgutierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+#https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a
 
 DAY				=	$(shell date +'%d/%m/%Y %H:%M')
 
@@ -75,8 +77,7 @@ LIGHT_CYAN	:="\033[1;36m"
 WHITE		:="\033[1;37m"
 RESET		:="\x1b[0m"
 
-# ARG=$(seq -s ' ' 0 1000 | sort -R | tail -n 5)
-ARG				:=	$(shell seq 0 1000 | sort -R | tail -n 98329)
+ARG				:=	$(shell seq 0 1000 | sort -R | tail -n 99)
 
 exe:			$(NAME)
 				./push_swap $(ARG)
@@ -87,7 +88,8 @@ count:			$(NAME)
 check:			$(NAME)
 				./push_swap $(ARG) | ./checker_Mac $(ARG)
 
-# 582 937 46 538 | ./checker_Mac 377 585 746 224
+valgrind:		$(NAME)
+				valgrind --leak-check=full --track-origins=yes --log-file=./valgrind-out.txt ./push_swap $(ARG)
 
 # VALGRIND
 #         --leak-check=full \ Each individual leak will be shown in detail
@@ -98,8 +100,6 @@ check:			$(NAME)
 #         ./executable exampleParam1
 # @valgrind --leak-check=full --track-origins=yes --log-file=./resources/info/valgrind-out.txt ./cub3D resources/maps/map01.cub --save || true
 
-valgrind:		$(NAME)
-				valgrind --leak-check=full --track-origins=yes ./push_swap $(ARG)
 
 git:
 				@echo $(YELLOW)Status:$(RESET)
