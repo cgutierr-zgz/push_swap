@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/26 18:02:07 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/26 18:26:39 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,14 @@ void	sort_three(t_push_swap *ps)
 
 void	put_smaller_on_top(t_stack *lst, t_push_swap *ps)
 {
-	int		smaller;
 	t_stack	*ptr;
+	int		smaller;
+	int		position;
+	int		aux;
 
 	smaller = 0;
+	position = 0;
+	aux = 0;
 	if (lst)
 	{
 		while (lst)
@@ -53,12 +57,21 @@ void	put_smaller_on_top(t_stack *lst, t_push_swap *ps)
 			if(!smaller)
 				smaller = lst->num;
 			if(lst->num < smaller)
+			{
 				smaller = lst->num;
+				position = aux;
+			}
+			aux += 1;
 			lst = ptr;
 		}
 	}
 	while (ps->a->num != smaller)
-		rule_rx_rrx(ps, 'a', 1);
+	{
+		if( position >= (ft_stacksize(ps->a) / 2))
+			rule_rx_rrx(ps, 'a', 2); // 
+		else
+			rule_rx_rrx(ps, 'a', 1); // 
+	}
 }
 
 void	start_push_swap(int argc, char **argv, t_push_swap *ps)
@@ -86,6 +99,7 @@ void	start_push_swap(int argc, char **argv, t_push_swap *ps)
 	{
 		put_smaller_on_top(ps->a, ps);
 		rule_px(ps, 'b');
+		put_smaller_on_top(ps->a, ps);
 		rule_px(ps, 'b');
 		sort_three(ps);
 		rule_px(ps, 'a');
