@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/26 16:59:13 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/26 17:57:21 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	exit_push_swap(t_push_swap *ps)
 {
-	if (0)
+	if (1)
 	{
 		print_stacks(ps);
 		printf("\nMovements: %d\n", ps->num_movements);
