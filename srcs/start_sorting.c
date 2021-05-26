@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/26 18:26:39 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/26 18:29:32 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,5 @@ void	start_push_swap(int argc, char **argv, t_push_swap *ps)
 		rule_px(ps, 'a');
 		rule_px(ps, 'a');
 	}
-	// pa 4 poner el mas peque arriba y moverlo a b hacer 3 en a y meter de b a ->>a
-	// pa5 poner el mas peque arriba y ell segundo mas peque abajo y moverlo a b hacer 3 en a y meter de b a ->>a x 2
 	exit_push_swap(ps);
 }
