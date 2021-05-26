@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 18:11:48 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/25 19:41:48 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/26 11:52:06 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ void	print_stacks(t_push_swap *ps);
 // Stack rules
 void	rule_sx(t_push_swap *ps, char identifier);
 void	rule_px(t_push_swap *ps, char identifier);
+void	rule_rx_rrx(t_push_swap *ps, char identifier, int operation);
 
 // Stack functions
 void	ft_stackadd_back(t_stack **lst, t_stack *new);
