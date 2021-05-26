@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/26 18:54:38 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/26 18:56:52 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ void	start_push_swap(int argc, char **argv, t_push_swap *ps)
 	{
 		int x;
 		x = 0;
-		while (x < size - 1)
+		while (x < size - 3)
 		{
 			put_smaller_on_top(ps->a, ps);
 			rule_px(ps, 'b');
@@ -116,10 +116,8 @@ void	start_push_swap(int argc, char **argv, t_push_swap *ps)
 		sort_three(ps);
 		rule_px(ps, 'a');
 		x = 0;
-		while (x < size - 1)
-		{
+		while (x < size -3 )
 			rule_px(ps, 'a');
-		}
 		
 	}
 	exit_push_swap(ps);
