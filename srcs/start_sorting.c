@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/26 15:58:51 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/26 16:15:37 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	sort_three(t_push_swap *ps)
 	if (ps->a->num > ps->a->next->num && ps->a->num < ps->a->next->next->num
 		&& ps->a->next->num < ps->a->next->next->num)
 		rule_sx(ps, 'a');
-	else if (ps->a->num > ps->a->next->num && ps->a->num >
-		ps->a->next->next->num && ps->a->next->num > ps->a->next->next->num)
+	else if (ps->a->num > ps->a->next->num && ps->a->num
+		> ps->a->next->next->num && ps->a->next->num > ps->a->next->next->num)
 	{
 		rule_sx(ps, 'a');
 		rule_rx_rrx(ps, 'a', 2);
@@ -37,7 +37,7 @@ void	sort_three(t_push_swap *ps)
 		rule_rx_rrx(ps, 'a', 2);
 }
 
-void start_push_swap(int argc, char **argv, t_push_swap *ps)
+void	start_push_swap(int argc, char **argv, t_push_swap *ps)
 {
 	int	size;
 
