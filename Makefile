@@ -6,7 +6,7 @@
 #    By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/09 14:13:26 by cgutierr          #+#    #+#              #
-#    Updated: 2021/05/26 18:56:27 by cgutierr         ###   ########.fr        #
+#    Updated: 2021/05/26 19:10:35 by cgutierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,7 +76,7 @@ WHITE		:="\033[1;37m"
 RESET		:="\x1b[0m"
 
 # ARG=$(seq -s ' ' 0 1000 | sort -R | tail -n 5)
-ARG				=	$(shell seq 0 1000 | sort -R | tail -n 20)
+ARG				=	$(shell seq 0 1000 | sort -R | tail -n 5)
 
 exe:			$(NAME)
 				./push_swap $(ARG)

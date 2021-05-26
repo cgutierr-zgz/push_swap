@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/26 18:56:52 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/26 19:21:47 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,24 +39,20 @@ void	sort_three(t_push_swap *ps)
 		rule_rx_rrx(ps, 'a', 2);
 }
 
-void	put_smaller_on_top(t_stack *lst, t_push_swap *ps)
+static void	aux_smaller(t_stack *lst, int smaller, int position)
 {
 	t_stack	*ptr;
-	int		smaller;
-	int		position;
 	int		aux;
 
-	smaller = 0;
-	position = 0;
 	aux = 0;
 	if (lst)
 	{
 		while (lst)
 		{
 			ptr = lst->next;
-			if(!smaller)
+			if (!smaller)
 				smaller = lst->num;
-			if(lst->num < smaller)
+			if (lst->num < smaller)
 			{
 				smaller = lst->num;
 				position = aux;
@@ -65,12 +61,42 @@ void	put_smaller_on_top(t_stack *lst, t_push_swap *ps)
 			lst = ptr;
 		}
 	}
+}
+
+void	put_smaller_on_top(t_stack *lst, t_push_swap *ps)
+{
+	int		smaller;
+	int		position;
+
+	smaller = 0;
+	position = 0;
+	aux_smaller(lst, smaller, position);
 	while (ps->a->num != smaller)
 	{
-		if( position >= (ft_stacksize(ps->a) / 2))
-			rule_rx_rrx(ps, 'a', 2); // 
+		if (position >= (ft_stacksize(ps->a) / 2))
+			rule_rx_rrx(ps, 'a', 2);
 		else
-			rule_rx_rrx(ps, 'a', 1); // 
+			rule_rx_rrx(ps, 'a', 1);
+	}
+}
+
+void	sort_more(t_push_swap *ps, int size)
+{
+	int	x;
+
+	x = 0;
+	while (x < size - 3)
+	{
+		put_smaller_on_top(ps->a, ps);
+		rule_px(ps, 'b');
+		x++;
+	}
+	sort_three(ps);
+	x = 0;
+	while (x < size - 3)
+	{
+		rule_px(ps, 'a');
+		x++;
 	}
 }
 
@@ -88,37 +114,7 @@ void	start_push_swap(int argc, char **argv, t_push_swap *ps)
 	}
 	else if (size == 3)
 		sort_three(ps);
-	else if (size <= 5)
-	{
-		if(size == 5)
-		{
-			put_smaller_on_top(ps->a, ps);
-			rule_px(ps, 'b');
-		}
-		put_smaller_on_top(ps->a, ps);
-		rule_px(ps, 'b');
-		sort_three(ps);
-		rule_px(ps, 'a');
-		if(size == 5)
-			rule_px(ps, 'a');
-	}else if( size <= 20)
-	{
-		int x;
-		x = 0;
-		while (x < size - 3)
-		{
-			put_smaller_on_top(ps->a, ps);
-			rule_px(ps, 'b');
-			x++;
-		}
-		put_smaller_on_top(ps->a, ps);
-		rule_px(ps, 'b');
-		sort_three(ps);
-		rule_px(ps, 'a');
-		x = 0;
-		while (x < size -3 )
-			rule_px(ps, 'a');
-		
-	}
+	else// if (size <= 20)
+		sort_more(ps, size);
 	exit_push_swap(ps);
 }
