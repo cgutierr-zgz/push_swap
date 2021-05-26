@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:05:43 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/26 15:49:22 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/26 15:56:53 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@ void	print_stacks(t_push_swap *ps)
 {
 	write(1, "\n\tSTACK A\n", 10);
 	ft_stackiter(ps->a, print_lst);
-	write(1, "\tSTACK B\n", 10);
+	write(1, "\n\tSTACK B\n", 11);
 	ft_stackiter(ps->b, print_lst);
+	write(1, "\n", 2);
 }
 
 void	print_error(t_push_swap *ps, char *msg)
