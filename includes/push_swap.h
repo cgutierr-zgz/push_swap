@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 18:11:48 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/26 11:52:06 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/26 12:20:03 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,12 @@ typedef struct s_push_swap
 
 // Main functions
 void	print_error(t_push_swap *ps, char *msg);
+void	print_stacks(t_push_swap *ps);
+void	start_push_swap(int argc, char **argv, t_push_swap *ps);
 
 // Util functions
 int		ft_atoi(const char *str, t_push_swap *ps);
 char	**ft_split(char const *s, char c);
-void	print_stacks(t_push_swap *ps);
 
 // Stack rules
 void	rule_sx(t_push_swap *ps, char identifier);

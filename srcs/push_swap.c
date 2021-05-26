@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/26 11:56:20 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/26 12:20:08 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,18 +40,6 @@ static void	check_repeated(t_push_swap *ps, t_stack *a)
 			a = ptr;
 		}
 	}
-}
-
-
-
-static void	start_push_swap(int argc, char **argv, t_push_swap *ps)
-{
-	print_stacks(ps);
-	rule_rx_rrx(ps, 'r', 2);
-	print_stacks(ps);
-	if (0)
-		system("leaks push_swap");
-	exit(0);
 }
 
 static void	init_args(int argc, char **argv, t_push_swap *ps)

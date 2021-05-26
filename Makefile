@@ -6,7 +6,7 @@
 #    By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/09 14:13:26 by cgutierr          #+#    #+#              #
-#    Updated: 2021/05/26 11:50:20 by cgutierr         ###   ########.fr        #
+#    Updated: 2021/05/26 12:21:22 by cgutierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ NAME			=	push_swap
 
 SRCS			=	srcs/push_swap.c \
 					srcs/print.c \
+					srcs/start_sorting.c \
 					srcs/stack_utils/ft_stackadd_back.c \
 					srcs/stack_utils/ft_stackadd_front.c \
 					srcs/stack_utils/ft_stackclear.c \
@@ -75,7 +76,7 @@ WHITE		:="\033[1;37m"
 RESET		:="\x1b[0m"
 
 # ARG=$(seq -s ' ' 0 1000 | sort -R | tail -n 5)
-ARG				=	$(shell seq 0 1000 | sort -R | tail -n 5)
+ARG				=	$(shell seq 0 1000 | sort -R | tail -n 20)
 
 exe:			$(NAME)
 				./push_swap $(ARG)
