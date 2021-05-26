@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 20:04:57 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/26 16:34:07 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/26 19:45:59 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,11 @@ void	rule_px(t_push_swap *ps, char identifier)
 	if (identifier == 'a')
 	{
 		pa(&ps);
-		write(1, "pa\n", 4);
+		write(1, "pa\n", 3);
 	}
 	else if (identifier == 'b')
 	{
 		pb(&ps);
-		write(1, "pb\n", 4);
+		write(1, "pb\n", 3);
 	}
 }

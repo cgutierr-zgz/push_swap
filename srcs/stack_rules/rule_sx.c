@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 20:04:57 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/26 11:51:05 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/26 19:46:06 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ void	rule_sx(t_push_swap *ps, char identifier)
 	{
 		if (ps->a && ps->a->next)
 			swap(ps->a);
-		write(1, "sa\n", 4);
+		write(1, "sa\n", 3);
 	}
 	else if (identifier == 'b')
 	{
 		if (ps->b && ps->b->next)
 			swap(ps->b);
-		write(1, "sb\n", 4);
+		write(1, "sb\n", 3);
 	}
 	else if (identifier == 's')
 	{
@@ -49,6 +49,6 @@ void	rule_sx(t_push_swap *ps, char identifier)
 			swap(ps->a);
 		if (ps->b && ps->b->next)
 			swap(ps->b);
-		write(1, "ss\n", 4);
+		write(1, "ss\n", 3);
 	}
 }

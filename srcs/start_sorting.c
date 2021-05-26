@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/26 19:28:00 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/26 19:35:29 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,13 +68,15 @@ void	put_smaller_on_top(t_stack *lst, t_push_swap *ps)
 	int		smaller;
 	int		position;
 	int		aux;
+	int		size;
 
+	size = ft_stacksize(ps->a);
 	smaller = 0;
 	position = 0;
 	sort(&lst, &position, &ptr, &smaller);
 	while (ps->a->num != smaller)
 	{
-		if (position >= (ft_stacksize(ps->a) / 2))
+		if (position >= (size / 2))
 			rule_rx_rrx(ps, 'a', 2);
 		else
 			rule_rx_rrx(ps, 'a', 1);

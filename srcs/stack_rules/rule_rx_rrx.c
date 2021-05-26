@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 11:44:56 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/26 17:56:25 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/26 19:45:52 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,18 +54,18 @@ static void	rule_rrx(t_push_swap *ps, char identifier)
 	if (identifier == 'a')
 	{
 		rotate(&ps->a, ft_stacksize(ps->a) - 1);
-		write(1, "rra\n", 5);
+		write(1, "rra\n", 4);
 	}
 	else if (identifier == 'b')
 	{
 		rotate(&ps->b, ft_stacksize(ps->b) - 1);
-		write(1, "rrb\n", 5);
+		write(1, "rrb\n", 4);
 	}
 	else if (identifier == 'r')
 	{
 		rotate(&ps->a, ft_stacksize(ps->a) - 1);
 		rotate(&ps->b, ft_stacksize(ps->b) - 1);
-		write(1, "rrr\n", 5);
+		write(1, "rrr\n", 4);
 	}
 }
 
@@ -74,18 +74,18 @@ static void	rule_rx(t_push_swap *ps, char identifier)
 	if (identifier == 'a')
 	{
 		rotate(&ps->a, 1);
-		write(1, "ra\n", 4);
+		write(1, "ra\n", 3);
 	}
 	else if (identifier == 'b')
 	{
 		rotate(&ps->b, 1);
-		write(1, "rb\n", 4);
+		write(1, "rb\n", 3);
 	}
 	else if (identifier == 'r')
 	{
 		rotate(&ps->a, 1);
 		rotate(&ps->b, 1);
-		write(1, "rr\n", 4);
+		write(1, "rr\n", 3);
 	}
 }
 
