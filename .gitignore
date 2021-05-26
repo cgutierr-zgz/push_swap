@@ -6,3 +6,4 @@ push_swap
 ._*
 push_swap.dSYM
 *.dSYM
+.vscode
