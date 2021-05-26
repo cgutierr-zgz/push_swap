@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/26 14:46:36 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/26 15:53:50 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void start_push_swap(int argc, char **argv, t_push_swap *ps)
 {
 	int	size;
 
+	print_stacks(ps);
 	size = ft_stacksize(ps->a);
 	if (size == 1)
 		exit_push_swap(ps);
@@ -60,9 +61,11 @@ void start_push_swap(int argc, char **argv, t_push_swap *ps)
 		rule_px(ps, 'b');
 		rule_px(ps, 'b');
 		sort_three(ps);
-		rule_px(ps, 'a');
+	rule_px(ps, 'a');
 		rule_rx_rrx(ps, 'a', 1);
+		print_stacks(ps);
 		rule_px(ps, 'a');
+		//FIXME:
 		exit_push_swap(ps);
 	}
 	//exit(0);
