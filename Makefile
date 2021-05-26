@@ -6,7 +6,7 @@
 #    By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/09 14:13:26 by cgutierr          #+#    #+#              #
-#    Updated: 2021/05/26 18:42:51 by cgutierr         ###   ########.fr        #
+#    Updated: 2021/05/26 18:48:55 by cgutierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,6 +80,11 @@ ARG				=	$(shell seq 0 1000 | sort -R | tail -n 4)
 
 exe:			$(NAME)
 				./push_swap $(ARG)
+
+check:			$(NAME)
+				./push_swap $(ARG) | ./checker_Mac $(ARG)
+
+# 582 937 46 538 | ./checker_Mac 377 585 746 224
 
 # VALGRIND
 #         --leak-check=full \ Each individual leak will be shown in detail

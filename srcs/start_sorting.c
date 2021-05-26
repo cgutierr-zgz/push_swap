@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/26 18:42:48 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/26 18:52:45 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	start_push_swap(int argc, char **argv, t_push_swap *ps)
 	}
 	else if (size == 3)
 		sort_three(ps);
-	else if (size == 5 || size == 4)
+	else if (size <= 5)
 	{
 		if(size == 5)
 		{
@@ -99,7 +99,8 @@ void	start_push_swap(int argc, char **argv, t_push_swap *ps)
 		rule_px(ps, 'b');
 		sort_three(ps);
 		rule_px(ps, 'a');
-		rule_px(ps, 'a');
+		if(size == 5)
+			rule_px(ps, 'a');
 	}
 	exit_push_swap(ps);
 }
