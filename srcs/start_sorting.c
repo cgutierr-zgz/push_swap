@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/26 19:21:47 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/26 19:28:00 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,38 +39,39 @@ void	sort_three(t_push_swap *ps)
 		rule_rx_rrx(ps, 'a', 2);
 }
 
-static void	aux_smaller(t_stack *lst, int smaller, int position)
+static void	sort(t_stack **lst, int *position, t_stack **ptr, int *smaller)
 {
-	t_stack	*ptr;
-	int		aux;
+	int	aux;
 
 	aux = 0;
-	if (lst)
+	if (*lst)
 	{
-		while (lst)
+		while (*lst)
 		{
-			ptr = lst->next;
-			if (!smaller)
-				smaller = lst->num;
-			if (lst->num < smaller)
+			*ptr = (*lst)->next;
+			if (!*smaller)
+				*smaller = (*lst)->num;
+			if ((*lst)->num < *smaller)
 			{
-				smaller = lst->num;
-				position = aux;
+				*smaller = (*lst)->num;
+				*position = aux;
 			}
 			aux += 1;
-			lst = ptr;
+			*lst = *ptr;
 		}
 	}
 }
 
 void	put_smaller_on_top(t_stack *lst, t_push_swap *ps)
 {
+	t_stack	*ptr;
 	int		smaller;
 	int		position;
+	int		aux;
 
 	smaller = 0;
 	position = 0;
-	aux_smaller(lst, smaller, position);
+	sort(&lst, &position, &ptr, &smaller);
 	while (ps->a->num != smaller)
 	{
 		if (position >= (ft_stacksize(ps->a) / 2))
