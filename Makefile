@@ -6,7 +6,7 @@
 #    By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/09 14:13:26 by cgutierr          #+#    #+#              #
-#    Updated: 2021/05/26 14:48:23 by cgutierr         ###   ########.fr        #
+#    Updated: 2021/05/26 16:50:59 by cgutierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ NAME			=	push_swap
 SRCS			=	srcs/push_swap.c \
 					srcs/print.c \
 					srcs/start_sorting.c \
+					srcs/check_order.c \
 					srcs/stack_utils/ft_stackadd_back.c \
 					srcs/stack_utils/ft_stackadd_front.c \
 					srcs/stack_utils/ft_stackclear.c \

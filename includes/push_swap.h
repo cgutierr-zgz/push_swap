@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 18:11:48 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/26 14:57:20 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/26 16:48:17 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ void	print_error(t_push_swap *ps, char *msg);
 void	print_stacks(t_push_swap *ps);
 void	start_push_swap(int argc, char **argv, t_push_swap *ps);
 void	exit_push_swap(t_push_swap *ps);
+int		check_order(t_stack *lst); // Returns 1 if it's not sorted, 0 if it is
 
 // Util functions
 int		ft_atoi(const char *str, t_push_swap *ps);
