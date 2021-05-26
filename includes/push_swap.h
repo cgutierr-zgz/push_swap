@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 18:11:48 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/26 12:20:03 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/26 13:04:31 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <stdlib.h> // malloc, free
 # include <stdio.h> // printf
 # include <limits.h> // MAX_INT
-# include <string.h> // strtok TODO: Implementar el mío
 
 # define RESET				"\x1b[0m"
 # define WHITE				"\x1b[1m"
@@ -83,7 +82,6 @@ void	ft_stackdelone(t_stack *lst);
 void	ft_stackiter(t_stack *lst, void (*f)(int));
 t_stack	*ft_stacklast(t_stack *lst);
 t_stack	*ft_stacklast(t_stack *lst);
-t_stack	*ft_lstmap(t_stack *ls, void (*dl)(void *));
 t_stack	*ft_stacknew(int num);
 int		ft_stacksize(t_stack *lst);
 
