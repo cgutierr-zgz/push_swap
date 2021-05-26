@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/26 19:35:29 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/26 20:00:19 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	sort_three(t_push_swap *ps)
 		rule_rx_rrx(ps, 'a', 2);
 }
 
-static void	sort(t_stack **lst, int *position, t_stack **ptr, int *smaller)
+static void	sort(t_stack **lst, int *position, t_stack **ptr, long *smaller)
 {
 	int	aux;
 
@@ -49,7 +49,7 @@ static void	sort(t_stack **lst, int *position, t_stack **ptr, int *smaller)
 		while (*lst)
 		{
 			*ptr = (*lst)->next;
-			if (!*smaller)
+			if (*smaller == -2147483649)
 				*smaller = (*lst)->num;
 			if ((*lst)->num < *smaller)
 			{
@@ -65,13 +65,13 @@ static void	sort(t_stack **lst, int *position, t_stack **ptr, int *smaller)
 void	put_smaller_on_top(t_stack *lst, t_push_swap *ps)
 {
 	t_stack	*ptr;
-	int		smaller;
+	long	smaller;
 	int		position;
 	int		aux;
 	int		size;
 
 	size = ft_stacksize(ps->a);
-	smaller = 0;
+	smaller = -2147483649;
 	position = 0;
 	sort(&lst, &position, &ptr, &smaller);
 	while (ps->a->num != smaller)
