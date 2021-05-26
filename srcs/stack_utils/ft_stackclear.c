@@ -6,17 +6,17 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/13 19:34:52 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/20 19:46:24 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/26 14:42:25 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	ft_stackclear(t_stack **lst, void (*del)(void *))
+void	ft_stackclear(t_stack **lst)
 {
 	t_stack	*ptr;
 
-	if (lst && del && *lst)
+	if (lst && *lst)
 	{
 		while (*lst)
 		{

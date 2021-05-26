@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 18:11:48 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/26 13:04:31 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/26 14:56:24 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,20 +50,29 @@ typedef struct s_stack
 
 typedef struct s_push_swap
 {
-	// Main stacks
 	t_stack	*a;
 	t_stack	*b;
 
-	/* Error managing */
-	char	*argv;			// Current argv we are checking
-	int		check_repeat;	// Checks the values
-	int		num_movements;	// Comprobar la cantidad de movimientos que llevo
+	char	*argv;
+	int		check_repeat;
+	int		num_movements;
 }	t_push_swap;
+/*
+** Main Stacks
+** a
+** b
+**
+** Error managing
+** argv				-> Current argv we are checking
+** check_repeat		-> Checks the values
+** num_movements	-> Number of movements i made
+*/
 
 // Main functions
 void	print_error(t_push_swap *ps, char *msg);
 void	print_stacks(t_push_swap *ps);
 void	start_push_swap(int argc, char **argv, t_push_swap *ps);
+void	exit_push_swap(t_push_swap *ps);
 
 // Util functions
 int		ft_atoi(const char *str, t_push_swap *ps);
@@ -77,7 +86,7 @@ void	rule_rx_rrx(t_push_swap *ps, char identifier, int operation);
 // Stack functions
 void	ft_stackadd_back(t_stack **lst, t_stack *new);
 void	ft_stackadd_front(t_stack **alst, t_stack *new);
-void	ft_stackclear(t_stack **lst, void (*del)(void *));
+void	ft_stackclear(t_stack **lst);
 void	ft_stackdelone(t_stack *lst);
 void	ft_stackiter(t_stack *lst, void (*f)(int));
 t_stack	*ft_stacklast(t_stack *lst);
