@@ -6,7 +6,7 @@
 #    By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/09 14:13:26 by cgutierr          #+#    #+#              #
-#    Updated: 2021/05/26 20:12:20 by cgutierr         ###   ########.fr        #
+#    Updated: 2021/05/27 15:59:13 by cgutierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,9 +34,34 @@ SRCS			=	srcs/push_swap.c \
 					srcs/stack_rules/rule_px.c \
 					srcs/stack_rules/rule_rx_rrx.c
 
+SRCS_BONUS		=	srcs/print.c \
+					srcs/check_order.c \
+					srcs/stack_utils/ft_stackadd_back.c \
+					srcs/stack_utils/ft_stackadd_front.c \
+					srcs/stack_utils/ft_stackclear.c \
+					srcs/stack_utils/ft_stackdelone.c \
+					srcs/stack_utils/ft_stackiter.c \
+					srcs/stack_utils/ft_stacklast.c \
+					srcs/stack_utils/ft_stacknew.c \
+					srcs/stack_utils/ft_stacksize.c \
+					srcs/utils/ft_atoi.c \
+					srcs/utils/ft_split.c \
+					srcs/stack_rules/rule_sx.c \
+					srcs/stack_rules/rule_px.c \
+					srcs/stack_rules/rule_rx_rrx.c \
+					srcs/checker.c \
+					srcs/start_checking.c \
+					srcs/utils/get_next_line.c \
+					srcs/utils/ft_strchr.c \
+					srcs/utils/ft_strdup.c \
+					srcs/utils/ft_strjoin.c \
+					srcs/utils/ft_strlen.c
+
 HEADER			=	includes/push_swap.h
 					
 OBJS			=	$(SRCS:.c=.o)
+
+OBJS_BONUS		=	$(SRCS_BONUS:.c=.o)
 
 CC				=	gcc
 
@@ -49,6 +74,10 @@ all:			$(NAME)
 $(NAME):		$(OBJS)
 				@echo $(YELLOW)Compiling push_swap ... $(RESET)
 				$(CC) ${FLAGS} ${OBJS} -I $(HEADER) -o ${NAME}
+
+bonus:			$(OBJS_BONUS)
+				@echo $(YELLOW)Compiling checker ... $(RESET)
+				$(CC) ${FLAGS} ${OBJS_BONUS} -I $(HEADER) -o checker
 
 clean:
 				@echo $(YELLOW)Cleaning ... $(RED)
