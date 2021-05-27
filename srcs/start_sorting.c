@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/27 19:14:12 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/27 19:25:48 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,37 +117,15 @@ void	start_push_swap(int argc, char **argv, t_push_swap *ps)
 	}
 	else if (size == 3)
 		sort_three(ps);
-	else if (size <= 5)
+	else// if (size <= 5)
 		sort_more(ps, size);
-	else if (size <= 100) // 10 chunks
+	/*else if (size <= 100) // 10 chunks
 	{
 		// Dividir la lista en 4 chunks
-		
-		// [1] (0) 				-	to	-	((size / 4) - 1)
-		// [2] ((size / 4) - 1)	-	to	-	((size / 3) - 1)
-		// [3] ((size / 3) - 1)	-	to	-	((size / 2) - 1)
-		// [4] ((size / 2) - 1)	-	to	-	(size - 1)
-		/*int cuarto = size / 4;
-		printf("SIZE: %d\n", size);
-		printf("1 [%d]-[%d]\n", (0), (0 + cuarto));
-		printf("2 [%d]-[%d]\n", ((0 + cuarto) + 1), ((0 + (cuarto * 2))));
-		printf("3 [%d]-[%d]\n", ((0 + (cuarto * 2)) + 1), ((0 + (cuarto * 3))));
-		printf("4 [%d]-[%d]\n", ((0 + (cuarto * 3)) + 1), (size - 1));*/
-		int numThreads = 4;
-		int start, end;
-		int chunkSize = size / numThreads;
-		for (int i = 0; i < numThreads-1; i++) {
-			start = i* chunkSize;
-			end = start + chunkSize - 1;
-		//	InsertionSort(&array[start], end + 1);
-		}
-		//Last chunk with all the remaining content
-		start = end + 1;
-		end = size - 1;
-		//InsertionSort(&array[start], end + 1);
+		// Si son 100 números -> 0-19 20-39 40-59 60-79 80-99
 	}
 	else // 11 chunks
 	{
-	}
+	}*/
 	exit_push_swap(ps);
 }
