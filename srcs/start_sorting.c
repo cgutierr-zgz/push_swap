@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/27 19:25:48 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/27 19:38:17 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,15 +117,27 @@ void	start_push_swap(int argc, char **argv, t_push_swap *ps)
 	}
 	else if (size == 3)
 		sort_three(ps);
-	else// if (size <= 5)
+	else if (size <= 5)
 		sort_more(ps, size);
-	/*else if (size <= 100) // 10 chunks
+	else if (size <= 100)
 	{
-		// Dividir la lista en 4 chunks
+		// Dividir la lista en 5 chunks
 		// Si son 100 números -> 0-19 20-39 40-59 60-79 80-99
+		int chunkstart = 0;
+		int chunkend = 0;
+		printf("SIZE: %d\n", size);
+		for(int i = 0; i < 5; i++)
+		{
+			chunkstart = chunkend + 1;
+			chunkend += size / 5;
+		// TODO: Fix esto puede que me lo esté redondeando
+			printf("[CHUNK %d]|[%d] to [%d]\n", i + 1, chunkstart, chunkend);
+		}
+		
 	}
-	else // 11 chunks
+	else
 	{
-	}*/
+		// Dividir la lista en 11 chunks
+	}
 	exit_push_swap(ps);
 }
