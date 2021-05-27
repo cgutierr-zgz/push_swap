@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/27 15:53:34 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/27 16:26:25 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,25 @@ void	sort_three(t_push_swap *ps)
 		exit_push_swap(ps);
 	if (ps->a->num > ps->a->next->num && ps->a->num < ps->a->next->next->num
 		&& ps->a->next->num < ps->a->next->next->num)
-		rule_sx(ps, 'a');
+		rule_sx(ps, 'a', 1);
 	else if (ps->a->num > ps->a->next->num && ps->a->num
 		> ps->a->next->next->num && ps->a->next->num > ps->a->next->next->num)
 	{
-		rule_sx(ps, 'a');
-		rule_rx_rrx(ps, 'a', 2);
+		rule_sx(ps, 'a', 1);
+		rule_rx_rrx(ps, 'a', 2, 1);
 	}
 	else if (ps->a->num > ps->a->next->num && ps->a->num
 		> ps->a->next->next->num && ps->a->next->num < ps->a->next->next->num)
-		rule_rx_rrx(ps, 'a', 1);
+		rule_rx_rrx(ps, 'a', 1, 1);
 	else if (ps->a->num < ps->a->next->num && ps->a->num
 		< ps->a->next->next->num && ps->a->next->num > ps->a->next->next->num)
 	{
-		rule_sx(ps, 'a');
-		rule_rx_rrx(ps, 'a', 1);
+		rule_sx(ps, 'a', 1);
+		rule_rx_rrx(ps, 'a', 1, 1);
 	}
 	else if (ps->a->num < ps->a->next->num && ps->a->num
 		> ps->a->next->next->num && ps->a->next->num > ps->a->next->next->num)
-		rule_rx_rrx(ps, 'a', 2);
+		rule_rx_rrx(ps, 'a', 2, 1);
 }
 
 static void	sort(t_stack **lst, int *position, t_stack **ptr, long *smaller)
@@ -77,9 +77,9 @@ void	put_smaller_on_top(t_stack *lst, t_push_swap *ps)
 	while (ps->a->num != smaller)
 	{
 		if (position >= (size / 2))
-			rule_rx_rrx(ps, 'a', 2);
+			rule_rx_rrx(ps, 'a', 2, 1);
 		else
-			rule_rx_rrx(ps, 'a', 1);
+			rule_rx_rrx(ps, 'a', 1, 1);
 	}
 }
 
@@ -91,14 +91,14 @@ void	sort_more(t_push_swap *ps, int size)
 	while (x < size - 3)
 	{
 		put_smaller_on_top(ps->a, ps);
-		rule_px(ps, 'b');
+		rule_px(ps, 'b', 1);
 		x++;
 	}
 	sort_three(ps);
 	x = 0;
 	while (x < size - 3)
 	{
-		rule_px(ps, 'a');
+		rule_px(ps, 'a', 1);
 		x++;
 	}
 }
@@ -113,7 +113,7 @@ void	start_push_swap(int argc, char **argv, t_push_swap *ps)
 	else if (size == 2)
 	{
 		if (ps->a->num > ps->a->next->num)
-			rule_sx(ps, 'a');
+			rule_sx(ps, 'a', 1);
 	}
 	else if (size == 3)
 		sort_three(ps);

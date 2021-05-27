@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/27 15:53:51 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/27 16:26:00 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,51 @@
 
 void	start_checking(int argc, char **argv, t_push_swap *ps)
 {
-	int	size;
+	//get next line de las ordenes, las performeamos
+int n;
+char *line;
+int fd = 0;
+open();
+	while ((n = get_next_line(0, &line)) > 0)
+	{
+		if(line[0] == '\0')
+			break ; // TODO: No sé si esto o no hehe o una instruccion que no conozco????
 
-	size = ft_stacksize(ps->a);
-	if (!check_order(ps->a))
-		exit_push_swap(ps);
+		if (ft_strcmp("sa", line))
+			rule_sx(ps, 'a', 0);
+		else if (ft_strcmp("sb", line))
+			rule_sx(ps, 'b', 0);
+		else if (ft_strcmp("ss", line))
+			rule_sx(ps, 's', 0);
+		else if (ft_strcmp("ra", line))
+			rule_rx_rrx(ps, 'a', 1, 0);
+		else if (ft_strcmp("rb", line))
+			rule_rx_rrx(ps, 'b', 1, 0);
+		else if (ft_strcmp("rr", line))
+			rule_rx_rrx(ps, 'r', 1, 0);
+		else if (ft_strcmp("rra", line))
+			rule_rx_rrx(ps, 'a', 2, 0);
+		else if (ft_strcmp("rrb", line))
+			rule_rx_rrx(ps, 'b', 2, 0);
+		else if (ft_strcmp("rrr", line))
+			rule_rx_rrx(ps, 'r', 2, 0);
+		else if (ft_strcmp("pa", line))
+			rule_px(ps, 'a', 0);
+		else if (ft_strcmp("pb", line))
+			rule_px(ps, 'b', 0);
+		else
+			;
+			free(line);
+		if(n == 0)
+			break ;
+	}
+	
+
+	// checkorder
+
+	if(check_order(ps->a))
+		write(1, "KO\n", 3);
+	else
+		write(1, "OK\n", 3);
 	exit_push_swap(ps);
 }

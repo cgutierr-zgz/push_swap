@@ -6,7 +6,7 @@
 #    By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/09 14:13:26 by cgutierr          #+#    #+#              #
-#    Updated: 2021/05/27 15:59:13 by cgutierr         ###   ########.fr        #
+#    Updated: 2021/05/27 16:27:40 by cgutierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,8 @@ SRCS_BONUS		=	srcs/print.c \
 					srcs/utils/ft_strchr.c \
 					srcs/utils/ft_strdup.c \
 					srcs/utils/ft_strjoin.c \
-					srcs/utils/ft_strlen.c
+					srcs/utils/ft_strlen.c \
+					srcs/utils/ft_strcmp.c
 
 HEADER			=	includes/push_swap.h
 					
@@ -115,6 +116,10 @@ count:			$(NAME)
 				./push_swap $(ARG) | wc -l
 
 check:			$(NAME)
+				./push_swap $(ARG) | ./checker_Mac $(ARG)
+
+bonus_check:	$(NAME)
+				./push_swap $(ARG) | ./checker $(ARG)
 				./push_swap $(ARG) | ./checker_Mac $(ARG)
 
 valgrind:		$(NAME)

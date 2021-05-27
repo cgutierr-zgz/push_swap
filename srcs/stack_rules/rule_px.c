@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 20:04:57 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/26 19:45:59 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/27 16:23:31 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,19 @@ static void	pb(t_push_swap **ps)
 	}
 }
 
-void	rule_px(t_push_swap *ps, char identifier)
+void	rule_px(t_push_swap *ps, char identifier, int print)
 {
 	ps->num_movements += 1;
 	if (identifier == 'a')
 	{
 		pa(&ps);
-		write(1, "pa\n", 3);
+		if (print)
+			write(1, "pa\n", 3);
 	}
 	else if (identifier == 'b')
 	{
 		pb(&ps);
-		write(1, "pb\n", 3);
+		if (print)
+			write(1, "pb\n", 3);
 	}
 }

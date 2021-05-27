@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 18:11:48 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/27 15:55:26 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/27 16:25:20 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,11 +92,12 @@ char	*ft_strchr(const char *s, int c);
 char	*ft_strdup(const char *s1);
 char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlen(const char *s);
+int		ft_strcmp(const char *s1, const char *s2);
 
 // Stack rules
-void	rule_sx(t_push_swap *ps, char identifier);
-void	rule_px(t_push_swap *ps, char identifier);
-void	rule_rx_rrx(t_push_swap *ps, char identifier, int operation);
+void	rule_sx(t_push_swap *ps, char identifier, int print);
+void	rule_px(t_push_swap *ps, char identifier, int print);
+void	rule_rx_rrx(t_push_swap *ps, char identifier, int operation, int print);
 
 // Stack functions
 void	ft_stackadd_back(t_stack **lst, t_stack *new);
