@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/27 17:42:56 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/27 19:14:12 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,35 +119,35 @@ void	start_push_swap(int argc, char **argv, t_push_swap *ps)
 		sort_three(ps);
 	else if (size <= 5)
 		sort_more(ps, size);
-	else if(size <= 100) // 10 chunks
+	else if (size <= 100) // 10 chunks
 	{
-		//WIP
-		/*
-		find meidan
-		push everything below mediam to b
-		identify largest and smallet integer in b
-		determine if we should rotate up or down
-		push back to a
-		(si es grande poner abajo?)
-
-		Luego se repite con todos por encima de la median
-		*/
-	int median = get_meidan(ps->a);
-//	printf("MEDIAN=%d|\n",get_meidan(ps->a));
-		// PUSH cosas below median to b
-	//FIXME: primero tendremos que rotar esos numeros arriba ra /rra para hacer ps'a'
-	push_below_median(ps,median);
-	print_stacks(ps);
-	// identificar de grande a menor integer en B-> sort rb/rrb y pa para enviar a 'A'
-
-		////////
+		// Dividir la lista en 4 chunks
+		
+		// [1] (0) 				-	to	-	((size / 4) - 1)
+		// [2] ((size / 4) - 1)	-	to	-	((size / 3) - 1)
+		// [3] ((size / 3) - 1)	-	to	-	((size / 2) - 1)
+		// [4] ((size / 2) - 1)	-	to	-	(size - 1)
+		/*int cuarto = size / 4;
+		printf("SIZE: %d\n", size);
+		printf("1 [%d]-[%d]\n", (0), (0 + cuarto));
+		printf("2 [%d]-[%d]\n", ((0 + cuarto) + 1), ((0 + (cuarto * 2))));
+		printf("3 [%d]-[%d]\n", ((0 + (cuarto * 2)) + 1), ((0 + (cuarto * 3))));
+		printf("4 [%d]-[%d]\n", ((0 + (cuarto * 3)) + 1), (size - 1));*/
+		int numThreads = 4;
+		int start, end;
+		int chunkSize = size / numThreads;
+		for (int i = 0; i < numThreads-1; i++) {
+			start = i* chunkSize;
+			end = start + chunkSize - 1;
+		//	InsertionSort(&array[start], end + 1);
+		}
+		//Last chunk with all the remaining content
+		start = end + 1;
+		end = size - 1;
+		//InsertionSort(&array[start], end + 1);
 	}
 	else // 11 chunks
 	{
-		//WIP
-		/*
-		El mismo proceso pero lo divide por quarters instead of median
-		*/
 	}
 	exit_push_swap(ps);
 }

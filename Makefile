@@ -6,7 +6,7 @@
 #    By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/09 14:13:26 by cgutierr          #+#    #+#              #
-#    Updated: 2021/05/27 17:09:24 by cgutierr         ###   ########.fr        #
+#    Updated: 2021/05/27 18:59:16 by cgutierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,7 +66,7 @@ OBJS_BONUS		=	$(SRCS_BONUS:.c=.o)
 
 CC				=	gcc
 
-FLAGS			=	-Wall -Werror -Wextra -O3#-g3 -fsanitize=address
+FLAGS			=	-Wall -Werror -Wextra -O3 -g3 -fsanitize=address
 
 RM				=	rm -f
 
@@ -107,7 +107,7 @@ LIGHT_CYAN		:="\033[1;36m"
 WHITE			:="\033[1;37m"
 RESET			:="\x1b[0m"
 
-ARG				:=	$(shell seq 0 1000 | sort -R | tail -n 5)
+ARG				:=	$(shell seq 0 1000 | sort -R | tail -n 15)
 
 exe:			$(NAME)
 				./push_swap $(ARG)
