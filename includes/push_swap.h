@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 18:11:48 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/27 16:25:20 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/27 17:36:53 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,9 @@ void	print_error(t_push_swap *ps, char *msg);
 void	print_stacks(t_push_swap *ps);
 void	start_push_swap(int argc, char **argv, t_push_swap *ps);
 void	exit_push_swap(t_push_swap *ps);
-int		check_order(t_stack *lst); // Returns 1 if it's not sorted, 0 if it is
+int		check_order(t_stack *lst);
+int		get_meidan(t_stack *lst);
+void	push_below_median(t_push_swap *ps, int median);
 
 // Main BONUS functions
 void	start_checking(int argc, char **argv, t_push_swap *ps);

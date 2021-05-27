@@ -6,17 +6,11 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/27 16:47:00 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/27 17:10:09 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-static int	reading(int *n, char **line)
-{
-	*n = get_next_line(0, line);
-	return (*n);
-}
 
 static void	cases(t_push_swap *ps, char *line)
 {
@@ -41,6 +35,12 @@ static void	cases(t_push_swap *ps, char *line)
 		ps->argv = line;
 		print_error(ps, "Bad instruction");
 	}
+}
+
+static int	reading(int *n, char **line)
+{
+	*n = get_next_line(0, line);
+	return (*n);
 }
 
 void	start_checking(int argc, char **argv, t_push_swap *ps)
