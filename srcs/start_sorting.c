@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/27 19:38:17 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/27 19:42:38 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,13 @@ void	put_smaller_on_top(t_stack *lst, t_push_swap *ps)
 	}
 }
 
+
+float roundme(float var)
+{
+    float value = (int)(var * 100 + .5);
+    return (float)value / 100;
+}
+
 void	sort_more(t_push_swap *ps, int size)
 {
 	int	x;
@@ -123,15 +130,16 @@ void	start_push_swap(int argc, char **argv, t_push_swap *ps)
 	{
 		// Dividir la lista en 5 chunks
 		// Si son 100 números -> 0-19 20-39 40-59 60-79 80-99
-		int chunkstart = 0;
-		int chunkend = 0;
+		float chunkstart = 0;
+		float chunkend = 0;
 		printf("SIZE: %d\n", size);
+		//TODO: float step -> += roundme NO -> += step :)
 		for(int i = 0; i < 5; i++)
 		{
 			chunkstart = chunkend + 1;
-			chunkend += size / 5;
+			chunkend += roundme(size / 5);
 		// TODO: Fix esto puede que me lo esté redondeando
-			printf("[CHUNK %d]|[%d] to [%d]\n", i + 1, chunkstart, chunkend);
+			printf("[CHUNK %d]|[%f] to [%f]\n", i + 1, chunkstart, chunkend);
 		}
 		
 	}
