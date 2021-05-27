@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/27 16:26:00 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/27 16:30:35 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,8 @@ void	start_checking(int argc, char **argv, t_push_swap *ps)
 	//get next line de las ordenes, las performeamos
 int n;
 char *line;
-int fd = 0;
-open();
 	while ((n = get_next_line(0, &line)) > 0)
 	{
-		if(line[0] == '\0')
-			break ; // TODO: No sé si esto o no hehe o una instruccion que no conozco????
-
 		if (ft_strcmp("sa", line))
 			rule_sx(ps, 'a', 0);
 		else if (ft_strcmp("sb", line))
@@ -47,7 +42,10 @@ open();
 		else if (ft_strcmp("pb", line))
 			rule_px(ps, 'b', 0);
 		else
-			;
+		{
+			ps->argv = line;
+			print_error(ps, "Bad instruction");
+		}
 			free(line);
 		if(n == 0)
 			break ;

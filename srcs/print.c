@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:05:43 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/26 20:15:23 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/27 16:31:22 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,6 @@ void	print_error(t_push_swap *ps, char *msg)
 	if (0)
 		printf("%s: %s\n", msg, ps->argv);
 	if (0)
-		system("leaks push_swap");
+		system("leaks checker");
 	exit(1);
 }
