@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 15:41:17 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/27 15:45:52 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/27 16:33:38 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	exit_push_swap(t_push_swap *ps)
 		printf("\nMovements: %d\n", ps->num_movements);
 	}
 	if (0)
-		system("leaks push_swap");
+		system("leaks checker");
 	exit(0);
 }
 

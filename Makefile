@@ -6,7 +6,7 @@
 #    By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/09 14:13:26 by cgutierr          #+#    #+#              #
-#    Updated: 2021/05/27 16:27:40 by cgutierr         ###   ########.fr        #
+#    Updated: 2021/05/27 16:45:25 by cgutierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -113,17 +113,25 @@ exe:			$(NAME)
 				./push_swap $(ARG)
 
 count:			$(NAME)
+				@echo $(YELLOW)Operations performed ... $(RESET)
 				./push_swap $(ARG) | wc -l
 
 check:			$(NAME)
+				@echo $(YELLOW)Official checker ... $(RESET)
 				./push_swap $(ARG) | ./checker_Mac $(ARG)
 
-bonus_check:	$(NAME)
+check_bonus:	$(NAME)
+				@echo $(YELLOW)My checker ... $(RESET)
 				./push_swap $(ARG) | ./checker $(ARG)
+				@echo $(YELLOW)Official checker ... $(RESET)
 				./push_swap $(ARG) | ./checker_Mac $(ARG)
 
 valgrind:		$(NAME)
+				@echo $(YELLOW)Valgrind leak ... $(RESET)
 				valgrind --leak-check=full --track-origins=yes --log-file=./valgrind-out.txt ./push_swap $(ARG)
+valgrind_bonus:	$(NAME)
+				@echo $(YELLOW)Valgrind leak ... $(RESET)
+				valgrind --leak-check=full --track-origins=yes --log-file=./valgrind-out.txt ./push_swap $(ARG) | ./checker $(ARG)
 
 # VALGRIND
 #         --leak-check=full \ Each individual leak will be shown in detail
@@ -148,8 +156,8 @@ git:
 norminette:
 				@echo $(YELLOW)Norminette...
 				@echo $(GREEN)
-				@norminette $(SRCS) $(HEADER) | grep "OK" || true 
+				@norminette $(SRCS) $(SRCS_BONUS) $(HEADER) | grep "OK" || true 
 				@echo $(RED)
-				@norminette $(SRCS) $(HEADER) | grep 'Error!\|line:' || true
+				@norminette $(SRCS) $(SRCS_BONUS) $(HEADER) | grep 'Error!\|line:' || true
 			
 .PHONY:			all clean fclean re
