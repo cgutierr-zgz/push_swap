@@ -6,7 +6,7 @@
 #    By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/09 14:13:26 by cgutierr          #+#    #+#              #
-#    Updated: 2021/05/27 16:45:25 by cgutierr         ###   ########.fr        #
+#    Updated: 2021/05/27 16:45:39 by cgutierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -129,6 +129,7 @@ check_bonus:	$(NAME)
 valgrind:		$(NAME)
 				@echo $(YELLOW)Valgrind leak ... $(RESET)
 				valgrind --leak-check=full --track-origins=yes --log-file=./valgrind-out.txt ./push_swap $(ARG)
+
 valgrind_bonus:	$(NAME)
 				@echo $(YELLOW)Valgrind leak ... $(RESET)
 				valgrind --leak-check=full --track-origins=yes --log-file=./valgrind-out.txt ./push_swap $(ARG) | ./checker $(ARG)

@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/27 16:38:46 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/27 16:47:00 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,7 @@ static int	reading(int *n, char **line)
 
 static void	cases(t_push_swap *ps, char *line)
 {
-	if (ft_strcmp("sa", line))
-		rule_sx(ps, 'a', 0);
-	else if (ft_strcmp("sb", line))
-		rule_sx(ps, 'b', 0);
-	else if (ft_strcmp("ss", line))
-		rule_sx(ps, 's', 0);
-	else if (ft_strcmp("ra", line))
+	if (ft_strcmp("ra", line))
 		rule_rx_rrx(ps, 'a', 1, 0);
 	else if (ft_strcmp("rb", line))
 		rule_rx_rrx(ps, 'b', 1, 0);
@@ -56,7 +50,14 @@ void	start_checking(int argc, char **argv, t_push_swap *ps)
 
 	while (reading(&n, &line) > 0)
 	{
-		cases(ps, line);
+		if (ft_strcmp("sa", line))
+			rule_sx(ps, 'a', 0);
+		else if (ft_strcmp("sb", line))
+			rule_sx(ps, 'b', 0);
+		else if (ft_strcmp("ss", line))
+			rule_sx(ps, 's', 0);
+		else
+			cases(ps, line);
 		free(line);
 		if (n == 0)
 			break ;
