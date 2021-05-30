@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/27 19:42:38 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/31 00:36:49 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,10 +134,11 @@ void	start_push_swap(int argc, char **argv, t_push_swap *ps)
 		float chunkend = 0;
 		printf("SIZE: %d\n", size);
 		//TODO: float step -> += roundme NO -> += step :)
+		float step = roundme(size/5);
 		for(int i = 0; i < 5; i++)
 		{
 			chunkstart = chunkend + 1;
-			chunkend += roundme(size / 5);
+			chunkend += step;
 		// TODO: Fix esto puede que me lo esté redondeando
 			printf("[CHUNK %d]|[%f] to [%f]\n", i + 1, chunkstart, chunkend);
 		}
