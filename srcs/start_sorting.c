@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/31 12:40:24 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/31 14:37:55 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ void	sort_more(t_push_swap *ps, int size)
 		x++;
 	}
 }
-
+#include <math.h>
 void	start_push_swap(int argc, char **argv, t_push_swap *ps)
 {
 	int	size;
@@ -121,20 +121,24 @@ void	start_push_swap(int argc, char **argv, t_push_swap *ps)
 		sort_more(ps, size);
 	else if (size <= 100)
 	{
-		/*
 		// Dividir la lista en 5 chunks
 		// Si son 100 números -> 0-19 20-39 40-59 60-79 80-99
+
+		float chunksize = (float)size/5.0;
+		
 		float chunkstart = 0;
 		float chunkend = 0;
-		float step = roundme((float)size / (float)5);
-		printf("SIZE: %d\nSTEP: %f\n\n", size, step);
+		printf("\n\nSize: %d\n\n", size);
 		for (int i = 0; i < 5; i++)
 		{
 			chunkstart = chunkend + 1;
-			chunkend += step;
+			if(i == 4)
+				chunkend = size;
+			else
+				chunkend += round(chunksize);
 			printf("[CHUNK %d]|[%f] to [%f]\n", i + 1, chunkstart, chunkend);
+			printf("Total: %f\n\n", chunkend-chunkstart);
 		}
-		*/
 	}
 	else
 	{
