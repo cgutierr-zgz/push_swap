@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/31 14:37:55 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/31 19:13:22 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,16 +119,21 @@ void	start_push_swap(int argc, char **argv, t_push_swap *ps)
 		sort_three(ps);
 	else if (size <= 5)
 		sort_more(ps, size);
-	else if (size <= 100)
+	else
 	{
 		// Dividir la lista en 5 chunks
 		// Si son 100 números -> 0-19 20-39 40-59 60-79 80-99
 
-		float chunksize = (float)size/5.0;
+//TODO: mi propia raiz cuadrá
+		float chunksize = (size)/((sqrt(size))/2);// (float)size/5.0;
+		//si 100 son 5
+		//si 500 son 11
 		
+		// calcuar hasta llenarlo
 		float chunkstart = 0;
 		float chunkend = 0;
 		printf("\n\nSize: %d\n\n", size);
+		//TODO: Rellenar los chunks con su round chunksize o size
 		for (int i = 0; i < 5; i++)
 		{
 			chunkstart = chunkend + 1;
@@ -137,12 +142,9 @@ void	start_push_swap(int argc, char **argv, t_push_swap *ps)
 			else
 				chunkend += round(chunksize);
 			printf("[CHUNK %d]|[%f] to [%f]\n", i + 1, chunkstart, chunkend);
-			printf("Total: %f\n\n", chunkend-chunkstart);
+			printf("Total: %f\n\n", (chunkend-1)-chunkstart);
 		}
-	}
-	else
-	{
-		// Dividir la lista en 11 chunks
+		
 	}
 	exit_push_swap(ps);
 }
