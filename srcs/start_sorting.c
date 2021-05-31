@@ -6,37 +6,42 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/31 12:21:58 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/31 12:40:24 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void sort_three(t_push_swap *ps)
+void	sort_three(t_push_swap *ps)
 {
 	if (!check_order(ps->a) && ps->b == NULL)
 		exit_push_swap(ps);
-	if (ps->a->num > ps->a->next->num && ps->a->num < ps->a->next->next->num && ps->a->next->num < ps->a->next->next->num)
+	if (ps->a->num > ps->a->next->num && ps->a->num < ps->a->next->next->num
+		&& ps->a->next->num < ps->a->next->next->num)
 		rule_sx(ps, 'a', 1);
-	else if (ps->a->num > ps->a->next->num && ps->a->num > ps->a->next->next->num && ps->a->next->num > ps->a->next->next->num)
+	else if (ps->a->num > ps->a->next->num && ps->a->num
+		> ps->a->next->next->num && ps->a->next->num > ps->a->next->next->num)
 	{
 		rule_sx(ps, 'a', 1);
 		rule_rx_rrx(ps, 'a', 2, 1);
 	}
-	else if (ps->a->num > ps->a->next->num && ps->a->num > ps->a->next->next->num && ps->a->next->num < ps->a->next->next->num)
+	else if (ps->a->num > ps->a->next->num && ps->a->num
+		> ps->a->next->next->num && ps->a->next->num < ps->a->next->next->num)
 		rule_rx_rrx(ps, 'a', 1, 1);
-	else if (ps->a->num < ps->a->next->num && ps->a->num < ps->a->next->next->num && ps->a->next->num > ps->a->next->next->num)
+	else if (ps->a->num < ps->a->next->num && ps->a->num
+		< ps->a->next->next->num && ps->a->next->num > ps->a->next->next->num)
 	{
 		rule_sx(ps, 'a', 1);
 		rule_rx_rrx(ps, 'a', 1, 1);
 	}
-	else if (ps->a->num < ps->a->next->num && ps->a->num > ps->a->next->next->num && ps->a->next->num > ps->a->next->next->num)
+	else if (ps->a->num < ps->a->next->num && ps->a->num
+		> ps->a->next->next->num && ps->a->next->num > ps->a->next->next->num)
 		rule_rx_rrx(ps, 'a', 2, 1);
 }
 
-static void sort(t_stack **lst, int *position, t_stack **ptr, long *smaller)
+static void	sort(t_stack **lst, int *position, t_stack **ptr, long *smaller)
 {
-	int aux;
+	int	aux;
 
 	aux = 0;
 	if (*lst)
@@ -57,13 +62,13 @@ static void sort(t_stack **lst, int *position, t_stack **ptr, long *smaller)
 	}
 }
 
-void put_smaller_on_top(t_stack *lst, t_push_swap *ps)
+void	put_smaller_on_top(t_stack *lst, t_push_swap *ps)
 {
-	t_stack *ptr;
-	long smaller;
-	int position;
-	int aux;
-	int size;
+	t_stack	*ptr;
+	long	smaller;
+	int		position;
+	int		aux;
+	int		size;
 
 	size = ft_stacksize(ps->a);
 	smaller = -2147483649;
@@ -78,15 +83,9 @@ void put_smaller_on_top(t_stack *lst, t_push_swap *ps)
 	}
 }
 
-float roundme(float var)
+void	sort_more(t_push_swap *ps, int size)
 {
-	float value = (int)(var * 100 + 0.5);
-	return (float)value / 100;
-}
-
-void sort_more(t_push_swap *ps, int size)
-{
-	int x;
+	int	x;
 
 	x = 0;
 	while (x < size - 3)
@@ -104,9 +103,9 @@ void sort_more(t_push_swap *ps, int size)
 	}
 }
 
-void start_push_swap(int argc, char **argv, t_push_swap *ps)
+void	start_push_swap(int argc, char **argv, t_push_swap *ps)
 {
-	int size;
+	int	size;
 
 	size = ft_stacksize(ps->a);
 	if (!check_order(ps->a))
@@ -122,20 +121,20 @@ void start_push_swap(int argc, char **argv, t_push_swap *ps)
 		sort_more(ps, size);
 	else if (size <= 100)
 	{
+		/*
 		// Dividir la lista en 5 chunks
 		// Si son 100 números -> 0-19 20-39 40-59 60-79 80-99
 		float chunkstart = 0;
 		float chunkend = 0;
 		float step = roundme((float)size / (float)5);
 		printf("SIZE: %d\nSTEP: %f\n\n", size, step);
-		//TODO: float step -> += roundme NO -> += step :)
 		for (int i = 0; i < 5; i++)
 		{
 			chunkstart = chunkend + 1;
 			chunkend += step;
-			// TODO: Fix esto puede que me lo esté redondeando
-			printf("[CHUNK %d]|[%f] to [%f] = %f\n", i + 1, chunkstart, chunkend, chunkend - chunkstart);
+			printf("[CHUNK %d]|[%f] to [%f]\n", i + 1, chunkstart, chunkend);
 		}
+		*/
 	}
 	else
 	{

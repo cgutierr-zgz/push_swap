@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 18:11:48 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/27 17:36:53 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/05/31 12:29:42 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ char	*ft_strdup(const char *s1);
 char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlen(const char *s);
 int		ft_strcmp(const char *s1, const char *s2);
+void	*ft_calloc(size_t count, size_t size);
 
 // Stack rules
 void	rule_sx(t_push_swap *ps, char identifier, int print);

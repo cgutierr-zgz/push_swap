@@ -6,7 +6,7 @@
 #    By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/09 14:13:26 by cgutierr          #+#    #+#              #
-#    Updated: 2021/05/31 12:07:38 by cgutierr         ###   ########.fr        #
+#    Updated: 2021/05/31 12:42:07 by cgutierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ SRCS			=	srcs/push_swap.c \
 					srcs/stack_utils/ft_stacksize.c \
 					srcs/utils/ft_atoi.c \
 					srcs/utils/ft_split.c \
+					srcs/utils/ft_calloc.c \
 					srcs/stack_rules/rule_sx.c \
 					srcs/stack_rules/rule_px.c \
 					srcs/stack_rules/rule_rx_rrx.c
@@ -107,7 +108,7 @@ LIGHT_CYAN		:="\033[1;36m"
 WHITE			:="\033[1;37m"
 RESET			:="\x1b[0m"
 
-ARG				:=	$(shell seq 0 1000 | sort -R | tail -n 62)
+ARG				:=	$(shell seq 0 1000 | sort -R | tail -n 6)
 
 exe:			$(NAME)
 				./push_swap $(ARG)
