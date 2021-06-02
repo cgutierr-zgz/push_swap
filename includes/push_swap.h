@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 18:11:48 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/03 01:12:40 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/03 01:51:02 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ void	start_checking(int argc, char **argv, t_push_swap *ps);
 // Util functions
 int		ft_atoi(const char *str, t_push_swap *ps);
 char	**ft_split(char const *s, char c);
+int		roundme(double x);
+int		sqrtme(int num);
 
 // Util BONUS function
 # ifndef BUFFER_SIZE
