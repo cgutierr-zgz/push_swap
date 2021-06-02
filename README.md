@@ -10,6 +10,7 @@
 `make exe` to execute with random numbers.
 
 or
+
 ```
 ./push_swap 10 23 44 28
 
