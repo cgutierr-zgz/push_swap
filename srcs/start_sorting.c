@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/02 17:56:30 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/02 18:26:29 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ void start_push_swap(int argc, char **argv, t_push_swap *ps)
 		float chunkstart = 0;
 		float chunkend = -1;
 		printf("\n\nSize: %d\nChunk size: %f\n\n", size, chunksize);
-		int i = 1;
+		int numberofchunks = 1;
 		while (1)
 		{
 			chunkstart = chunkend + 1;
@@ -137,11 +137,25 @@ void start_push_swap(int argc, char **argv, t_push_swap *ps)
 			if (chunkend > size)
 				chunkend = size;
 			chunkend -= 1;
-			printf("Chunk nº%d:\t[%d]-[%d]\t: %d\n", i, (int)chunkstart, (int)chunkend, ((int)chunkend - (int)chunkstart) + 1);
+			printf("Chunk nº%d:\t[%d]-[%d]\t: %d\n", numberofchunks, (int)chunkstart, (int)chunkend, ((int)chunkend - (int)chunkstart) + 1);
+
+			// Añadir a chunk[numberofchunks - 1] los x números(round(chunksize)) más pequeños
+			// Buscamos números del chunk[numberofchunks - 1] en [A]
+			// hold1st -> scan [A] from the top until we find one chunk[numberofchunks - 1] number
+			// hold2nd -> scan [A] from the bottom until we find one chunk[numberofchunks - 1] number
+			// Movemos o hold1st o hold2nd arriba en función de cual tardemos menos en mover
+			//	o bien con ra o con rra
+			// Así hasta que no haya ningún número de chunk[numberofchunks - 1] en [A]
+			// Repetimos esto con el resto de chunks
+
 			if (chunkend >= (size - 1))
 				break;
-			i++;
+			numberofchunks++;
 		}
+		printf("\nNumber of chunks: %d\n", numberofchunks);
+		// Buscamos el número más grande dentro de [B] y lo movemos arriba
+		//	o bien con ra o con rra
+		// Hacemos esto hasta que [B] esté vacío
 	}
 	exit_push_swap(ps);
 }
