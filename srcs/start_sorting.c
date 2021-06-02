@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/02 16:56:02 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/02 17:56:30 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,31 +112,33 @@ void start_push_swap(int argc, char **argv, t_push_swap *ps)
 	}
 	else if (size == 3)
 		sort_three(ps);
-	else if (size <= 5)
+	else if (size <= 20)
 		sort_more(ps, size);
 	else
 	{
-		// Dividir la lista en 5 chunks | Si 500 -> 11
-		// Si son 100 números -> 0-19 20-39 40-59 60-79 80-99
-
-		//TODO: mi propia raiz cuadrá
-		float chunksize = (size) / ((sqrt(size)) / 2); // (float)size/5.0;
-		//si 100 son 5
-		//si 500 son 11
-
-		// calcuar hasta llenarlo
+		//TODO: Crear mi propio sqrt
+		float chunksize = (size) / ((sqrt(size)) / 2);
 		float chunkstart = 0;
-		float chunkend = 0;
+		float chunkend = -1;
 		printf("\n\nSize: %d\nChunk size: %f\n\n", size, chunksize);
 		int i = 1;
 		while (1)
 		{
 			chunkstart = chunkend + 1;
 			chunkend = chunkstart + round(chunksize);
+			/*
+			** TODO: Probar con estas dos lineas a ver si es más óptimo
+			**			Esto lo que hace es sumar el último tramo, en lugar
+			**			de crear un chunk más pequeño
+			**		 Probar con [] > chunksize / 2 -> Se añade, si no, no
+			**	if (chunkend + round(chunksize) > size)
+			**		chunkend = size;
+			*/
 			if (chunkend > size)
 				chunkend = size;
-			printf("Chunk nº%d: [%d]-[%d]\n", i, (int)chunkstart, (int)chunkend);
-			if (chunkend >= size)
+			chunkend -= 1;
+			printf("Chunk nº%d:\t[%d]-[%d]\t: %d\n", i, (int)chunkstart, (int)chunkend, ((int)chunkend - (int)chunkstart) + 1);
+			if (chunkend >= (size - 1))
 				break;
 			i++;
 		}
