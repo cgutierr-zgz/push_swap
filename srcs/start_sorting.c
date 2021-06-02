@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/02 18:26:29 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/02 19:53:27 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,10 @@ void start_push_swap(int argc, char **argv, t_push_swap *ps)
 		float chunkend = -1;
 		printf("\n\nSize: %d\nChunk size: %f\n\n", size, chunksize);
 		int numberofchunks = 1;
+		int holdfirst;
+		int holdsecond;
+		int holdfirstpos;
+		int holdsecondpos;
 		while (1)
 		{
 			chunkstart = chunkend + 1;
@@ -139,15 +143,40 @@ void start_push_swap(int argc, char **argv, t_push_swap *ps)
 			chunkend -= 1;
 			printf("Chunk nº%d:\t[%d]-[%d]\t: %d\n", numberofchunks, (int)chunkstart, (int)chunkend, ((int)chunkend - (int)chunkstart) + 1);
 
-			// Añadir a chunk[numberofchunks - 1] los x números(round(chunksize)) más pequeños
+			// Añadir a chunk[numberofchunks - 1] los x números(round(chunksize)) más pequeños ordenados
+			int *chunk = malloc(sizeof(int *) * ((int)chunkend - (int)chunkstart) + 1); // FIXME: Guardar !posiciones!
+
+			/******BUCLE******/
+			// ft_add_smallest({cantidaddenumeros: X, array: chunk});
+			// FIXME: Que no añada números previamente añadidos
+			ft_add_smallest(ps->a, ((int)chunkend - (int)chunkstart) + 1, chunk); //!posiciones!
+			// Le pasamos:
+			//		·La linked list
+			//		·La cantidad de números que tenemos que añadir al array
+			//		·El array
+
+
 			// Buscamos números del chunk[numberofchunks - 1] en [A]
 			// hold1st -> scan [A] from the top until we find one chunk[numberofchunks - 1] number
 			// hold2nd -> scan [A] from the bottom until we find one chunk[numberofchunks - 1] number
+			// hold1st = holdfirst(ps->a, chunk with the numbers);	FROM TOP
+			// hold2st = holdsecond(ps->a, chunk with the numbers); FROM BOTTOM
+			// hold1stpos = ...
+			// hold2ndpos = ...
+
 			// Movemos o hold1st o hold2nd arriba en función de cual tardemos menos en mover
 			//	o bien con ra o con rra
+			// Si holdfirstpos ra o rra es menor que hold2nd ra o rra
+
+			// Comprobamos si el número de [B] es bigger or smaller que el número de [A]
+			// hacemos rb o rrb para poner el número más pequeño de [B] arriba
+			// Hacemos push de ese número a [B]
+
 			// Así hasta que no haya ningún número de chunk[numberofchunks - 1] en [A]
 			// Repetimos esto con el resto de chunks
+			/******BUCLE******/
 
+			free(chunk);
 			if (chunkend >= (size - 1))
 				break;
 			numberofchunks++;
