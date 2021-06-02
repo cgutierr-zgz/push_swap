@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/03 01:12:36 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/03 01:20:04 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,7 @@ void sort_more(t_push_swap *ps, int size)
 		x++;
 	}
 }
+// FIXME:
 #include <math.h>
 void start_push_swap(int argc, char **argv, t_push_swap *ps)
 {
@@ -140,16 +141,10 @@ void start_push_swap(int argc, char **argv, t_push_swap *ps)
 			printf("Chunk nº%d:\t[%d]-[%d] : %d\n", numberofchunks, (int)chunkstart, (int)chunkend, ((int)chunkend - (int)chunkstart) + 1);
 
 			// Añadir a chunk[numberofchunks - 1] los x números(round(chunksize)) más pequeños ordenados
-			int *chunk = malloc(sizeof(int *) * ((int)chunkend - (int)chunkstart) + 1); // FIXME: Guardar !posiciones!, NO NÚMEROS
-
-			// ft_add_smallest({cantidaddenumeros: X, array: chunk});
-			// FIXME: Que no añada números previamente añadidos
-			
-			//add_smallest_number(ps->a, ((int)chunkend - (int)chunkstart) + 1, chunk); //!posiciones!
-			// Le pasamos:
-			//		·La linked list
-			//		·La cantidad de números que tenemos que añadir al array
-			//		·El array
+			int *chunk = malloc(sizeof(int *) * ((int)chunkend - (int)chunkstart) + 1);
+			// FIXME: Guardar !posiciones!, NO NÚMEROS
+			// Añadir al array las posiciones de los X primeros números
+			// QUE NO AÑADA NÚMEROS PREVIAMENTE YA AÑADIDOS
 
 			/******BUCLE******/
 			// Buscamos números del chunk[numberofchunks - 1] en [A]
@@ -166,6 +161,13 @@ void start_push_swap(int argc, char **argv, t_push_swap *ps)
 			{
 				//hold1st || hol2nd
 				//check_number of moves (1stpos, 2ndpos)
+				/*while (ps->a->num != smaller)
+				{
+					if (hold1stPos >= (size / 2))
+						rule_rx_rrx(ps, 'a', 2, 1);
+					else
+						rule_rx_rrx(ps, 'a', 1, 1);
+				}*/
 
 				// Movemos o hold1st o hold2nd arriba en función de cual tardemos menos en mover
 				//	o bien con ra o con rra
