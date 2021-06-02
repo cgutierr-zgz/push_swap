@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 18:11:48 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/31 12:29:42 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/03 01:12:40 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,10 @@ typedef struct s_push_swap
 // Main functions
 void	print_error(t_push_swap *ps, char *msg);
 void	print_stacks(t_push_swap *ps);
+void	print_lst(int i);
 void	start_push_swap(int argc, char **argv, t_push_swap *ps);
 void	exit_push_swap(t_push_swap *ps);
 int		check_order(t_stack *lst);
-int		get_meidan(t_stack *lst);
-void	push_below_median(t_push_swap *ps, int median);
 
 // Main BONUS functions
 void	start_checking(int argc, char **argv, t_push_swap *ps);
@@ -95,7 +94,6 @@ char	*ft_strdup(const char *s1);
 char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlen(const char *s);
 int		ft_strcmp(const char *s1, const char *s2);
-void	*ft_calloc(size_t count, size_t size);
 
 // Stack rules
 void	rule_sx(t_push_swap *ps, char identifier, int print);

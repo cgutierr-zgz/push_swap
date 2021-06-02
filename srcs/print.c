@@ -6,13 +6,13 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:05:43 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/27 16:31:22 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/03 01:09:54 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static void	print_lst(int i)
+void	print_lst(int i)
 {
 	printf("\t  %d\n", i);
 }
