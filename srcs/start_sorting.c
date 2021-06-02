@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/03 01:20:04 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/03 01:48:29 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,30 @@ void sort_more(t_push_swap *ps, int size)
 }
 // FIXME:
 #include <math.h>
+
+int roundme(double x) //Mover a otro fichero
+{
+	if (x < 0.0)
+		return (int)(x - 0.5);
+	else
+		return (int)(x + 0.5);
+}
+
+int sqrtme(int num) // Mover a otro fichero
+{
+	float temp;
+	float sqrt;
+
+	sqrt = num / 2;
+	temp = 0;
+	while (sqrt != temp)
+	{
+		temp = sqrt;
+		sqrt = (num / temp + temp) / 2;
+	}
+	return sqrt;
+}
+
 void start_push_swap(int argc, char **argv, t_push_swap *ps)
 {
 	int size;
@@ -118,7 +142,7 @@ void start_push_swap(int argc, char **argv, t_push_swap *ps)
 	else
 	{
 		//TODO: Crear mi propio sqrt
-		float chunksize = (size) / ((sqrt(size)) / 2);
+		float chunksize = (size) / ((sqrtme(size)) / 2);
 		float chunkstart = 0;
 		float chunkend = -1;
 		printf("\n\nSize: %d\nChunk size: %f\n\n", size, chunksize);
@@ -126,7 +150,8 @@ void start_push_swap(int argc, char **argv, t_push_swap *ps)
 		while (1)
 		{
 			chunkstart = chunkend + 1;
-			chunkend = chunkstart + round(chunksize);
+
+			chunkend = chunkstart + roundme(chunksize);
 			/*
 			** TODO: Probar con estas dos lineas a ver si es más óptimo
 			**			Esto lo que hace es sumar el último tramo, en lugar
