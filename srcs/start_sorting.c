@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/02 16:52:13 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/02 16:56:02 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,9 +112,9 @@ void start_push_swap(int argc, char **argv, t_push_swap *ps)
 	}
 	else if (size == 3)
 		sort_three(ps);
-	else //if (size <= 5)
+	else if (size <= 5)
 		sort_more(ps, size);
-	/*else
+	else
 	{
 		// Dividir la lista en 5 chunks | Si 500 -> 11
 		// Si son 100 números -> 0-19 20-39 40-59 60-79 80-99
@@ -132,14 +132,14 @@ void start_push_swap(int argc, char **argv, t_push_swap *ps)
 		while (1)
 		{
 			chunkstart = chunkend + 1;
-			chunkend = chunkstart + chunksize;
-			if(chunkend > size)
+			chunkend = chunkstart + round(chunksize);
+			if (chunkend > size)
 				chunkend = size;
 			printf("Chunk nº%d: [%d]-[%d]\n", i, (int)chunkstart, (int)chunkend);
-			if(chunkend >= size)
-				break ;
+			if (chunkend >= size)
+				break;
 			i++;
 		}
-	}*/
+	}
 	exit_push_swap(ps);
 }
