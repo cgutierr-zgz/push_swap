@@ -7,7 +7,7 @@
 
 `make count` to see the number of instructions used.
 
-`make exe` to execute with random numbers.
+`make exe` to execute with n random numbers, modify Makefile line 110 in order to change how many numbers are being used.
 
 or
 
