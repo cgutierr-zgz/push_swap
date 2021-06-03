@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 19:42:58 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/03 17:49:15 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/03 17:50:17 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,8 @@ void store_smallest(t_push_swap *ps, int *chunk, int cantidad)
 	int hold_2nd;
 	temp = ps->a;
 	reverse(&temp);
+
+	print_stacks(ps);
 
 	// FIXME: Hacer esto de atrás palante
 	if (temp)
