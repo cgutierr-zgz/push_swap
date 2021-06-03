@@ -6,11 +6,32 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 19:42:58 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/03 17:34:57 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/03 17:49:15 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+/* Function to reverse the linked list */
+static void reverse(t_stack **head_ref)
+{
+	t_stack *prev = NULL;
+	t_stack *current = *head_ref;
+	t_stack *next = NULL;
+	while (current != NULL)
+	{
+		// Store next
+		next = current->next;
+
+		// Reverse current node's pointer
+		current->next = prev;
+
+		// Move pointers one position ahead.
+		prev = current;
+		current = next;
+	}
+	*head_ref = prev;
+}
 
 // Si el elemento ya existe en el array devuelve 1 si no, 0
 int contains(int *array, int size, int num)
@@ -75,36 +96,62 @@ void store_smallest(t_push_swap *ps, int *chunk, int cantidad)
 	}
 	printf("\n");
 
-	long hold1st = 2147483648;
-	i = 0;
-	while (i < cantidad)
-	{
-		if (chunk[i] < hold1st)
-			hold1st = chunk[i];
+	/*
+	 * 
+	 * HOLD 1st = RECORREMOS LA LISTA DESDE ARRIBA Y VEMOS SI
+	 * ENCONTRAMOS UNO DE LOS NÚMEROS DE ARRAY
+	 * SI ES ASÍ, NOS VALE => OUT -> HOLD1st
+	 * 
+	 * 
+	 * HOLD 2nd = RECORREMOS LA LISTA DESDE ABAJO Y BUSCAMOS
+	 * UNO DE LOS NUMEROS DEL ARRAY
+	 * CUALQUIERA ES OK => OUT -> HOLD2nd
+	 * 
+	 * 
+	 * 
+	 * 
+	 */
 
-		i++;
+	int hold_first;
+	t_stack *temp = ps->a;
+
+	if (temp)
+	{
+		while (temp)
+		{
+			if (contains(chunk, cantidad, temp->num))
+			{
+				hold_first = temp->num;
+				break;
+			}
+			temp = temp->next;
+		}
 	}
 
-	long hold2nd = -2147483649;
-	i = 0;
-	while (i < cantidad)
-	{
-		if (chunk[i] > hold2nd)
-			hold2nd = chunk[i];
+	int hold_2nd;
+	temp = ps->a;
+	reverse(&temp);
 
-		i++;
-	}
-	///CAMBIAR HOLD 1st y hold 2nd creo que ta mal
-	printf("1st:%d, 2nd:%d\n", (int)hold1st, (int)hold2nd);
-	printf("1 MOVS=%d\n2 MOVS=%d\n\n", ((0 - hold1st) * -1), (ft_stacksize(ps->a) - (int)hold2nd));
-	if (((0 - hold1st) * -1) > ft_stacksize(ps->a) - (int)hold2nd)
+	// FIXME: Hacer esto de atrás palante
+	if (temp)
 	{
-		printf("hold2\n\n");
+		while (temp)
+		{
+			if (contains(chunk, cantidad, temp->num) && temp->num != hold_first)
+			{
+				hold_2nd = temp->num;
+				break;
+			}
+			temp = temp->next;
+		}
 	}
-	else
-	{
 
-		printf("hold1st\n\n");
-	}
+	printf("1st:%d, 2nd:%d\n", (int)hold_first, (int)hold_2nd);
+
+	//TODO: hold2nd está mal
+	// Calcular que se tarda menos, si ra o rra en [hold1st] o [hold2nd]
+	// hacer eso hasta que pa
+	// cantidad --
+	// borrar ese numero del array
 	// hacer bucle cantidad --
 }
