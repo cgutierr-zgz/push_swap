@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 19:42:58 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/03 13:29:10 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/03 13:58:44 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,15 @@ int contains(int *array, int size, int elem)
 	}
 	return (0);
 }
-
-int get_smallest(t_stack **head, int *chunk, int cantidad)
+/*
+temp = myList.head;
+while (temp->next!=NULL){
+  // do stuff with this element
+  ...
+  temp = temp->next; // get the next element
+  }
+*/
+int get_smallest(t_push_swap *ps, int *chunk, int cantidad)
 {
 	t_stack *current = *head;
 	int min;
@@ -52,22 +59,21 @@ static int sort_smallest(t_push_swap *ps, int *chunk, int cantidad)
 	t_stack *ptr;
 	long smaller;
 	int position;
-	t_stack **lst = &ps->a;
 
 	smaller = get_smallest(&ps->a, chunk, cantidad);
 	aux = 0;
-	if (*lst)
+	if (ps->a)
 	{
-		while (*lst)
+		while (ps->a)
 		{
-			ptr = (*lst)->next;
-			if ((*lst)->num < smaller && !contains(chunk, cantidad, (*lst)->num))
+			ptr = (ps->a)->next;
+			if ((ps->a)->num < smaller && !contains(chunk, cantidad, (ps->a)->num))
 			{
-				smaller = (*lst)->num;
+				smaller = (ps->a)->num;
 				position = aux;
 			}
 			aux += 1;
-			*lst = ptr;
+			ps->a = ptr;
 		}
 	}
 	return smaller; // añadir posicion
