@@ -6,51 +6,23 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 19:42:58 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/03 15:52:12 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/03 17:34:57 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-//Copia de linbkedlist
-t_stack *copyList(t_stack *head)
-{
-	if (head == NULL)
-	{
-		return NULL;
-	}
-	else
-	{
-
-		// Allocate the memory for new Node
-		// in the heap and set its data
-		t_stack *newNode = (t_stack *)malloc(
-			sizeof(t_stack));
-
-		newNode->num = head->num;
-
-		// Recursively set the next pointer of
-		// the new Node by recurring for the
-		// remaining nodes
-		newNode->next = copyList(head->next);
-
-		return newNode;
-	}
-}
-
-// Si el elemento ya existe en el array devuelve x si no, 0
-int contains(int *array, int size, int elem)
+// Si el elemento ya existe en el array devuelve 1 si no, 0
+int contains(int *array, int size, int num)
 {
 	int i;
 
 	i = 0;
 	while (i < size)
 	{
-		if (array[i] == elem)
-		{
-			return i;
-		}
-		i += 1;
+		if (array[i] == num)
+			return (1);
+		i++;
 	}
 	return (0);
 }
@@ -59,51 +31,34 @@ int contains(int *array, int size, int elem)
 int get_smallest(t_stack *list, int *chunk, int cantidad)
 {
 	t_stack *current = list;
-	int min;
+	long min;
+	int position;
+	int aux = 0; // 1?
 
-	min = 0;
-	if (list)
+	min = 2147483648;
+	if (current)
 	{
-		min = list->num;
+		if (!contains(chunk, cantidad, aux))
+		{
+			min = current->num;
+			position = aux;
+		}
+		//printf("Min:%d\n", min);
 		while (current != NULL)
 		{
-			if (min > current->num && (contains(chunk, cantidad, current->num) > 0))
+			//./push_swap 744 320 870 701 397 362
+			if (min > current->num && !contains(chunk, cantidad, aux)) // current->num))
+			//if (min > current->num && !contains(chunk, cantidad,  current->num))
 			{
 				min = current->num;
-			}
-			current = current->next;
-		}
-	}
-	return (min);
-}
-
-// Añadimos los números más pequeños, que no estén ya en el earray
-static int sort_smallest(t_stack *list, int *chunk, int cantidad)
-{
-	t_stack *ptr;
-	int aux;
-	long smaller;
-	int position;
-
-	smaller = get_smallest(list, chunk, cantidad);
-	printf("Smaller GET: %ld\n", smaller);
-	aux = 0;
-	if (list)
-	{
-		while (list)
-		{
-			ptr = list->next;
-			if (list->num < smaller && !contains(chunk, cantidad, list->num))
-			{
-				smaller = list->num;
 				position = aux;
 			}
 			aux += 1;
-			list = ptr;
+			current = current->next;
 		}
 	}
-	printf("Smaller: %ld\n", smaller);
-	return smaller; // añadir posicion
+	//return (min);
+	return (position);
 }
 
 void store_smallest(t_push_swap *ps, int *chunk, int cantidad)
@@ -113,17 +68,43 @@ void store_smallest(t_push_swap *ps, int *chunk, int cantidad)
 	i = 0;
 	while (i < cantidad)
 	{
-		// TODO: Añadir n cantidad de ints menores de stack a chunk
-		// Iterar por el chunk
-		//print_stacks(ps);
-
-		chunk[i] = sort_smallest(copyList(ps->a), chunk, cantidad);
+		chunk[i] = get_smallest(ps->a, chunk, cantidad);
 
 		printf("[%d]:%d\n", i, chunk[i]);
 		i += 1;
 	}
 	printf("\n");
-	// HACER BUCLE AKI
-	// hold 1st hold 2nd...
-	// cantidad --
+
+	long hold1st = 2147483648;
+	i = 0;
+	while (i < cantidad)
+	{
+		if (chunk[i] < hold1st)
+			hold1st = chunk[i];
+
+		i++;
+	}
+
+	long hold2nd = -2147483649;
+	i = 0;
+	while (i < cantidad)
+	{
+		if (chunk[i] > hold2nd)
+			hold2nd = chunk[i];
+
+		i++;
+	}
+	///CAMBIAR HOLD 1st y hold 2nd creo que ta mal
+	printf("1st:%d, 2nd:%d\n", (int)hold1st, (int)hold2nd);
+	printf("1 MOVS=%d\n2 MOVS=%d\n\n", ((0 - hold1st) * -1), (ft_stacksize(ps->a) - (int)hold2nd));
+	if (((0 - hold1st) * -1) > ft_stacksize(ps->a) - (int)hold2nd)
+	{
+		printf("hold2\n\n");
+	}
+	else
+	{
+
+		printf("hold1st\n\n");
+	}
+	// hacer bucle cantidad --
 }
