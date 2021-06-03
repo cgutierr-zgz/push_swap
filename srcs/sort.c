@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 19:42:58 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/03 13:00:20 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/03 13:29:10 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,24 +39,22 @@ int get_smallest(t_stack **head, int *chunk, int cantidad)
 		while (current != NULL)
 		{
 			if (min > current->num && !contains(chunk, cantidad, current->num))
-			{
 				min = current->num;
-			}
 			current = current->next;
 		}
-		return (min);
 	}
+	return (min);
 }
 
-static int sort_smallest(t_stack **lst, int *chunk, int cantidad)
+static int sort_smallest(t_push_swap *ps, int *chunk, int cantidad)
 {
 	int aux;
 	t_stack *ptr;
 	long smaller;
 	int position;
+	t_stack **lst = &ps->a;
 
-	smaller = get_smallest(lst, chunk, cantidad);
-	//printf("Smaller: %ld\n\n", smaller);
+	smaller = get_smallest(&ps->a, chunk, cantidad);
 	aux = 0;
 	if (*lst)
 	{
@@ -67,16 +65,15 @@ static int sort_smallest(t_stack **lst, int *chunk, int cantidad)
 			{
 				smaller = (*lst)->num;
 				position = aux;
-				//printf("Añadiendo: %ld\n", smaller);
 			}
 			aux += 1;
 			*lst = ptr;
 		}
 	}
-	return smaller;
+	return smaller; // añadir posicion
 }
 
-void store_smallest(t_stack **stack, int *chunk, int cantidad)
+void store_smallest(t_push_swap *ps, int *chunk, int cantidad)
 {
 	int i;
 
@@ -85,7 +82,7 @@ void store_smallest(t_stack **stack, int *chunk, int cantidad)
 	{
 		// TODO: Añadir n cantidad de ints menores de stack a chunk
 		// Iterar por el chunk
-		chunk[i] = sort_smallest(stack, chunk, cantidad);
+		chunk[i] = sort_smallest(ps, chunk, cantidad);
 		printf("[%d]:%d\n", i, chunk[i]);
 		i += 1;
 	}

@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/03 12:34:19 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/03 13:24:45 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,7 +144,7 @@ void start_push_swap(int argc, char **argv, t_push_swap *ps)
 			// FIXME: Guardar !posiciones!, NO NÚMEROS
 			// Añadir al array las posiciones de los X primeros números
 			// QUE NO AÑADA NÚMEROS PREVIAMENTE YA AÑADIDOS
-			store_smallest(&ps->a, chunk, ((int)chunkend - (int)chunkstart) + 1);
+			store_smallest(ps, chunk, ((int)chunkend - (int)chunkstart) + 1);
 
 			/******BUCLE******/
 			// Buscamos números del chunk[numberofchunks - 1] en [A]
