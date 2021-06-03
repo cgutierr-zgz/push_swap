@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 19:42:58 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/03 12:45:51 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/03 12:55:37 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ int contains(int *array, int size, int elem)
 	return (0);
 }
 
-int get_smallest(t_stack *head)
+int get_smallest(t_stack *head, int *chunk, int cantidad)
 {
 	t_stack *current = head;
 	int min;
 
 	if (head == NULL)
 	{
-		//printf("List is empty \n");
+		printf("List is empty \n");
 		return 0;
 	}
 	else
@@ -44,9 +44,10 @@ int get_smallest(t_stack *head)
 
 		while (current != NULL)
 		{
+			//	printf(">%d<\n", min);
 			//If current node's data is smaller than min
 			//Then, replace value of min with current node's data
-			if (min > current->num)
+			if (min > current->num && !contains(chunk, cantidad, current->num))
 			{
 				min = current->num;
 			}
@@ -57,15 +58,15 @@ int get_smallest(t_stack *head)
 	}
 }
 
-static void sort_smallest(t_stack **lst, int *chunk, int cantidad)
+static int sort_smallest(t_stack **lst, int *chunk, int cantidad)
 {
 	int aux;
 	t_stack *ptr;
 	long smaller;
 	int position;
 
-	smaller = get_smallest(lst);
-	printf("Smaller: %ld\n", smaller);
+	smaller = get_smallest(*lst, chunk, cantidad);
+	//printf("Smaller: %ld\n\n", smaller);
 	aux = 0;
 	if (*lst)
 	{
@@ -76,12 +77,13 @@ static void sort_smallest(t_stack **lst, int *chunk, int cantidad)
 			{
 				smaller = (*lst)->num;
 				position = aux;
-				printf("Añadiendo: %ld\n", smaller);
+				//printf("Añadiendo: %ld\n", smaller);
 			}
 			aux += 1;
 			*lst = ptr;
 		}
 	}
+	return smaller;
 }
 
 void store_smallest(t_stack **stack, int *chunk, int cantidad)
@@ -93,17 +95,9 @@ void store_smallest(t_stack **stack, int *chunk, int cantidad)
 	{
 		// TODO: Añadir n cantidad de ints menores de stack a chunk
 		// Iterar por el chunk
-		sort_smallest(stack, chunk, cantidad);
+		chunk[i] = sort_smallest(stack, chunk, cantidad);
+		printf("[%d]:%d\n", i, chunk[i]);
 		i += 1;
 	}
-
-	int x;
-
-	x = 0;
-	while (x < cantidad)
-	{
-		printf("%d\n", chunk[x]);
-		x += 1;
-	}
-	printf("\n\n");
+	printf("\n");
 }
