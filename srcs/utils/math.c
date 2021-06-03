@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 01:49:52 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/03 01:50:40 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/03 13:15:02 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 int	roundme(double x)
 {
 	if (x < 0.0)
-		return (int)(x - 0.5);
+		return ((int)(x - 0.5));
 	else
-		return (int)(x + 0.5);
+		return ((int)(x + 0.5));
 }
 
 int	sqrtme(int num)
@@ -32,5 +32,5 @@ int	sqrtme(int num)
 		temp = sqrt;
 		sqrt = (num / temp + temp) / 2;
 	}
-	return sqrt;
+	return (sqrt);
 }

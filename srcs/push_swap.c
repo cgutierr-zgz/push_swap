@@ -6,11 +6,16 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/05/26 20:14:23 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/03 13:14:15 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+/*
+**	if (0)
+**		system("leaks push_swap");
+*/
 
 void	exit_push_swap(t_push_swap *ps)
 {
@@ -19,8 +24,6 @@ void	exit_push_swap(t_push_swap *ps)
 		print_stacks(ps);
 		printf("\nMovements: %d\n", ps->num_movements);
 	}
-	if (0)
-		system("leaks push_swap");
 	exit(0);
 }
 
