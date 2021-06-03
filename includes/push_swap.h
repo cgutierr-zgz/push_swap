@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 18:11:48 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/03 01:51:02 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/03 12:34:22 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ void	print_lst(int i);
 void	start_push_swap(int argc, char **argv, t_push_swap *ps);
 void	exit_push_swap(t_push_swap *ps);
 int		check_order(t_stack *lst);
+void	store_smallest(t_stack **stack, int *chunk, int cantidad);
 
 // Main BONUS functions
 void	start_checking(int argc, char **argv, t_push_swap *ps);

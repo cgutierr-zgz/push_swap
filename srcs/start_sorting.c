@@ -6,13 +6,13 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/03 01:51:13 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/03 12:34:19 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void sort_three(t_push_swap *ps)
+static void sort_three(t_push_swap *ps)
 {
 	if (!check_order(ps->a) && ps->b == NULL)
 		exit_push_swap(ps);
@@ -34,7 +34,7 @@ void sort_three(t_push_swap *ps)
 		rule_rx_rrx(ps, 'a', 2, 1);
 }
 
-static void sort(t_stack **lst, int *position, t_stack **ptr, long *smaller)
+static void sort_smallest(t_stack **lst, int *position, t_stack **ptr, long *smaller)
 {
 	int aux;
 
@@ -57,7 +57,7 @@ static void sort(t_stack **lst, int *position, t_stack **ptr, long *smaller)
 	}
 }
 
-void put_smaller_on_top(t_stack *lst, t_push_swap *ps)
+static void put_smaller_on_top(t_stack *lst, t_push_swap *ps)
 {
 	t_stack *ptr;
 	long smaller;
@@ -68,7 +68,7 @@ void put_smaller_on_top(t_stack *lst, t_push_swap *ps)
 	size = ft_stacksize(ps->a);
 	smaller = -2147483649;
 	position = 0;
-	sort(&lst, &position, &ptr, &smaller);
+	sort_smallest(&lst, &position, &ptr, &smaller);
 	while (ps->a->num != smaller)
 	{
 		if (position >= (size / 2))
@@ -78,7 +78,7 @@ void put_smaller_on_top(t_stack *lst, t_push_swap *ps)
 	}
 }
 
-void sort_more(t_push_swap *ps, int size)
+static void sort_more(t_push_swap *ps, int size)
 {
 	int x;
 
@@ -144,6 +144,7 @@ void start_push_swap(int argc, char **argv, t_push_swap *ps)
 			// FIXME: Guardar !posiciones!, NO NÚMEROS
 			// Añadir al array las posiciones de los X primeros números
 			// QUE NO AÑADA NÚMEROS PREVIAMENTE YA AÑADIDOS
+			store_smallest(&ps->a, chunk, ((int)chunkend - (int)chunkstart) + 1);
 
 			/******BUCLE******/
 			// Buscamos números del chunk[numberofchunks - 1] en [A]
