@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 19:42:58 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/03 12:55:37 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/03 12:58:32 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ int contains(int *array, int size, int elem)
 	return (0);
 }
 
-int get_smallest(t_stack *head, int *chunk, int cantidad)
+int get_smallest(t_stack **head, int *chunk, int cantidad)
 {
-	t_stack *current = head;
+	t_stack *current = *head;
 	int min;
 
-	if (head == NULL)
+	if (*head == NULL)
 	{
 		printf("List is empty \n");
 		return 0;
@@ -40,7 +40,7 @@ int get_smallest(t_stack *head, int *chunk, int cantidad)
 	else
 	{
 		//Initializing min with head node data
-		min = head->num;
+		min = (*head)->num;
 
 		while (current != NULL)
 		{
@@ -65,7 +65,7 @@ static int sort_smallest(t_stack **lst, int *chunk, int cantidad)
 	long smaller;
 	int position;
 
-	smaller = get_smallest(*lst, chunk, cantidad);
+	smaller = get_smallestlst, chunk, cantidad);
 	//printf("Smaller: %ld\n\n", smaller);
 	aux = 0;
 	if (*lst)
