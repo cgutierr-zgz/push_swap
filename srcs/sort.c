@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 19:42:58 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/03 13:58:44 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/03 14:18:11 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,23 +26,17 @@ int contains(int *array, int size, int elem)
 	}
 	return (0);
 }
-/*
-temp = myList.head;
-while (temp->next!=NULL){
-  // do stuff with this element
-  ...
-  temp = temp->next; // get the next element
-  }
-*/
+
+// Obtenemos el número más pequeño que NO contenga el array ahora mismo
 int get_smallest(t_push_swap *ps, int *chunk, int cantidad)
 {
-	t_stack *current = *head;
+	t_stack *current = ps->a;
 	int min;
 
 	min = 0;
-	if (*head)
+	if (ps->a)
 	{
-		min = (*head)->num;
+		min = ps->a->num;
 		while (current != NULL)
 		{
 			if (min > current->num && !contains(chunk, cantidad, current->num))
@@ -53,23 +47,24 @@ int get_smallest(t_push_swap *ps, int *chunk, int cantidad)
 	return (min);
 }
 
+// Añadimos los números más pequeños, que no estén ya en el earray
 static int sort_smallest(t_push_swap *ps, int *chunk, int cantidad)
 {
-	int aux;
 	t_stack *ptr;
+	int aux;
 	long smaller;
 	int position;
 
-	smaller = get_smallest(&ps->a, chunk, cantidad);
+	smaller = get_smallest(ps, chunk, cantidad);
 	aux = 0;
 	if (ps->a)
 	{
 		while (ps->a)
 		{
-			ptr = (ps->a)->next;
-			if ((ps->a)->num < smaller && !contains(chunk, cantidad, (ps->a)->num))
+			ptr = ps->a->next;
+			if (ps->a->num < smaller && !contains(chunk, cantidad, ps->a->num))
 			{
-				smaller = (ps->a)->num;
+				smaller = ps->a->num;
 				position = aux;
 			}
 			aux += 1;
@@ -88,9 +83,14 @@ void store_smallest(t_push_swap *ps, int *chunk, int cantidad)
 	{
 		// TODO: Añadir n cantidad de ints menores de stack a chunk
 		// Iterar por el chunk
+		
 		chunk[i] = sort_smallest(ps, chunk, cantidad);
+		
 		printf("[%d]:%d\n", i, chunk[i]);
 		i += 1;
 	}
 	printf("\n");
+	// HACER BUCLE AKI
+	// hold 1st hold 2nd...
+	// cantidad --
 }

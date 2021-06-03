@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/03 13:24:45 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/03 14:19:30 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ void start_push_swap(int argc, char **argv, t_push_swap *ps)
 	}
 	else if (size == 3)
 		sort_three(ps);
-	else if (size <= 20)
+	else if (size <= 25)
 		sort_more(ps, size);
 	else
 	{
@@ -154,20 +154,20 @@ void start_push_swap(int argc, char **argv, t_push_swap *ps)
 			// hold2st = holdsecond(ps->a, chunk with the numbers); FROM BOTTOM
 			// hold1stpos = ...
 			// hold2ndpos = ...
-			int chunknums = ((int)chunkend - (int)chunkstart) + 1;
+			/*int chunknums = ((int)chunkend - (int)chunkstart) + 1;
 			int hold1st, hold2nd;
 			int hold1stPos, hold2ndPos;
 			while (chunknums)
 			{
 				//hold1st || hol2nd
 				//check_number of moves (1stpos, 2ndpos)
-				/*while (ps->a->num != smaller)
+				while (ps->a->num != smaller)
 				{
 					if (hold1stPos >= (size / 2))
 						rule_rx_rrx(ps, 'a', 2, 1);
 					else
 						rule_rx_rrx(ps, 'a', 1, 1);
-				}*/
+				}
 
 				// Movemos o hold1st o hold2nd arriba en función de cual tardemos menos en mover
 				//	o bien con ra o con rra
@@ -182,7 +182,7 @@ void start_push_swap(int argc, char **argv, t_push_swap *ps)
 				// Repetimos esto con el resto de chunks
 				// --;
 				chunknums -= 1;
-			}
+			}*/
 
 			/******BUCLE******/
 
