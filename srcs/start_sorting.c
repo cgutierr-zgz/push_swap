@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/04 12:48:02 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/04 18:13:49 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ void start_push_swap(int argc, char **argv, t_push_swap *ps)
 	}
 	else if (size == 3)
 		sort_three(ps);
-	else if (size <= 5) // <= 25 Poner
+	else if (size <= 25) // <= 25 Poner
 		sort_more(ps, size);
 	else
 	{
@@ -141,6 +141,10 @@ void start_push_swap(int argc, char **argv, t_push_swap *ps)
 				break;
 			numberofchunks++;
 		}
+
+		print_stacks(ps);
+
+		printf("AAAAA\n");
 
 		t_stack *temp;
 		temp = ps->b;

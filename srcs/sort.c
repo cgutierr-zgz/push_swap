@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 19:42:58 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/04 16:20:00 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/04 18:12:22 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,7 @@ void store_smallest(t_push_swap *ps, int *chunk, int cantidad)
 	i = 0;
 	while (i < cantidad)
 	{
+		//Añadimos x cantidad de smallest nums al array
 		chunk[i] = get_smallest(ps->a, chunk, cantidad);
 
 		//	printf("[%d]:%d\n", i, chunk[i]);
@@ -154,7 +155,7 @@ void store_smallest(t_push_swap *ps, int *chunk, int cantidad)
 			while (mover < cantidad)
 			{
 				chunk[mover] += 1;
-				if (chunk[mover] >= ft_stacksize(ps->a))
+				if (chunk[mover] >= ft_stacksize(ps->a) - 1)
 					chunk[mover] = 0;
 
 				mover++;
@@ -178,7 +179,7 @@ void store_smallest(t_push_swap *ps, int *chunk, int cantidad)
 			{
 				chunk[mover] -= 1;
 				if (chunk[mover] <= 0)
-					chunk[mover] = ft_stacksize(ps->a);
+					chunk[mover] = ft_stacksize(ps->a) - 1;
 
 				mover++;
 			}
@@ -213,9 +214,9 @@ void store_smallest(t_push_swap *ps, int *chunk, int cantidad)
 			tmporb = tmporb->next;
 		}
 		int contasion = 0;
-		if (posa >= (ft_stacksize(ps->b) / 2))
+		if (posa >= ((ft_stacksize(ps->b) / 2) - 1))
 		{
-			posa = ft_stacksize(ps->b) - posa;
+			posa = (ft_stacksize(ps->b) - 1) - posa;
 			while (contasion < posa)
 			{
 				rule_rx_rrx(ps, 'b', 2, 1);
@@ -231,12 +232,8 @@ void store_smallest(t_push_swap *ps, int *chunk, int cantidad)
 				contasion++;
 			}
 		}
-
-		// LUEGO ->
 		rule_px(ps, 'b', 1);
 		chunk = new_chunk(chunk, selected, cantidad);
 		cantidad--;
 	}
-	//	printf("SOPA\n");
-	// BUCLE
 }
