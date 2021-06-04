@@ -6,11 +6,24 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 19:42:58 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/03 17:59:10 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/04 11:57:44 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+int *new_chunk(int *chunk, int num, int cantidad)
+{
+	int *sopa = malloc(sizeof(int *) * (cantidad - 1));
+	int i = 0;
+	while (i < cantidad - 1)
+	{
+		if (chunk[i] != num)
+			sopa[i] = chunk[i];
+		i++;
+	}
+	return sopa;
+}
 
 /* Function to reverse the linked list */
 static void reverse(t_stack *head_ref)
@@ -91,22 +104,83 @@ void store_smallest(t_push_swap *ps, int *chunk, int cantidad)
 	{
 		chunk[i] = get_smallest(ps->a, chunk, cantidad);
 
-		printf("[%d]:%d\n", i, chunk[i]);
+		//	printf("[%d]:%d\n", i, chunk[i]);
 		i += 1;
 	}
-	printf("\n");
+	//printf("\n");
 
-	// AHORA TENEMOS ALMACENADAS LAS POSICIONES DE LOS NÚMEROS
-	// DE NUESTRO CHUNK DENTRO DE LA LISTA
-	// TENEMOS QUE OBTENER
-	/*
-		HOLD1st = primer numero de nuestro array que encontremos desde arriba
-		HOLD1nd = segundo número de nuestro array que encontremos desde abajo
-	*/
+	//HOLD1 -> numero mas bajo HOLD2 -> numero mas alto
+	// BUCLE
+	while (cantidad)
+	{
 
-	// Calcular que se tarda menos, si ra o rra en [hold1st] o [hold2nd]
-	// hacer eso hasta que pa
+		int hold1;
+		i = 0;
+		hold1 = chunk[i];
+		while (i < cantidad)
+		{
+			if (hold1 > chunk[i])
+				hold1 = chunk[i];
 
-	// borrar ese numero del array
-	// hacer bucle cantidad --
+			i += 1;
+		}
+		int hold2;
+		i = 0;
+		hold2 = chunk[i];
+		while (i < cantidad)
+		{
+			if (hold2 < chunk[i])
+				hold2 = chunk[i];
+
+			i += 1;
+		}
+
+		//	printf("HOLD1=%d\n", hold1);
+		//	printf("HOLD2=%d\n", hold2);
+
+		// QUÉ
+		// Calcular que se tarda menos, si ra o rra en [hold1st] o [hold2nd]
+		// hacer eso hasta que pa
+
+		int nummoves1 = (0 - hold1) * -1;			 // ra
+		int nummoves2 = ft_stacksize(ps->a) - hold2; // rrai
+		int selected;
+		if (nummoves1 > nummoves2)
+		{
+			selected = hold2;
+			i = 0;
+			while (i < nummoves2)
+			{
+				//	printf("hola\n");
+				rule_rx_rrx(ps, 'a', 1, 1);
+				i++;
+			}
+		}
+		else
+		{
+
+			selected = hold1;
+			i = 0;
+			while (i < nummoves1)
+			{
+				//	printf("adeu\n");
+				rule_rx_rrx(ps, 'a', 2, 1);
+				i++;
+			}
+		}
+
+		// borrar ese numero del array
+		// hacer bucle cantidad --
+		//BORRAR o hold1 o hold2 del array
+		// ANTES DE HACER ESTO, MIRAR SI ps-b->num es mayor o menor
+
+
+
+		
+		// LUEGO ->
+		rule_px(ps, 'b', 1);
+		chunk = new_chunk(chunk, selected, cantidad);
+		cantidad--;
+	}
+	// BUCLE
 }
