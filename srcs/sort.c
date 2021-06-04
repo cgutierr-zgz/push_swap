@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 19:42:58 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/04 12:28:36 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/04 12:35:58 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,6 +179,49 @@ void store_smallest(t_push_swap *ps, int *chunk, int cantidad)
 
 		//TODO:
 		// hacemos rb o rrb para poner el número más pequeño de [B] arriba
+
+		t_stack *tmporb;
+
+		tmporb = ps->b;
+		int min;
+		int posa, aaaux;
+		aaaux = 0;
+		if (tmporb)
+		{
+			min = tmporb->num;
+			posa = aaaux;
+			while (tmporb != NULL)
+			{
+				if (tmporb->num < min)
+				{
+					min = tmporb->num;
+					posa = aaaux;
+				}
+				if (tmporb->num == min)
+					break;
+			}
+			aaaux += 1;
+			tmporb = tmporb->next;
+		}
+		int contasion = 0;
+		if (posa >= (ft_stacksize(ps->b) / 2))
+		{
+			posa = ft_stacksize(ps->b) - posa;
+			while (contasion < posa)
+			{
+				rule_rx_rrx(ps, 'b', 2, 1);
+				contasion++;
+			}
+		}
+		else
+		{
+			posa = (0 - posa) * -1;
+			while (contasion < posa)
+			{
+				rule_rx_rrx(ps, 'b', 1, 1);
+				contasion++;
+			}
+		}
 
 		// LUEGO ->
 		rule_px(ps, 'b', 1);
