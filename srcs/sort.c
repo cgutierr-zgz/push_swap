@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 19:42:58 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/04 12:37:26 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/04 12:37:58 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -222,7 +222,6 @@ void store_smallest(t_push_swap *ps, int *chunk, int cantidad)
 				contasion++;
 			}
 		}
-		print_stacks(ps);
 
 		// LUEGO ->
 		rule_px(ps, 'b', 1);
