@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 19:42:58 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/04 12:48:48 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/04 16:06:52 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,18 @@
 
 int *new_chunk(int *chunk, int num, int cantidad)
 {
-	int *sopa = malloc(sizeof(int *) * (cantidad));
+	int *sopa = malloc(sizeof(int *) * (cantidad - 1));
 	int i = 0;
+	int i2 = 0;
 	while (i < cantidad)
 	{
 		if (chunk[i] != num)
-			sopa[i] = chunk[i];
+		{
+
+			sopa[i2] = chunk[i];
+			//printf("[%d]:%d\n", i, sopa[i2]);
+			i2++;
+		}
 		i++;
 	}
 	//free(chunk);
@@ -204,8 +210,8 @@ void store_smallest(t_push_swap *ps, int *chunk, int cantidad)
 
 		// LUEGO ->
 		rule_px(ps, 'b', 1);
-		cantidad--;
 		chunk = new_chunk(chunk, selected, cantidad);
+		cantidad--;
 	}
 	//	printf("SOPA\n");
 	// BUCLE
