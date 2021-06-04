@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/04 18:13:49 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/04 18:19:57 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,8 +121,13 @@ void start_push_swap(int argc, char **argv, t_push_swap *ps)
 		float chunkend = -1;
 		//	printf("\n\nSize: %d\nChunk size: %f\n\n", size, chunksize);
 		int numberofchunks = 1;
+		int jj = 1;
 		while (1)
 		{
+			jj += 1;
+			printf("[%d] chunk!!!!\n", jj);
+				print_stacks(ps);
+
 			chunkstart = chunkend + 1;
 
 			chunkend = chunkstart + roundme(chunksize);
