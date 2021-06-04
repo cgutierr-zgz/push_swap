@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 19:42:58 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/04 12:37:58 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/04 12:48:48 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int get_smallest(t_stack *list, int *chunk, int cantidad)
 	t_stack *current = list;
 	long min;
 	int position;
-	int aux = 0; // 1?
+	int aux = 0;
 
 	min = 2147483648;
 	if (current)
@@ -78,12 +78,9 @@ int get_smallest(t_stack *list, int *chunk, int cantidad)
 			min = current->num;
 			position = aux;
 		}
-		//printf("Min:%d\n", min);
 		while (current != NULL)
 		{
-			//./push_swap 744 320 870 701 397 362
-			if (min > current->num && !contains(chunk, cantidad, aux)) // current->num))
-			//if (min > current->num && !contains(chunk, cantidad,  current->num))
+			if (min > current->num && !contains(chunk, cantidad, aux))
 			{
 				min = current->num;
 				position = aux;
@@ -92,7 +89,6 @@ int get_smallest(t_stack *list, int *chunk, int cantidad)
 			current = current->next;
 		}
 	}
-	//return (min);
 	return (position);
 }
 
@@ -109,9 +105,6 @@ void store_smallest(t_push_swap *ps, int *chunk, int cantidad)
 		i += 1;
 	}
 	//printf("\n");
-
-	//HOLD1 -> numero mas bajo HOLD2 -> numero mas alto
-	// BUCLE
 	while (cantidad >= 0)
 	{
 		if (cantidad == 0)
@@ -141,10 +134,6 @@ void store_smallest(t_push_swap *ps, int *chunk, int cantidad)
 		//	printf("HOLD1=%d\n", hold1);
 		//	printf("HOLD2=%d\n", hold2);
 
-		// QUÉ
-		// Calcular que se tarda menos, si ra o rra en [hold1st] o [hold2nd]
-		// hacer eso hasta que pa
-
 		int nummoves1 = (0 - hold1) * -1;			 // ra
 		int nummoves2 = ft_stacksize(ps->a) - hold2; // rrai
 		int selected;
@@ -154,7 +143,6 @@ void store_smallest(t_push_swap *ps, int *chunk, int cantidad)
 			i = 0;
 			while (i < nummoves2)
 			{
-				//	printf("hola\n");
 				rule_rx_rrx(ps, 'a', 1, 1);
 				i++;
 			}
@@ -166,19 +154,10 @@ void store_smallest(t_push_swap *ps, int *chunk, int cantidad)
 			i = 0;
 			while (i < nummoves1)
 			{
-				//	printf("adeu\n");
 				rule_rx_rrx(ps, 'a', 2, 1);
 				i++;
 			}
 		}
-
-		// borrar ese numero del array
-		// hacer bucle cantidad --
-		//BORRAR o hold1 o hold2 del array
-		// ANTES DE HACER ESTO, MIRAR SI ps-b->num es mayor o menor
-
-		//TODO:
-		// hacemos rb o rrb para poner el número más pequeño de [B] arriba
 
 		t_stack *tmporb;
 
