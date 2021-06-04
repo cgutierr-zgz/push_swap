@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/04 12:03:36 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/04 12:28:49 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ void start_push_swap(int argc, char **argv, t_push_swap *ps)
 		float chunksize = (size) / ((sqrtme(size)) / 2);
 		float chunkstart = 0;
 		float chunkend = -1;
-		printf("\n\nSize: %d\nChunk size: %f\n\n", size, chunksize);
+		//	printf("\n\nSize: %d\nChunk size: %f\n\n", size, chunksize);
 		int numberofchunks = 1;
 		while (1)
 		{
@@ -185,7 +185,6 @@ void start_push_swap(int argc, char **argv, t_push_swap *ps)
 			}*/
 
 			/******BUCLE******/
-
 			free(chunk); // TODO: Maybe put this and modify chunk with new malloc every time we add a new num
 			if (chunkend >= (size - 1))
 				break;
@@ -205,13 +204,16 @@ void start_push_swap(int argc, char **argv, t_push_swap *ps)
 		{
 			max = temp->num;
 			pos = aux;
-			while (temp)
+			while (temp != NULL)
 			{
 				if (temp->num > max)
 				{
 					max = temp->num;
 					pos = aux;
 				}
+				if (max == temp->num) //FIXME: algo mal tengo por aquí
+					break;
+				//printf("SOPA! %d\n", temp->num);
 			}
 			aux += 1;
 			temp = temp->next;
@@ -243,6 +245,7 @@ void start_push_swap(int argc, char **argv, t_push_swap *ps)
 		}
 
 		print_stacks(ps);
+		printf("size:%d", ft_stacksize(ps->a));
 	}
 	exit_push_swap(ps);
 }

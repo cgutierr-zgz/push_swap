@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 19:42:58 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/04 11:57:44 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/04 12:28:36 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 
 int *new_chunk(int *chunk, int num, int cantidad)
 {
-	int *sopa = malloc(sizeof(int *) * (cantidad - 1));
+	int *sopa = malloc(sizeof(int *) * (cantidad));
 	int i = 0;
-	while (i < cantidad - 1)
+	while (i < cantidad)
 	{
 		if (chunk[i] != num)
 			sopa[i] = chunk[i];
 		i++;
 	}
+	//free(chunk);
 	return sopa;
 }
 
@@ -111,8 +112,10 @@ void store_smallest(t_push_swap *ps, int *chunk, int cantidad)
 
 	//HOLD1 -> numero mas bajo HOLD2 -> numero mas alto
 	// BUCLE
-	while (cantidad)
+	while (cantidad >= 0)
 	{
+		if (cantidad == 0)
+			break;
 
 		int hold1;
 		i = 0;
@@ -174,13 +177,14 @@ void store_smallest(t_push_swap *ps, int *chunk, int cantidad)
 		//BORRAR o hold1 o hold2 del array
 		// ANTES DE HACER ESTO, MIRAR SI ps-b->num es mayor o menor
 
+		//TODO:
+		// hacemos rb o rrb para poner el número más pequeño de [B] arriba
 
-
-		
 		// LUEGO ->
 		rule_px(ps, 'b', 1);
-		chunk = new_chunk(chunk, selected, cantidad);
 		cantidad--;
+		chunk = new_chunk(chunk, selected, cantidad);
 	}
+	//	printf("SOPA\n");
 	// BUCLE
 }
