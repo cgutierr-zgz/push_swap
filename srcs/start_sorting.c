@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/04 18:19:57 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/08 15:36:30 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,14 +119,14 @@ void start_push_swap(int argc, char **argv, t_push_swap *ps)
 		float chunksize = (size) / ((sqrtme(size)) / 2);
 		float chunkstart = 0;
 		float chunkend = -1;
-		//	printf("\n\nSize: %d\nChunk size: %f\n\n", size, chunksize);
+			printf("\n\nSize: %d\nChunk size: %f\n\n", size, chunksize);
 		int numberofchunks = 1;
 		int jj = 1;
 		while (1)
 		{
 			jj += 1;
 			printf("[%d] chunk!!!!\n", jj);
-				print_stacks(ps);
+			print_stacks(ps);
 
 			chunkstart = chunkend + 1;
 
@@ -135,7 +135,7 @@ void start_push_swap(int argc, char **argv, t_push_swap *ps)
 			if (chunkend > size)
 				chunkend = size;
 			chunkend -= 1;
-			//	printf("Chunk nº%d:\t[%d]-[%d] : %d\n", numberofchunks, (int)chunkstart, (int)chunkend, ((int)chunkend - (int)chunkstart) + 1);
+			printf("Chunk nº%d:\t[%d]-[%d] : %d\n", numberofchunks, (int)chunkstart, (int)chunkend, ((int)chunkend - (int)chunkstart) + 1);
 
 			int *chunk = malloc(sizeof(int *) * ((int)chunkend - (int)chunkstart) + 1);
 
@@ -144,12 +144,12 @@ void start_push_swap(int argc, char **argv, t_push_swap *ps)
 			free(chunk);
 			if (chunkend >= (size - 1))
 				break;
-			numberofchunks++;
+			numberofchunks++;////
+			print_stacks(ps);
+			exit(1);
 		}
 
 		print_stacks(ps);
-
-		printf("AAAAA\n");
 
 		t_stack *temp;
 		temp = ps->b;

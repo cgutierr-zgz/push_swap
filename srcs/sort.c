@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 19:42:58 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/04 18:12:22 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/08 15:44:58 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,37 +120,49 @@ void store_smallest(t_push_swap *ps, int *chunk, int cantidad)
 		int hold1;
 		i = 0;
 		hold1 = chunk[i];
+		int hol1pos;
+		int hol1aux = 0;
 		while (i < cantidad)
 		{
+			hol1pos = 0;
 			if (hold1 > chunk[i])
+			{
 				hold1 = chunk[i];
-
+				hol1pos = hol1aux;
+			}
+			hol1aux++;
 			i += 1;
 		}
 		int hold2;
 		i = 0;
 		hold2 = chunk[i];
+		int hol2pos;
+		int hol2aux = 0;
 		while (i < cantidad)
 		{
+			hol2pos = 0;
 			if (hold2 < chunk[i])
-				hold2 = chunk[i];
+			{
 
+				hold2 = chunk[i];
+				hol2pos = hol2aux;
+			}
+			hol2aux++;
 			i += 1;
 		}
 
 		//	printf("HOLD1=%d\n", hold1);
 		//	printf("HOLD2=%d\n", hold2);
 
-		int nummoves1 = (0 - hold1) * -1;			 // ra
-		int nummoves2 = ft_stacksize(ps->a) - hold2; // rrai
+		int nummoves1 = (0 - hol1pos) * -1;			   // ra
+		int nummoves2 = ft_stacksize(ps->a) - hol2pos; // rrai
 		int selected;
 		if (nummoves1 > nummoves2)
 		{
-			selected = hold2;
+			selected = hol2pos;
 			i = 0;
 			// POSICIONES DE TODOS ++
 			// Y TAL
-
 			int mover = 0;
 			while (mover < cantidad)
 			{
@@ -169,8 +181,7 @@ void store_smallest(t_push_swap *ps, int *chunk, int cantidad)
 		}
 		else
 		{
-
-			selected = hold1;
+			selected = hol1pos;
 			i = 0;
 			// POSICIONES DE TODOS --
 			// Y TAL
@@ -180,7 +191,6 @@ void store_smallest(t_push_swap *ps, int *chunk, int cantidad)
 				chunk[mover] -= 1;
 				if (chunk[mover] <= 0)
 					chunk[mover] = ft_stacksize(ps->a) - 1;
-
 				mover++;
 			}
 			while (i < nummoves1)
@@ -232,7 +242,20 @@ void store_smallest(t_push_swap *ps, int *chunk, int cantidad)
 				contasion++;
 			}
 		}
-		rule_px(ps, 'b', 1);
+		if (!ps->b)
+		{
+			rule_px(ps, 'b', 1);
+		}
+		else
+		{
+			if (ps->b->num > ps->a->num)
+				rule_px(ps, 'b', 1);
+			else
+			{
+				rule_px(ps, 'b', 1);
+				rule_rx_rrx(ps, 'b', 1, 1);
+			}
+		}
 		chunk = new_chunk(chunk, selected, cantidad);
 		cantidad--;
 	}
