@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/08 15:36:30 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/08 16:38:38 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,14 +112,14 @@ void start_push_swap(int argc, char **argv, t_push_swap *ps)
 	}
 	else if (size == 3)
 		sort_three(ps);
-	else if (size <= 25) // <= 25 Poner
+	else if (size <= 4) // <= 25 Poner
 		sort_more(ps, size);
 	else
 	{
 		float chunksize = (size) / ((sqrtme(size)) / 2);
 		float chunkstart = 0;
 		float chunkend = -1;
-			printf("\n\nSize: %d\nChunk size: %f\n\n", size, chunksize);
+		printf("\n\nSize: %d\nChunk size: %f\n\n", size, chunksize);
 		int numberofchunks = 1;
 		int jj = 1;
 		while (1)
@@ -144,12 +144,18 @@ void start_push_swap(int argc, char **argv, t_push_swap *ps)
 			free(chunk);
 			if (chunkend >= (size - 1))
 				break;
-			numberofchunks++;////
-			print_stacks(ps);
-			exit(1);
+			numberofchunks++; ////
+							  //print_stacks(ps);
+							  //exit(1);
 		}
 
-		print_stacks(ps);
+		// TEMEOS EL STACK B LLENO
+
+		// PONER EL NUMERO MAS TOCHO DE B
+		// ARRIBA, USAR O RB o RRB en función
+		// de lo que menos cueste
+		// y hacer pa hasta que !b
+		//print_stacks(ps);
 
 		t_stack *temp;
 		temp = ps->b;
@@ -193,15 +199,10 @@ void start_push_swap(int argc, char **argv, t_push_swap *ps)
 				xxx++;
 			}
 		}
-		xxx = 0;
-		while (xxx < size)
-		{
+		while (ps->b)
 			rule_px(ps, 'a', 1);
-			xxx++;
-		}
 
 		print_stacks(ps);
-		printf("size:%d", ft_stacksize(ps->a));
 	}
 	exit_push_swap(ps);
 }

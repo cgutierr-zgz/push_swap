@@ -6,7 +6,7 @@
 #    By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/09 14:13:26 by cgutierr          #+#    #+#              #
-#    Updated: 2021/06/04 12:46:53 by cgutierr         ###   ########.fr        #
+#    Updated: 2021/06/08 16:40:26 by cgutierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,7 +82,7 @@ bonus:			$(OBJS_BONUS)
 
 clean:
 				@echo $(YELLOW)Cleaning ... $(RED)
-				$(RM) $(OBJS)
+				$(RM) $(OBJS) $(OBJS_BONUS) checker
 
 fclean:			clean
 				$(RM) $(NAME)
@@ -107,7 +107,7 @@ LIGHT_CYAN		:="\033[1;36m"
 WHITE			:="\033[1;37m"
 RESET			:="\x1b[0m"
 
-ARG				:=	$(shell seq 0 1000 | sort -R | tail -n 26)
+ARG				:=	$(shell seq 0 1000 | sort -R | tail -n 25)
 
 exe:			$(NAME)
 				./push_swap $(ARG)
@@ -120,19 +120,11 @@ check:			$(NAME)
 				@echo $(YELLOW)Official checker ... $(RESET)
 				./push_swap $(ARG) | ./checker_Mac $(ARG)
 
-check_bonus:	$(NAME)
+check_bonus:	$(NAME) bonus
 				@echo $(YELLOW)My checker ... $(RESET)
 				./push_swap $(ARG) | ./checker $(ARG)
 				@echo $(YELLOW)Official checker ... $(RESET)
 				./push_swap $(ARG) | ./checker_Mac $(ARG)
-
-valgrind:		$(NAME)
-				@echo $(YELLOW)Valgrind leak ... $(RESET)
-				valgrind --leak-check=full --track-origins=yes --log-file=./valgrind-out.txt ./push_swap $(ARG)
-
-valgrind_bonus:	$(NAME)
-				@echo $(YELLOW)Valgrind leak ... $(RESET)
-				valgrind --leak-check=full --track-origins=yes --log-file=./valgrind-out.txt ./push_swap $(ARG) | ./checker $(ARG)
 
 # VALGRIND
 #         --leak-check=full \ Each individual leak will be shown in detail

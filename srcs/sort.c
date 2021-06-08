@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 19:42:58 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/08 15:44:58 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/08 18:30:42 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,49 +107,18 @@ void store_smallest(t_push_swap *ps, int *chunk, int cantidad)
 	{
 		//Añadimos x cantidad de smallest nums al array
 		chunk[i] = get_smallest(ps->a, chunk, cantidad);
-
-		//	printf("[%d]:%d\n", i, chunk[i]);
+		printf("[%d]:%d\n", i, chunk[i]);
 		i += 1;
-	}
+	} // HASTA AQUI PARECE TODO OK
 	//printf("\n");
-	while (cantidad >= 0)
+
+	// AKI YA NO OK
+	while (cantidad >= 0) // FIXME: o > 0 simplemente
 	{
 		if (cantidad == 0)
 			break;
-
-		int hold1;
-		i = 0;
-		hold1 = chunk[i];
-		int hol1pos;
-		int hol1aux = 0;
-		while (i < cantidad)
-		{
-			hol1pos = 0;
-			if (hold1 > chunk[i])
-			{
-				hold1 = chunk[i];
-				hol1pos = hol1aux;
-			}
-			hol1aux++;
-			i += 1;
-		}
-		int hold2;
-		i = 0;
-		hold2 = chunk[i];
-		int hol2pos;
-		int hol2aux = 0;
-		while (i < cantidad)
-		{
-			hol2pos = 0;
-			if (hold2 < chunk[i])
-			{
-
-				hold2 = chunk[i];
-				hol2pos = hol2aux;
-			}
-			hol2aux++;
-			i += 1;
-		}
+		int hol1pos = chunk[0];
+		int hol2pos = chunk[cantidad - 1];
 
 		//	printf("HOLD1=%d\n", hold1);
 		//	printf("HOLD2=%d\n", hold2);
