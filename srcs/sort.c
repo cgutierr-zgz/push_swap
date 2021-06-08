@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 19:42:58 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/08 18:30:42 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/08 20:56:56 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,9 +110,64 @@ void store_smallest(t_push_swap *ps, int *chunk, int cantidad)
 		printf("[%d]:%d\n", i, chunk[i]);
 		i += 1;
 	} // HASTA AQUI PARECE TODO OK
-	//printf("\n");
+	  //printf("\n");
 
 	// AKI YA NO OK
+	int contador = 0;
+	while (cantidad)
+	{
+		if (!cantidad)
+			break;
+		/*
+		while (contador < cantidad)
+		{
+			//Añadimos x cantidad de smallest nums al array
+			printf("[%d]:%d\n", contador, chunk[contador]);
+			contador += 1;
+		}*/
+		// chunk = malloc (cantidad - 1); quitar el numero x
+		// TODO: Antes de hacer esto, hacer una copia del array
+		// SIN o HOLD1 o HOLD 2, en función de que usemos ///// SU POSICIÓN
+		chunk = malloc(sizeof(int *) * cantidad);
+		// TODO:FIXME:Mirar si tal vez hold1 y hold2 son iguales
+		int hold1 = chunk[0];
+		int hold2 = chunk[cantidad - 1];
+
+		int pos1 = (0 - hold1) * -1; // xd es lo mismo que hold1
+		int pos2 = ft_stacksize(ps->a) - hold2;
+
+		if (pos2 > pos1)
+		{
+			// Es porque tardamos menos en mover el numero en x posicion
+			// ra hasta ponerle arriba
+			// por cada ra **restarle** 1 a cada posicion y si es size -> 0
+			// y si es -1 es size
+		}
+		else
+		{
+
+			// Es porque tardamos menos en mover el numero en x posicion
+			// rra hasta ponerle arriba
+			// por cada rra **sumarle** 1 a cada posicion y si es size -> 0
+			// y si es -1 es size
+		}
+
+		// ANTES DE HACER PB TENEMOS QUE:::::
+		/*
+			So the correct number is now on to top of Stack A.
+			But there are two things we need to check for before we push
+			the number over to Stack B. You have to check if the number you’re pushing
+			is either bigger or smaller than all the other numbers in Stack B.
+			Since we’re not just pushing the smallest number one at a time. We need to
+			make sure we’re not gonna cause an infinite loop by trying to find
+			the perfect spot to insert that number.
+		*/
+		rule_px(ps, 'b', 1);
+		cantidad--;
+		// TODO: QUITAR O HOLD 1 o HOLD 2 del array final
+	}
+}
+/*
 	while (cantidad >= 0) // FIXME: o > 0 simplemente
 	{
 		if (cantidad == 0)
@@ -226,6 +281,9 @@ void store_smallest(t_push_swap *ps, int *chunk, int cantidad)
 			}
 		}
 		chunk = new_chunk(chunk, selected, cantidad);
+		printf("!!CANTIDAD: %d\n", cantidad);
+		print_stacks(ps);
 		cantidad--;
 	}
-}
+
+*/

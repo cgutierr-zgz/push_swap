@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:03:30 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/06/08 16:38:38 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/06/08 20:53:00 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,7 +150,7 @@ void start_push_swap(int argc, char **argv, t_push_swap *ps)
 		}
 
 		// TEMEOS EL STACK B LLENO
-
+		//TODO:FIXME:
 		// PONER EL NUMERO MAS TOCHO DE B
 		// ARRIBA, USAR O RB o RRB en función
 		// de lo que menos cueste
