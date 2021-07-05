@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 16:16:19 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/07/05 18:50:23 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/07/05 19:15:28 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,15 +112,17 @@ void send_n_to_b(t_push_swap *ps, int chunk_size)
 	 * Así hasta que chunksize = 0
 	 * Repetir...
 	 **/
+	//TODO: Free this
 	int *array_chikitos = malloc(sizeof(int *) * chunk_size);
-	// store_chikitos con contain ( position ? )
+	//	store_chikitos con contain ( position ? )
+	free(array_chikitos);
 }
 
 void sort_chunks(t_push_swap *ps)
 {
 	int chunk_num = ((float)ft_stacksize(ps->a) + 233.3333) / 66.6666;
 	int chunk_size = ft_stacksize(ps->a) / chunk_num;
-	printf("\nCantidad de Chunks = %d\nSize de cada chunk = %d\n", chunk_num, chunk_size);
+	//printf("\nCantidad de Chunks = %d\nSize de cada chunk = %d\n", chunk_num, chunk_size);
 	while (chunk_num)
 	{
 		if (chunk_num == 1)
@@ -131,9 +133,11 @@ void sort_chunks(t_push_swap *ps)
 		break;
 	}
 
-	// TODO: Activar esto cuando tenga bien lo de los chunks
-	//sort_three(ps);
-	//while (ps->b)
-	//	send_mayorcete(ps->b, ps);
-	//print_stacks(ps);
+	/* TODO: Activar esto cuando tenga bien lo de los chunks
+	sort_three(ps);
+	while (ps->b)
+		send_mayorcete(ps->b, ps);
+	*/
+	//	print_stacks(ps);
+	//	system("leaks push_swap");
 }

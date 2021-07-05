@@ -6,7 +6,7 @@
 #    By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/09 14:13:26 by cgutierr          #+#    #+#              #
-#    Updated: 2021/07/05 18:49:30 by cgutierr         ###   ########.fr        #
+#    Updated: 2021/07/05 18:56:42 by cgutierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,7 +66,7 @@ OBJS_BONUS		=	$(SRCS_BONUS:.c=.o)
 
 CC				=	gcc
 
-FLAGS			=	-Wall -Werror -Wextra -O3 -g3 -fsanitize=address
+FLAGS			=	-Wall -Werror -Wextra -O3#-g3 -fsanitize=address
 
 RM				=	rm -f
 

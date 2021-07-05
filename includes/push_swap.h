@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 18:11:48 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/07/05 17:38:08 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/07/05 18:57:20 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ void	start_push_swap(int argc, char **argv, t_push_swap *ps);
 void	exit_push_swap(t_push_swap *ps);
 int		check_order(t_stack *lst);
 void	sort_three(t_push_swap *ps);
+void	sort_chunks(t_push_swap *ps);
 
 // Main BONUS functions
 void	start_checking(int argc, char **argv, t_push_swap *ps);
