@@ -6,7 +6,7 @@
 #    By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/09 14:13:26 by cgutierr          #+#    #+#              #
-#    Updated: 2021/07/05 17:37:24 by cgutierr         ###   ########.fr        #
+#    Updated: 2021/07/05 18:25:59 by cgutierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -107,7 +107,8 @@ LIGHT_CYAN		:="\033[1;36m"
 WHITE			:="\033[1;37m"
 RESET			:="\x1b[0m"
 
-ARG				:=	$(shell seq -1000 1000 | sort -R | tail -n 51)
+ARG				:=	$(shell seq -1000 1000 | sort -R | tail -n 500)
+
 
 exe:			$(NAME)
 				./push_swap $(ARG)
@@ -125,6 +126,23 @@ check_bonus:	$(NAME) bonus
 				./push_swap $(ARG) | ./checker $(ARG)
 				@echo $(YELLOW)Official checker ... $(RESET)
 				./push_swap $(ARG) | ./checker_Mac $(ARG)
+# 100
+#- less than 700: 5
+#- less than 900: 4
+#- less than 1100: 3
+#- less than 1300: 2
+#- less than 1500: 1
+
+# 500
+#- less than 5500: 5
+#- less than 7000: 4
+#- less than 8500: 3
+#- less than 10000: 2
+#- less than 11500: 1
+
+
+
+
 
 # VALGRIND
 #         --leak-check=full \ Each individual leak will be shown in detail
