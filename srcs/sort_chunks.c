@@ -6,7 +6,7 @@
 /*   By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 16:16:19 by cgutierr          #+#    #+#             */
-/*   Updated: 2021/07/05 18:36:14 by cgutierr         ###   ########.fr       */
+/*   Updated: 2021/07/05 18:50:23 by cgutierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,11 +84,27 @@ void send_mayorcete(t_stack *list, t_push_swap *ps)
 	}
 }
 
+// Si el elemento ya existe en el array devuelve 1 si no, 0
+int contains(int *array, int size, int num)
+{
+	int i;
+
+	i = 0;
+	while (i < size)
+	{
+		if (array[i] == num)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
 void send_n_to_b(t_push_swap *ps, int chunk_size)
 {
 	/**
 	 * PASOS:
 	 * Conseguir los n números más pequeños de Stack A (Dónde n = chunk_size)
+	 * *** CREAR UN ARRAY CON ESTOS NUMEROS CHIKITOS
 	 * Moverlos a Stack B
 	 * ·Hold1st -> chunk[0] ó el primer número que encuentre desde arriba
 	 * ·Hold2nd -> chunk[chunkSize -1] ó el primer número que encuentre desde abajo
@@ -96,6 +112,8 @@ void send_n_to_b(t_push_swap *ps, int chunk_size)
 	 * Así hasta que chunksize = 0
 	 * Repetir...
 	 **/
+	int *array_chikitos = malloc(sizeof(int *) * chunk_size);
+	// store_chikitos con contain ( position ? )
 }
 
 void sort_chunks(t_push_swap *ps)
@@ -107,8 +125,8 @@ void sort_chunks(t_push_swap *ps)
 	{
 		if (chunk_num == 1)
 			chunk_size = ft_stacksize(ps->a) - 3;
-		send_n_to_b(ps, chunk_size);
-		//send_x_to_stack_b(ps, chunk_size);
+		//send_n_to_b(ps, chunk_size);
+
 		chunk_num -= 1;
 		break;
 	}
