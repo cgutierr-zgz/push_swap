@@ -6,7 +6,7 @@
 #    By: cgutierr <cgutierr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/09 14:13:26 by cgutierr          #+#    #+#              #
-#    Updated: 2021/06/08 16:40:26 by cgutierr         ###   ########.fr        #
+#    Updated: 2021/07/05 17:37:24 by cgutierr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ SRCS			=	srcs/push_swap.c \
 					srcs/stack_rules/rule_sx.c \
 					srcs/stack_rules/rule_px.c \
 					srcs/stack_rules/rule_rx_rrx.c \
-					srcs/sort.c
+					srcs/sort_chunks.c
 
 SRCS_BONUS		=	srcs/print.c \
 					srcs/check_order.c \
@@ -107,7 +107,7 @@ LIGHT_CYAN		:="\033[1;36m"
 WHITE			:="\033[1;37m"
 RESET			:="\x1b[0m"
 
-ARG				:=	$(shell seq 0 1000 | sort -R | tail -n 25)
+ARG				:=	$(shell seq -1000 1000 | sort -R | tail -n 51)
 
 exe:			$(NAME)
 				./push_swap $(ARG)
